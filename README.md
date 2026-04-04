@@ -1,6 +1,6 @@
 # Sadeed: an Anomaly Detection System
 
-> Multi-layer anomaly detection for Labour Force Survey data — rule engine, statistical model, and LLM working together.
+A Multi-layer anomaly detection for Labour Force Survey data - rule engine, statistical model, and LLM working together.
 
 ---
 

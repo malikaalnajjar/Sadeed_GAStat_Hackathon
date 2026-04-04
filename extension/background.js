@@ -3,7 +3,21 @@
 // Relays detection requests to the FastAPI backend                    //
 // ------------------------------------------------------------------ //
 
-const API_BASE = "http://localhost:8000/anomalies";
+const API_URLS = [
+  "http://localhost:8000/anomalies",
+  "https://sadeed.aldharrab.co.uk/anomalies",
+];
+let API_BASE = API_URLS[0];
+
+async function resolveApiBase() {
+  for (const url of API_URLS) {
+    try {
+      const r = await fetch(`${url}/health`, { method: "GET", signal: AbortSignal.timeout(3000) });
+      if (r.ok) { API_BASE = url; return; }
+    } catch { /* try next */ }
+  }
+}
+resolveApiBase();
 
 function generateUUID() {
   return crypto.randomUUID();

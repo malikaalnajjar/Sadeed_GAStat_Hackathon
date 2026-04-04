@@ -1,0 +1,272 @@
+/*
+ * Sadeed Dashboard — base styles
+ *
+ * Sections:
+ *   1. CSS custom properties (design tokens)
+ *   2. Reset / base
+ *   3. Layout
+ *   4. Header & navigation
+ *   5. Summary cards
+ *   6. Recent anomalies table
+ *   7. Chart container
+ *   8. Status bar
+ *   9. Utility classes
+ */
+
+/* 1. Design tokens */
+:root {
+  --color-bg: #0f1117;
+  --color-surface: #1a1d27;
+  --color-border: #2e3147;
+  --color-text: #e2e8f0;
+  --color-muted: #8892a4;
+  --color-anomaly: #f56565;
+  --color-normal: #68d391;
+  --color-accent: #667eea;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --radius: 8px;
+}
+
+/* 2. Reset / base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3. Layout */
+main#app {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  flex: 1;
+}
+
+/* 4. Header */
+header {
+  background: linear-gradient(135deg, #1a1d27 0%, #252a3a 100%);
+  border-bottom: 1px solid var(--color-border);
+  padding: 20px 24px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+}
+
+/* 5. Summary cards */
+#summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s;
+}
+
+.card:hover {
+  border-color: var(--color-accent);
+}
+
+.card__label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+.card__value {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.card--total .card__value {
+  color: var(--color-accent);
+}
+
+.card--anomaly .card__value {
+  color: var(--color-anomaly);
+}
+
+.card--clean .card__value {
+  color: var(--color-normal);
+}
+
+/* 6. Recent anomalies table */
+#recent-anomalies {
+  margin-bottom: 28px;
+  overflow-x: auto;
+}
+
+.anomalies-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.anomalies-table thead {
+  background: var(--color-surface);
+}
+
+.anomalies-table th,
+.anomalies-table td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.anomalies-table th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.anomalies-table tbody tr:hover {
+  background: rgba(102, 126, 234, 0.06);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.verdict {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.verdict--anomaly {
+  background: rgba(245, 101, 101, 0.15);
+  color: var(--color-anomaly);
+}
+
+.verdict--clean {
+  background: rgba(104, 211, 145, 0.15);
+  color: var(--color-normal);
+}
+
+.explanation-cell {
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--color-muted);
+  padding: 32px 0;
+  font-style: italic;
+}
+
+/* 7. Chart container */
+#chart-container {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 28px;
+  max-width: 420px;
+  height: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#anomaly-chart {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* 8. Status bar (footer) */
+footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 12px 24px;
+}
+
+#status-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.status-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dot--green {
+  background: var(--color-normal);
+  box-shadow: 0 0 6px rgba(104, 211, 145, 0.5);
+}
+
+.dot--red {
+  background: var(--color-anomaly);
+  box-shadow: 0 0 6px rgba(245, 101, 101, 0.5);
+}
+
+/* 9. Utility / responsive */
+@media (max-width: 640px) {
+  #summary-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .anomalies-table th:nth-child(n + 3),
+  .anomalies-table td:nth-child(n + 3) {
+    display: none;
+  }
+
+  #chart-container {
+    max-width: 100%;
+  }
+}

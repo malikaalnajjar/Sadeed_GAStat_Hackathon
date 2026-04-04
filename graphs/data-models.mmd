@@ -1,0 +1,74 @@
+%%{ init: { "theme": "base" } }%%
+classDiagram
+    class DataPayload {
+        +str record_id
+        +dict data
+        +list~StrategyName~ strategies?
+    }
+
+    class StrategyName {
+        <<enumeration>>
+        great_expectations
+        svm
+        llm
+    }
+
+    class StrategyResult {
+        +StrategyName strategy
+        +bool is_anomaly
+        +float score?
+        +str explanation?
+        +dict raw?
+    }
+
+    class DetectionResponse {
+        +str record_id
+        +list~StrategyResult~ results
+        +bool is_anomaly
+        +str explanation?
+        +bool llm_triggered
+        +str llm_skip_reason?
+    }
+
+    class BaseDetector {
+        <<abstract>>
+        +detect(data) StrategyResult*
+    }
+
+    class GreatExpectationsDetector {
+        -str suite_path
+        -Callable preprocessor
+        +detect(data) StrategyResult
+    }
+
+    class SVMDetector {
+        -str training_data_path
+        -str model_path
+        -Pipeline pipeline
+        +detect(data) StrategyResult
+    }
+
+    class LLMDetector {
+        -str base_url
+        -str model
+        +detect(data) StrategyResult
+        +explain(data, ge_score, ge_failed_rules, svm_score) str
+    }
+
+    class DetectionService {
+        -BaseDetector ge_detector
+        -BaseDetector svm_detector
+        -LLMDetector llm_detector
+        -Redis redis_client
+        +run(record_id, data) DetectionResponse
+    }
+
+    DataPayload ..> StrategyName
+    DetectionResponse *-- StrategyResult
+    StrategyResult --> StrategyName
+    BaseDetector <|-- GreatExpectationsDetector
+    BaseDetector <|-- SVMDetector
+    BaseDetector <|-- LLMDetector
+    DetectionService o-- BaseDetector
+    DetectionService o-- LLMDetector
+    DetectionService ..> DetectionResponse

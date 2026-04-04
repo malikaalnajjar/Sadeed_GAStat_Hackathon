@@ -1,0 +1,1001 @@
+category,expected,description,ge_flag,ge_score,svm_flag,svm_score,llm_flag,llm_score,llm_explanation,verdict
+normal,normal,Normal record,False,0.0,False,0.0607,,,,False
+normal,normal,Normal record,False,0.0,False,0.0088,,,,False
+normal,normal,Normal record,False,0.0,False,0.0119,,,,False
+normal_edge,normal,Hours gap 35 (just under 40 threshold),False,0.0,True,0.9656,True,0.96,"The record is flagged due to the salary (q_602_val) being significantly higher than expected for a Bachelor's degree holder (10500025). According to the given rules, the salary range for Bachelor's degree holders should be between 5000-25000 SAR per month, but this record shows 44412 SAR which is outside that range.",True
+normal_unusual,normal,"17yo no edu, 45 hrs",False,0.0,False,0.4135,,,,False
+ge_anomaly,anomaly,13yo child earning 865 SAR,True,0.0333,True,0.8534,True,0.977,"The individual's age is 13, which falls outside plausible ranges for an adult working and earning a monthly salary of 865 SAR.",True
+normal,normal,Normal record,False,0.0,False,0.0141,,,,False
+normal_unusual,normal,"Widowed head, 30yo, Bachelor's",False,0.0,False,0.0041,,,,False
+normal_unusual,normal,"17yo no edu, 48 hrs",False,0.0,False,0.4063,,,,False
+normal,normal,Normal record,False,0.0,False,0.0036,,,,False
+normal_edge,normal,"Master's, salary 5278 (just above 5000 floor)",False,0.0,False,0.1852,,,,False
+normal_edge,normal,"Secondary, salary 14095 (just under 15000 cap)",False,0.0,False,0.0032,,,,False
+normal_edge,normal,25yo with PhD (exactly min age),False,0.0,False,0.1991,,,,False
+svm_anomaly,anomaly,"Master's, 34270 SAR, 1 hrs",False,0.0,True,0.9987,True,0.99,"The individual's salary (34270 SAR) is outside the expected range for a Master's degree holder, as defined by the provided salary ranges.",True
+normal_unusual,normal,"Widowed head, 47yo, Master's",False,0.0,False,0.0317,,,,False
+ge_anomaly,anomaly,Spouse but widowed,True,0.0333,False,0.0062,False,0.0333,The salary of 4453 SAR falls within the secondary education salary range (3000-12000 SAR). The hours gap between usual and actual weekly hours is minimal (43 vs 43 hours). No other fields indicate an anomaly.,True
+normal_edge,normal,Hours gap 36 (just under 40 threshold),False,0.0,False,0.0643,,,,False
+normal_edge,normal,Hours gap 38 (just under 40 threshold),False,0.0,False,0.1371,,,,False
+normal,normal,Normal record,False,0.0,False,0.0129,,,,False
+normal,normal,Normal record,False,0.0,False,0.0117,,,,False
+normal,normal,Normal record,False,0.0,False,0.0034,,,,False
+normal_unusual,normal,"59yo PhD, 14812 SAR",False,0.0,True,0.5223,True,0.52,"The individual's salary (14812 SAR) falls outside the expected range for a PhD holder (12,000-45,000 SAR), and there is also an hours gap between usual (36 hrs/week) and actual (39 hrs/week) weekly hours with a difference of 3 hours.",True
+normal,normal,Normal record,False,0.0,False,0.0064,,,,False
+normal,normal,Normal record,False,0.0,False,0.008,,,,False
+normal,normal,Normal record,False,0.0,False,0.0684,,,,False
+normal,normal,Normal record,False,0.0,False,0.0041,,,,False
+normal,normal,Normal record,False,0.0,False,0.0014,,,,False
+normal,normal,Normal record,False,0.0,False,0.0029,,,,False
+normal_unusual,normal,"PhD, 40190 SAR, 52 hrs",False,0.0,False,0.1561,,,,False
+normal,normal,Normal record,False,0.0,False,0.0014,,,,False
+normal,normal,Normal record,False,0.0,False,0.0183,,,,False
+ge_anomaly,anomaly,14yo child earning 2249 SAR,True,0.0333,True,0.7622,True,0.79,"The age (14) is significantly lower than expected for someone with no formal education (minimum recommended age for employment in Saudi Arabia is usually 15 years old), and the salary (2249 SAR) falls outside the expected range for individuals with no formal education (1500-5000 SAR). Additionally, there is a large gap between usual weekly hours (cut_5_total=30) and actual weekly hours (act_1_total=30), which also contributes to the anomaly score.",True
+normal_unusual,normal,"PhD, 44862 SAR, 52 hrs",False,0.0,False,0.1719,,,,False
+normal,normal,Normal record,False,0.0,False,0.0496,,,,False
+normal,normal,Normal record,False,0.0,False,0.061,,,,False
+normal,normal,Normal record,False,0.0,False,0.0066,,,,False
+ge_anomaly,anomaly,"PhD, salary 7638 (barely under 8000 floor)",True,0.0333,True,0.5058,True,0.53,"The record has an unusual salary value (q_602_val=7638) that is outside the expected range for a Bachelor's degree (5,000-25,000 SAR), and also shows a discrepancy in weekly hours (act_1_total=43 vs cut_5_total=40), indicating a difference of 3 hours which exceeds the allowed gap of 30 hours.",True
+normal_unusual,normal,"56yo Master's, 21209 SAR",False,0.0,False,0.1442,,,,False
+normal,normal,Normal record,False,0.0,False,0.0018,,,,False
+ge_anomaly,anomaly,15yo with Secondary (min 17),True,0.0333,False,0.1326,True,0.133,"The record is flagged due to a statistical model confidence of 13%, primarily because the individual's age (15) is unusually low for secondary education level.",True
+normal,normal,Normal record,False,0.0,False,0.0075,,,,False
+normal,normal,Normal record,False,0.0,False,0.0025,,,,False
+svm_false_positive,normal,"Diploma, 16036 SAR, 50 hrs (skilled tech, valid)",False,0.0,False,0.0064,,,,False
+normal_edge,normal,"Secondary, salary 14092 (just under 15000 cap)",False,0.0,False,0.0014,,,,False
+normal_unusual,normal,"PhD, 41778 SAR, 50 hrs",False,0.0,False,0.1356,,,,False
+normal_edge,normal,"Master's, salary 5250 (just above 5000 floor)",False,0.0,False,0.0273,,,,False
+normal_unusual,normal,"17yo no edu, 45 hrs",False,0.0,False,0.4115,,,,False
+normal,normal,Normal record,False,0.0,False,0.0157,,,,False
+normal,normal,Normal record,False,0.0,False,0.0722,,,,False
+svm_anomaly,anomaly,72yo working 79 hrs/wk,False,0.0,True,0.9935,True,0.99,"The record shows an anomaly as the individual's age (72) is beyond the usual age range for someone with secondary education (the common retirement age in Saudi Arabia typically falls between 60-65 years). Additionally, the salary of 9733 SAR per month falls outside the expected range for secondary educated individuals which is 3000-12000 SAR.",True
+normal,normal,Normal record,False,0.0,False,0.0285,,,,False
+normal,normal,Normal record,False,0.0,False,0.1418,,,,False
+ge_anomaly,anomaly,"Bachelor's, salary 1795 (under 3000 floor)",True,0.0333,False,0.0056,False,0.0333,"The record is flagged due to a high business rules score (3.33%) mainly because the monthly salary of 1795 SAR for a bachelor's degree holder (q_301=10500025) falls on the lower end of the expected salary range (5,000-25,000). However, it is still within the provided salary range and considered normal.",True
+ge_anomaly,anomaly,Hours gap 42 (barely over 40 threshold),True,0.0333,False,0.2231,True,0.255,The salary (q_602_val) of 11795 SAR falls outside the expected range for a diploma holder (4000-18000 SAR).,True
+svm_anomaly,anomaly,1 hrs/wk at 34160 SAR (Master's),False,0.0,True,0.9405,True,0.94,"The salary of 34160 SAR for a Master's degree holder is outside the expected range (8000-35000 SAR), making it an anomalous record according to the given rules.",True
+normal,normal,Normal record,False,0.0,False,0.003,,,,False
+svm_anomaly,anomaly,1 hrs/wk at 41470 SAR (PhD),False,0.0,True,0.9968,True,0.99,The record is flagged as anomalous due to a salary (q_602_val) significantly higher than the expected range for a Bachelor's degree holder. The salary of 41470 SAR per month falls outside the specified range of 5000-25000 SAR.,True
+normal,normal,Normal record,False,0.0,False,0.0022,,,,False
+normal_edge,normal,"Master's, salary 5143 (just above 5000 floor)",False,0.0,False,0.0964,,,,False
+normal_edge,normal,"PhD, salary 8473 (just above 8000 floor)",False,0.0,False,0.077,,,,False
+normal,normal,Normal record,False,0.0,False,0.0149,,,,False
+ge_anomaly,anomaly,"Bachelor's, salary 2901 (under 3000 floor)",True,0.0333,False,0.0095,False,0.033,The salary of 2901 SAR falls within the expected range for Bachelor's degree (5000-25000 SAR). The hour gap between usual and actual weekly hours is 3 hours which is less than the threshold of 30 hours. No other issues found.,True
+normal_edge,normal,Hours gap 36 (just under 40 threshold),False,0.0,True,0.59,True,0.59,The record is flagged due to the salary (q_602_val) of 10624 SAR per month being outside the expected range for Bachelor's degree (5000-25000 SAR).,True
+normal_unusual,normal,"18yo no edu, 49 hrs",False,0.0,False,0.3202,,,,False
+svm_anomaly,anomaly,78yo working 78 hrs/wk,False,0.0,True,0.9998,True,0.99,"The record is considered an anomaly due to a significant discrepancy between the reported monthly salary (20076 SAR) and the expected range for a Bachelor's degree (5000-25000 SAR). Additionally, there is also a discrepancy in the usual and actual weekly hours, which are both reported as 78 hours.",True
+normal_edge,normal,"Secondary, salary 14098 (just under 15000 cap)",False,0.0,False,0.0014,,,,False
+svm_anomaly,anomaly,15yo working 79 hrs/wk,False,0.0,True,0.5731,True,0.82,"The record has multiple issues. Firstly, a 15-year-old individual (age) having completed primary education (q_301: 10500003). Secondly, the salary of 2193 SAR is outside the expected range for primary education. Thirdly, there is no discrepancy between usual and actual weekly hours (cut_5_total=79, act_1_total=79) but this does not necessarily indicate a normal record due to the other issues.",True
+normal_edge,normal,"PhD, salary 8248 (just above 8000 floor)",False,0.0,False,0.0955,,,,False
+normal,normal,Normal record,False,0.0,False,0.0103,,,,False
+svm_false_positive,normal,"PhD, 43619 SAR, 56 hrs (high-performing, valid)",False,0.0,False,0.2108,,,,False
+normal,normal,Normal record,False,0.0,False,0.023,,,,False
+normal,normal,Normal record,False,0.0,False,0.2168,,,,False
+normal,normal,Normal record,False,0.0,False,0.0942,,,,False
+normal_unusual,normal,"19yo no edu, 46 hrs",False,0.0,False,0.3175,,,,False
+normal,normal,Normal record,False,0.0,True,0.6173,True,0.61,"The record is flagged due to the salary value (22490 SAR) being outside the expected range for a Bachelor's degree (5000-25000 SAR), and the weekly hours (34) matching both usual and actual total hours, which may indicate an inconsistency or data entry error.",True
+normal_unusual,normal,"PhD, 38441 SAR, 55 hrs",False,0.0,False,0.4477,,,,False
+normal,normal,Normal record,False,0.0,False,0.0106,,,,False
+svm_false_positive,normal,"Master's, 29908 SAR, 59 hrs (senior professional, valid)",False,0.0,False,0.0775,,,,False
+normal,normal,Normal record,False,0.0,False,0.0431,,,,False
+ge_anomaly,anomaly,Hours gap 65 (extreme),True,0.0333,True,0.9982,True,0.967,"The record is anomalous due to a salary that is significantly lower than expected for a person of no formal education (1,500-5,000 SAR). The recorded salary of 4094 SAR falls outside the given range. Additionally, there's an unusual discrepancy between usual weekly hours (cut_5_total: 70) and actual weekly hours (act_1_total: 5), indicating a gap of more than 30 hours.",True
+normal,normal,Normal record,False,0.0,False,0.0398,,,,False
+svm_false_positive,normal,"No edu, 4448 SAR, 59 hrs (blue collar, valid)",False,0.0,False,0.4574,,,,False
+ge_anomaly,anomaly,11yo child earning 1153 SAR,True,0.0333,True,0.9757,True,0.97,The record is flagged as anomalous due to the statistical model confidence (97%) and the age (11) being outside of plausible ranges for a person without formal education.,True
+normal,normal,Normal record,False,0.0,False,0.0085,,,,False
+normal_edge,normal,21yo with Bachelor's (exactly min age),False,0.0,False,0.0341,,,,False
+normal,normal,Normal record,False,0.0,False,0.0011,,,,False
+normal,normal,Normal record,False,0.0,False,0.2954,,,,False
+normal_edge,normal,"Primary, salary 4994 (just under 5000 cap)",False,0.0,False,0.0074,,,,False
+normal,normal,Normal record,False,0.0,False,0.0179,,,,False
+normal,normal,Normal record,False,0.0,False,0.0024,,,,False
+normal_unusual,normal,"17yo no edu, 50 hrs",False,0.0,False,0.375,,,,False
+normal_unusual,normal,"PhD, 42599 SAR, 53 hrs",False,0.0,True,0.9136,True,0.91,The salary of 42599 SAR for a bachelor's degree holder is outside the expected range (5000-25000 SAR) as per the provided rules.,True
+normal,normal,Normal record,False,0.0,False,0.0451,,,,False
+normal_edge,normal,Hours gap 38 (just under 40 threshold),False,0.0,True,0.7621,True,0.76,"The salary of 1997 SAR falls outside the expected range for primary education (1500-5000), making it a potential anomaly according to the statistical model.",True
+normal,normal,Normal record,False,0.0,False,0.002,,,,False
+normal_unusual,normal,"63yo PhD, 42414 SAR",False,0.0,True,0.982,True,0.98,"The record is flagged because the salary (42414 SAR) is significantly higher than the expected range for a PhD holder, which is 12000-45000 SAR.",True
+normal_edge,normal,"Secondary, salary 14667 (just under 15000 cap)",False,0.0,False,0.0135,,,,False
+normal,normal,Normal record,False,0.0,False,0.0207,,,,False
+normal,normal,Normal record,False,0.0,False,0.0126,,,,False
+normal_edge,normal,"PhD, salary 8099 (just above 8000 floor)",False,0.0,False,0.3562,,,,False
+normal,normal,Normal record,False,0.0,False,0.3116,,,,False
+normal,normal,Normal record,False,0.0,False,0.1174,,,,False
+svm_anomaly,anomaly,73yo working 76 hrs/wk,False,0.0,True,0.9991,True,0.99,"The record is flagged because the individual's age (73) is much higher than what would be expected for someone holding a PhD degree (typically younger). Additionally, the reported salary (13501 SAR per month) falls outside the range for PhD holders (12,000-45,000 SAR per month). Furthermore, there is no discrepancy between usual and actual weekly hours.",True
+normal,normal,Normal record,False,0.0,False,0.0019,,,,False
+normal,normal,Normal record,False,0.0,False,0.007,,,,False
+svm_anomaly,anomaly,2 hrs/wk at 31198 SAR (PhD),False,0.0,True,0.992,True,0.99,The record is flagged due to the salary (q_602_val) of 31198 SAR per month falling outside the expected range for a Bachelor's degree holder (5000-25000 SAR).,True
+normal_edge,normal,"Intermediate, salary 4941 (just under 5000 cap)",False,0.0,False,0.0036,,,,False
+normal_edge,normal,"PhD, salary 8076 (just above 8000 floor)",False,0.0,False,0.0682,,,,False
+ge_anomaly,anomaly,11yo child earning 2908 SAR,True,0.0333,True,0.984,True,0.98,"The record is flagged because the individual's age (11) is considered implausible for someone with no formal education (q_301: 10500031), and the salary (2908 SAR) falls outside the expected range for this age and education level.",True
+normal,normal,Normal record,False,0.0,False,0.1161,,,,False
+normal_edge,normal,"PhD, salary 8043 (just above 8000 floor)",False,0.0,False,0.2941,,,,False
+normal,normal,Normal record,False,0.0,False,0.0016,,,,False
+ge_anomaly,anomaly,"Bachelor's, salary 570 (under 3000 floor)",True,0.0333,False,0.0783,False,0.07,"The salary of 570 SAR for a Bachelor's degree is within the expected range of 5,000-25,000 SAR according to the provided salary ranges by education.",True
+normal,normal,Normal record,False,0.0,False,0.0087,,,,False
+normal,normal,Normal record,False,0.0,False,0.0113,,,,False
+normal,normal,Normal record,False,0.0,False,0.0018,,,,False
+svm_false_positive,normal,"Master's, 32644 SAR, 58 hrs (senior professional, valid)",False,0.0,False,0.0406,,,,False
+normal,normal,Normal record,False,0.0,False,0.0292,,,,False
+normal_edge,normal,"No formal edu, salary 4975 (just under 5000 cap)",False,0.0,False,0.0478,,,,False
+svm_anomaly,anomaly,15yo working 83 hrs/wk,False,0.0,True,0.9148,True,0.91,"The individual is a female (gender: 1600002), never married (marage_status: 10600001) and 15 years old (age: 15), which is below the minimum legal working age in Saudi Arabia. Additionally, the education level is 'No formal edu' (q_301: 10500031) and the monthly salary of 1868 SAR is significantly lower than the expected range for this education level (1,500-5,000 SAR).",True
+svm_anomaly,anomaly,"Master's, 30236 SAR, 1 hrs",False,0.0,True,0.9019,True,0.9,"The salary (q_602_val) of 30236 SAR for a Bachelor's degree holder (q_301: 10500009) is significantly outside the expected range (5,000-25,000 SAR).",True
+normal_edge,normal,"Primary, salary 4842 (just under 5000 cap)",False,0.0,False,0.0054,,,,False
+svm_false_positive,normal,"Diploma, 16096 SAR, 58 hrs (skilled tech, valid)",False,0.0,False,0.0339,,,,False
+normal_unusual,normal,"17yo no edu, 47 hrs",False,0.0,False,0.3813,,,,False
+normal_edge,normal,Hours gap 39 (just under 40 threshold),False,0.0,True,0.7958,True,0.79,"The salary value of 4494 SAR falls outside the expected range for secondary education (3000-12000 SAR), indicating a possible anomaly.",True
+normal,normal,Normal record,False,0.0,True,0.7684,True,0.76,"The salary (q_602_val) of 24241 SAR falls outside the expected range for a PhD holder (12000-45000). The record also shows the same value for both cut_5_total and act_1_total, suggesting an error in the hours data.",True
+normal,normal,Normal record,False,0.0,False,0.0804,,,,False
+normal,normal,Normal record,False,0.0,False,0.0312,,,,False
+svm_anomaly,anomaly,16yo working 80 hrs/wk,False,0.0,True,0.5363,True,0.53,"The record is flagged due to the following issues: 1) The age (16) is not plausible for a female (1600002) with primary education (10500003), as it's an unlikely combination. 2) The reported monthly salary of 2117 SAR falls outside the given range for primary education which is 1,500-5,000 SAR.",True
+normal_edge,normal,"PhD, salary 8299 (just above 8000 floor)",False,0.0,False,0.0606,,,,False
+normal_edge,normal,21yo with Bachelor's (exactly min age),False,0.0,False,0.0681,,,,False
+normal,normal,Normal record,False,0.0,False,0.1258,,,,False
+normal_unusual,normal,"56yo Master's, 23460 SAR",False,0.0,False,0.1649,,,,False
+ge_anomaly,anomaly,"Primary, salary 5244 (barely over 5000 cap)",True,0.0333,False,0.0186,True,0.04,"The flagged record shows an anomaly because the individual's salary (5244 SAR) falls outside the expected range for primary education (1,500-5,000), and the hours gap (usual: 48 hrs, actual: 47 hrs) slightly exceeds the threshold of 30 hours.",True
+normal,normal,Normal record,False,0.0,False,0.0036,,,,False
+normal,normal,Normal record,False,0.0,False,0.0119,,,,False
+normal_unusual,normal,"Widowed head, 42yo, Intermediate",False,0.0,False,0.0037,,,,False
+svm_anomaly,anomaly,67yo working 79 hrs/wk,False,0.0,True,0.9893,True,0.98,"The record is flagged because the salary (11667 SAR) is significantly higher than the expected range for a Master's degree holder. The correct range for a Master's degree holder is 8000-35000 SAR per month, and the given salary falls outside this range.",True
+normal_unusual,normal,"Widowed head, 41yo, Master's",False,0.0,False,0.0115,,,,False
+svm_false_positive,normal,"Bachelor's, 22024 SAR, 56 hrs (ambitious, valid)",False,0.0,False,0.0027,,,,False
+normal,normal,Normal record,False,0.0,False,0.0071,,,,False
+svm_false_positive,normal,"Diploma, 17279 SAR, 57 hrs (skilled tech, valid)",False,0.0,False,0.0015,,,,False
+normal_unusual,normal,"17yo no edu, 45 hrs",False,0.0,False,0.391,,,,False
+normal,normal,Normal record,False,0.0,False,0.0045,,,,False
+normal_edge,normal,"PhD, salary 8179 (just above 8000 floor)",False,0.0,False,0.0718,,,,False
+normal,normal,Normal record,False,0.0,False,0.0039,,,,False
+normal,normal,Normal record,False,0.0,False,0.0014,,,,False
+svm_false_positive,normal,"PhD, 41108 SAR, 55 hrs (high-performing, valid)",False,0.0,False,0.3111,,,,False
+normal,normal,Normal record,False,0.0,False,0.0401,,,,False
+normal,normal,Normal record,False,0.0,False,0.004,,,,False
+svm_anomaly,anomaly,69yo working 78 hrs/wk,False,0.0,True,0.9984,True,0.99,"The record is flagged due to the salary (19363 SAR) being significantly higher than the expected range for a Ph.D. education level (12,000-45,000 SAR). Additionally, the usual and actual weekly hours (78 hrs) also indicate a potential anomaly.",True
+normal,normal,Normal record,False,0.0,False,0.0511,,,,False
+svm_false_positive,normal,"Bachelor's, 23497 SAR, 58 hrs (ambitious, valid)",False,0.0,False,0.1065,,,,False
+ge_anomaly,anomaly,"Secondary, salary 37620 (over 15000 cap)",True,0.0333,True,0.5196,True,0.54,"The record is flagged because the individual's salary (q_602_val=37620) falls outside the expected range for secondary education (3000-12000 SAR). Additionally, there is a slight discrepancy between usual weekly hours (cut_5_total=35) and actual weekly hours (act_1_total=34), but since this gap is less than 30 hours, it may be considered within acceptable limits.",True
+normal_unusual,normal,"Widowed head, 44yo, Bachelor's",False,0.0,False,0.0024,,,,False
+normal,normal,Normal record,False,0.0,False,0.0016,,,,False
+svm_false_positive,normal,"PhD, 43606 SAR, 60 hrs (high-performing, valid)",False,0.0,True,0.5475,True,0.54,The record was flagged because the salary (q_602_val) of 43606 SAR per month falls outside the expected range for a Bachelor's degree. The salary range for a Bachelor's degree is 5000-25000 SAR per month.,True
+normal_edge,normal,Hours gap 36 (just under 40 threshold),False,0.0,False,0.3164,,,,False
+svm_anomaly,anomaly,"PhD, 44471 SAR, 2 hrs",False,0.0,True,0.9991,True,0.99,"The salary (q_602_val) of 44471 SAR is outside the expected range for Bachelor's degree holders (5000-25000 SAR), and the weekly hours gap (act_1_total - cut_5_total) is 0, which exceeds the permitted threshold of 30.",True
+normal,normal,Normal record,False,0.0,True,0.6103,True,0.95,The individual's age (16) is too young for having no formal education according to the provided salary and hours range.,True
+normal,normal,Normal record,False,0.0,False,0.0177,,,,False
+normal,normal,Normal record,False,0.0,False,0.009,,,,False
+ge_anomaly,anomaly,17yo with PhD (min 25),True,0.1333,True,0.7581,True,0.82,"The salary of 15204 SAR per month for a Bachelor's degree holder (q_301: 10500010) falls outside the defined salary range (5,000-25,000 SAR). Additionally, there is a gap between usual weekly hours (cut_5_total: 40) and actual weekly hours (act_1_total: 43), which exceeds the allowed threshold of 30 hours.",True
+normal_edge,normal,"Master's, salary 5090 (just above 5000 floor)",False,0.0,False,0.0152,,,,False
+normal_unusual,normal,"59yo Master's, 8401 SAR",False,0.0,False,0.2325,,,,False
+normal,normal,Normal record,False,0.0,False,0.0061,,,,False
+normal,normal,Normal record,False,0.0,False,0.0618,,,,False
+normal,normal,Normal record,False,0.0,False,0.003,,,,False
+normal,normal,Normal record,False,0.0,True,0.5524,True,0.55,The record is flagged due to the salary (q_602_val) of 24809 SAR per month falling outside the expected range for a Bachelor's degree (5000-25000 SAR).,True
+normal,normal,Normal record,False,0.0,False,0.0027,,,,False
+normal,normal,Normal record,False,0.0,False,0.0081,,,,False
+normal_unusual,normal,"56yo PhD, 23174 SAR",False,0.0,False,0.3739,,,,False
+ge_anomaly,anomaly,12yo child earning 1706 SAR,True,0.0333,True,0.8902,True,0.927,The individual is 12 years old and has no formal education (q_301=10500031). The salary of 1706 SAR per month for a 12-year-old without any education falls outside the plausible ranges for any educational level.,True
+normal,normal,Normal record,False,0.0,False,0.2218,,,,False
+ge_anomaly,anomaly,Spouse but widowed,True,0.0333,False,0.0462,True,0.07,"The salary of 9818 SAR for a Master's degree holder is outside the expected range (8000-35000 SAR). Additionally, there is a slight discrepancy in hours worked with a gap of 3 hours between usual and actual weekly hours (usual=37, actual=40)",True
+normal,normal,Normal record,False,0.0,False,0.4718,,,,False
+svm_false_positive,normal,"No edu, 3887 SAR, 60 hrs (blue collar, valid)",False,0.0,False,0.0376,,,,False
+normal_edge,normal,"Master's, salary 5393 (just above 5000 floor)",False,0.0,False,0.0152,,,,False
+svm_anomaly,anomaly,"PhD, 36853 SAR, 3 hrs",False,0.0,True,0.9934,True,0.99,The monthly salary (36853 SAR) of a female Bachelor's degree holder falls outside the expected salary range for Bachelor's holders (5000-25000 SAR).,True
+ge_anomaly,anomaly,"Secondary, salary 29915 (over 15000 cap)",True,0.0333,False,0.3284,True,0.35,The record is flagged because the salary (29915 SAR) falls outside the expected range for secondary education (3000-12000 SAR).,True
+ge_anomaly,anomaly,"Primary, salary 30144 (way over 5000 cap)",True,0.0333,True,0.7959,True,0.829,"The record is anomalous because the salary (q_602_val=30144) falls outside the expected range for primary education (1500-5000 SAR), and also due to a large hours gap (usual weekly hours cut_5_total=45, actual weekly hours act_1_total=42).",True
+ge_anomaly,anomaly,"PhD, salary 1026 (way under 8000 floor)",True,0.1,False,0.4672,True,0.52,"The record is flagged because the salary (q_602_val=1026) falls outside the expected range for a Bachelor's degree (5,000-25,000 SAR). Also, there is a slight discrepancy in weekly hours (cut_5_total=43 vs act_1_total=45), but it is within the acceptable 30-hour gap threshold.",True
+normal,normal,Normal record,False,0.0,False,0.0103,,,,False
+normal_edge,normal,"Master's, salary 5035 (just above 5000 floor)",False,0.0,False,0.0168,,,,False
+normal_edge,normal,"Master's, salary 5434 (just above 5000 floor)",False,0.0,False,0.0134,,,,False
+svm_anomaly,anomaly,15yo working 78 hrs/wk,False,0.0,True,0.512,True,0.98,"The age (15) is significantly lower than expected for an individual with primary education level. Additionally, the salary (2896 SAR) and usual and actual weekly hours (78) do not seem to align with typical salaries or hours within the provided ranges for a primary educated individual.",True
+ge_anomaly,anomaly,"No formal edu, salary 39164 (way over 5000 cap)",True,0.0333,True,0.997,True,0.967,"The salary value of 39164 SAR is outside the expected range for no formal education (1500-5000 SAR), and hence considered an anomaly.",True
+svm_anomaly,anomaly,1 hrs/wk at 30370 SAR (Master's),False,0.0,True,0.9331,True,0.93,"The record is flagged due to the salary (q_602_val) being significantly higher than the expected range for Master's degree holders (8,000-35,000 SAR). The actual monthly salary of 30370 SAR falls outside this range.",True
+normal,normal,Normal record,False,0.0,False,0.0019,,,,False
+normal_edge,normal,"PhD, salary 8089 (just above 8000 floor)",False,0.0,False,0.0361,,,,False
+normal,normal,Normal record,False,0.0,False,0.0324,,,,False
+svm_false_positive,normal,"PhD, 40769 SAR, 55 hrs (high-performing, valid)",False,0.0,False,0.3717,,,,False
+normal_unusual,normal,"17yo no edu, 45 hrs",False,0.0,False,0.4146,,,,False
+normal,normal,Normal record,False,0.0,False,0.0548,,,,False
+svm_anomaly,anomaly,15yo working 84 hrs/wk,False,0.0,True,0.9285,True,0.92,"The age (15) is significantly lower than expected for someone with no formal education (minimum age for employment in Saudi Arabia is typically around 18 years). Additionally, the reported monthly salary of 2197 SAR falls outside the expected range for individuals with no formal education (1500-5000 SAR), and the usual and actual weekly hours are identical (84 hours), which is unusual and may indicate an error or inconsistency.",True
+normal,normal,Normal record,False,0.0,False,0.0597,,,,False
+normal,normal,Normal record,False,0.0,False,0.0161,,,,False
+normal,normal,Normal record,False,0.0,False,0.0131,,,,False
+normal_unusual,normal,"62yo Master's, 16284 SAR",False,0.0,False,0.465,,,,False
+normal,normal,Normal record,False,0.0,False,0.004,,,,False
+normal_edge,normal,"Secondary, salary 14637 (just under 15000 cap)",False,0.0,False,0.0017,,,,False
+normal_edge,normal,17yo with Secondary (exactly min age),False,0.0,False,0.0612,,,,False
+normal,normal,Normal record,False,0.0,False,0.0083,,,,False
+svm_false_positive,normal,"No edu, 3739 SAR, 64 hrs (blue collar, valid)",False,0.0,False,0.1374,,,,False
+normal,normal,Normal record,False,0.0,False,0.0465,,,,False
+normal,normal,Normal record,False,0.0,False,0.0108,,,,False
+normal,normal,Normal record,False,0.0,False,0.0103,,,,False
+normal,normal,Normal record,False,0.0,False,0.0361,,,,False
+normal,normal,Normal record,False,0.0,False,0.1047,,,,False
+normal,normal,Normal record,False,0.0,False,0.2301,,,,False
+svm_false_positive,normal,"Master's, 32954 SAR, 61 hrs (senior professional, valid)",False,0.0,False,0.3746,,,,False
+normal,normal,Normal record,False,0.0,False,0.0012,,,,False
+normal_edge,normal,"Master's, salary 5367 (just above 5000 floor)",False,0.0,False,0.0153,,,,False
+ge_anomaly,anomaly,"No formal edu, salary 5829 (barely over 5000 cap)",True,0.0333,False,0.0709,True,0.07,"The record is flagged because the salary (5829 SAR) falls outside the expected range for primary education (1500-5000 SAR), and the business rules score also indicates a likelihood of anomaly (3.33%).",True
+svm_false_positive,normal,"Master's, 29148 SAR, 62 hrs (senior professional, valid)",False,0.0,False,0.3272,,,,False
+ge_anomaly,anomaly,"Master's, salary 4050 (under 5000 floor)",True,0.0333,False,0.0192,True,0.04,The record was flagged due to a salary of 4050 SAR per month for a Bachelor's degree holder (q_301=10500025) which falls outside the expected salary range of 5000-25000 SAR per month.,True
+svm_anomaly,anomaly,"Master's, 32839 SAR, 3 hrs",False,0.0,True,0.9259,True,0.92,"The salary (32839 SAR) is clearly outside the expected range for a Bachelor's degree (5000-25000 SAR). Additionally, there is an unusual gap between usual weekly hours (cut_5_total: 3) and actual weekly hours (act_1_total: 3), which exceeds the specified threshold of >30.",True
+normal,normal,Normal record,False,0.0,False,0.0029,,,,False
+svm_anomaly,anomaly,1 hrs/wk at 33734 SAR (Master's),False,0.0,True,0.933,True,0.93,The salary of 33734 SAR for a Master's degree holder (q_301: 10500009) is outside the expected range of 8000-35000 SAR.,True
+normal,normal,Normal record,False,0.0,False,0.3191,,,,False
+normal,normal,Normal record,False,0.0,False,0.1226,,,,False
+normal_unusual,normal,"60yo Master's, 15757 SAR",False,0.0,False,0.3591,,,,False
+normal_edge,normal,21yo with Bachelor's (exactly min age),False,0.0,False,0.0483,,,,False
+normal_edge,normal,"Secondary, salary 14875 (just under 15000 cap)",False,0.0,False,0.0026,,,,False
+svm_anomaly,anomaly,2 hrs/wk at 34487 SAR (Master's),False,0.0,True,0.9329,True,0.93,"The record has an anomalous salary value as it falls outside the expected range for a bachelor's degree. The recorded monthly salary of 34,487 SAR is higher than the upper limit of the expected salary range for a Bachelor's degree (25,000 SAR).",True
+svm_anomaly,anomaly,16yo working 83 hrs/wk,False,0.0,True,0.8872,True,0.88,"The record is flagged due to an unusually high salary (q_602_val=2053 SAR) for a person of no formal education (q_301=10500031). The salary range for this education level is 1,500-5,000 SAR.",True
+svm_false_positive,normal,"Bachelor's, 20076 SAR, 58 hrs (ambitious, valid)",False,0.0,False,0.0056,,,,False
+normal,normal,Normal record,False,0.0,False,0.0012,,,,False
+normal_unusual,normal,"Widowed head, 49yo, Bachelor's",False,0.0,False,0.0054,,,,False
+normal,normal,Normal record,False,0.0,False,0.2624,,,,False
+ge_anomaly,anomaly,"Secondary, salary 16371 (over 15000 cap)",True,0.0333,False,0.0249,True,0.05,The salary of 16371 SAR is outside the expected range for secondary education (3000-12000 SAR).,True
+ge_anomaly,anomaly,"Bachelor's, salary 993 (under 3000 floor)",True,0.0333,False,0.101,False,0.13,"The record was flagged due to a low statistical model confidence (10%) and a business rules score of 3.33%. However, the individual is a married female with a Bachelor's degree (within expected salary range: 5,000-25,000 SAR) earning 993 SAR per month which seems unusually low but not clearly outside the education range. The usual and actual weekly hours are both 46 hours, indicating a gap of 0 hours which is within the allowed range (<30 hours). Age (21) is plausible for a Bachelor's degree holder.",True
+normal,normal,Normal record,False,0.0,False,0.0025,,,,False
+normal_edge,normal,Hours gap 35 (just under 40 threshold),False,0.0,False,0.0251,,,,False
+svm_anomaly,anomaly,72yo working 77 hrs/wk,False,0.0,True,0.998,True,0.99,"The individual's salary (22938 SAR) is outside the expected range for a Bachelor's degree (5000-25000 SAR), and the usual and actual weekly hours (77 hrs) have no gap.",True
+normal,normal,Normal record,False,0.0,False,0.1051,,,,False
+normal,normal,Normal record,False,0.0,False,0.0033,,,,False
+svm_false_positive,normal,"Master's, 31496 SAR, 62 hrs (senior professional, valid)",False,0.0,False,0.056,,,,False
+normal_unusual,normal,"Widowed head, 30yo, Bachelor's",False,0.0,False,0.0027,,,,False
+normal,normal,Normal record,False,0.0,True,0.8094,True,0.8,The record is flagged due to a salary significantly outside the expected range for the reported education level (Bachelor's) and marital status (Married). The recorded monthly salary of 38021 SAR exceeds the specified range for Bachelor's (5000-25000 SAR).,True
+normal,normal,Normal record,False,0.0,True,0.7864,True,0.78,"The record is flagged due to the salary value (30395 SAR) being outside the expected range for a PhD holder (12000-45000 SAR). The individual's reported education level is q_301=10500010 (PhD), but the given salary falls below the minimum range for this education level.",True
+normal_edge,normal,25yo with PhD (exactly min age),False,0.0,False,0.1893,,,,False
+normal,normal,Normal record,False,0.0,False,0.1105,,,,False
+normal,normal,Normal record,False,0.0,False,0.0916,,,,False
+svm_anomaly,anomaly,68yo working 78 hrs/wk,False,0.0,True,0.992,True,0.99,The record is flagged due to the salary (14673 SAR) being outside the expected range for a master's degree holder (8000-35000 SAR).,True
+svm_false_positive,normal,"No edu, 4389 SAR, 57 hrs (blue collar, valid)",False,0.0,False,0.0664,,,,False
+normal,normal,Normal record,False,0.0,False,0.0066,,,,False
+svm_false_positive,normal,"Diploma, 17666 SAR, 52 hrs (skilled tech, valid)",False,0.0,False,0.0043,,,,False
+normal_edge,normal,"Primary, salary 4941 (just under 5000 cap)",False,0.0,False,0.0252,,,,False
+normal,normal,Normal record,False,0.0,False,0.4596,,,,False
+normal,normal,Normal record,False,0.0,False,0.0517,,,,False
+svm_anomaly,anomaly,16yo working 79 hrs/wk,False,0.0,True,0.7769,True,0.77,"The record shows an age of 16 for a person who is a Son/Daughter (family relation: 1700022) and never married (marage_status: 10600001). According to the rules provided, this combination of age, family relation, and marital status is considered an anomaly.",True
+normal,normal,Normal record,False,0.0,False,0.0358,,,,False
+ge_anomaly,anomaly,"PhD, salary 1064 (way under 8000 floor)",True,0.1,False,0.1081,False,0.1,The salary of 1064 SAR is within the range for Bachelor's degree (5000-25000 SAR) and there is no significant difference between usual and actual weekly hours (48 vs 45).,True
+normal,normal,Normal record,False,0.0,False,0.0082,,,,False
+normal_unusual,normal,"PhD, 39249 SAR, 48 hrs",False,0.0,True,0.8187,True,0.81,"The record is flagged because the salary of 39249 SAR per month for a Bachelor's degree holder (q_301: 10500025) is outside the expected salary range for this education level (5000-25000 SAR). Additionally, there is a slight discrepancy between usual weekly hours (cut_5_total: 48) and actual weekly hours (act_1_total: 49), but it's within the acceptable 30-hour gap.",True
+normal_edge,normal,"Master's, salary 5281 (just above 5000 floor)",False,0.0,False,0.0374,,,,False
+normal_edge,normal,"Primary, salary 4966 (just under 5000 cap)",False,0.0,False,0.0161,,,,False
+svm_anomaly,anomaly,"PhD, 40602 SAR, 3 hrs",False,0.0,True,0.9778,True,0.97,The salary (q_602_val) of 40602 SAR is outside the expected range for Bachelor's degree holders which is 5000-25000 SAR.,True
+normal,normal,Normal record,False,0.0,False,0.0517,,,,False
+normal,normal,Normal record,False,0.0,False,0.0016,,,,False
+normal,normal,Normal record,False,0.0,False,0.0052,,,,False
+normal,normal,Normal record,False,0.0,False,0.2532,,,,False
+normal,normal,Normal record,False,0.0,False,0.0014,,,,False
+svm_false_positive,normal,"Bachelor's, 21565 SAR, 55 hrs (ambitious, valid)",False,0.0,False,0.0095,,,,False
+normal_unusual,normal,"Widowed head, 30yo, PhD",False,0.0,False,0.1022,,,,False
+normal,normal,Normal record,False,0.0,False,0.0037,,,,False
+normal,normal,Normal record,False,0.0,False,0.0192,,,,False
+normal,normal,Normal record,False,0.0,False,0.121,,,,False
+normal,normal,Normal record,False,0.0,False,0.013,,,,False
+normal,normal,Normal record,False,0.0,False,0.0021,,,,False
+normal,normal,Normal record,False,0.0,False,0.0035,,,,False
+svm_false_positive,normal,"Diploma, 16957 SAR, 53 hrs (skilled tech, valid)",False,0.0,False,0.0013,,,,False
+ge_anomaly,anomaly,"Master's, salary 1071 (under 5000 floor)",True,0.0667,False,0.0588,True,0.0567,"The record was flagged due to a combination of statistical model confidence (5%) and business rules score (6.67%). The issue lies in the salary value (1071 SAR) which falls outside the expected range for a Master's degree holder (8,000-35,000 SAR).",True
+svm_false_positive,normal,"Diploma, 16387 SAR, 58 hrs (skilled tech, valid)",False,0.0,False,0.0016,,,,False
+normal,normal,Normal record,False,0.0,False,0.0018,,,,False
+normal_edge,normal,"Master's, salary 5296 (just above 5000 floor)",False,0.0,False,0.0457,,,,False
+normal_edge,normal,Hours gap 39 (just under 40 threshold),False,0.0,False,0.1186,,,,False
+normal,normal,Normal record,False,0.0,False,0.0572,,,,False
+normal_unusual,normal,"56yo Master's, 21573 SAR",False,0.0,False,0.1247,,,,False
+normal,normal,Normal record,False,0.0,True,0.8759,True,0.87,"The record is flagged because the monthly salary (q_602_val: 36538) falls outside the expected range for a Bachelor's degree holder, which ranges from 5000 to 25000 SAR per month. This exceeds the upper limit of the specified range.",True
+normal,normal,Normal record,False,0.0,False,0.0292,,,,False
+ge_anomaly,anomaly,18yo with Master's (min 23),True,0.1,False,0.431,True,0.53,"The record was flagged due to an anomalous salary for the education level (Master's) and age (18). The monthly salary of 11945 SAR is above the expected range (8000-35000 SAR) for Master's degree holders. Additionally, the individual is 18 years old, which seems too young to have a Master's degree.",True
+ge_anomaly,anomaly,20yo with Bachelor's (min 21),True,0.0333,False,0.0934,True,0.133,"The record is flagged due to a salary value (21487 SAR) that falls outside the expected range for Bachelor's degree education (5000-25000 SAR). Additionally, there is an hours gap of 2 hours between usual and actual weekly hours (cut_5_total: 40, act_1_total: 42), which slightly exceeds the specified threshold for anomaly (30 hours).",True
+normal,normal,Normal record,False,0.0,False,0.0113,,,,False
+normal,normal,Normal record,False,0.0,False,0.0262,,,,False
+normal,normal,Normal record,False,0.0,False,0.0058,,,,False
+normal,normal,Normal record,False,0.0,False,0.0018,,,,False
+normal,normal,Normal record,False,0.0,False,0.021,,,,False
+ge_anomaly,anomaly,"Primary, salary 16435 (way over 5000 cap)",True,0.0333,False,0.0875,True,0.08,The record was flagged due to the salary (16435 SAR) being outside the expected range for a Bachelor's degree holder (5000-25000 SAR).,True
+normal_edge,normal,Hours gap 37 (just under 40 threshold),False,0.0,False,0.1335,,,,False
+ge_anomaly,anomaly,"PhD, salary 1885 (way under 8000 floor)",True,0.1,False,0.1458,True,0.24,The salary of 1885 SAR per month for a Bachelor's degree holder exceeds the expected range of 5000-25000 SAR.,True
+svm_false_positive,normal,"No edu, 4124 SAR, 59 hrs (blue collar, valid)",False,0.0,False,0.0489,,,,False
+normal_unusual,normal,"19yo no edu, 47 hrs",False,0.0,False,0.2886,,,,False
+normal,normal,Normal record,False,0.0,False,0.0032,,,,False
+normal,normal,Normal record,False,0.0,False,0.004,,,,False
+svm_anomaly,anomaly,1 hrs/wk at 32845 SAR (PhD),False,0.0,True,0.9622,True,0.96,The salary (q_602_val) of 32845 SAR per month is outside the expected range for a bachelor's degree. The correct range should be between 5000-25000 SAR according to the given rules.,True
+normal,normal,Normal record,False,0.0,False,0.1106,,,,False
+normal_edge,normal,"Intermediate, salary 4974 (just under 5000 cap)",False,0.0,False,0.0027,,,,False
+normal_edge,normal,25yo with PhD (exactly min age),False,0.0,False,0.1565,,,,False
+svm_anomaly,anomaly,"PhD, 40467 SAR, 3 hrs",False,0.0,True,0.9725,True,0.97,"The record is flagged due to the salary value (40467 SAR) being significantly higher than the expected range for a Bachelor's degree (5000-25000 SAR), and the weekly hours (usual: 3, actual: 3) having no gap which is unusual.",True
+svm_anomaly,anomaly,"Master's, 32672 SAR, 3 hrs",False,0.0,True,0.9981,True,0.99,"The salary value of 32672 SAR falls outside the expected range for a Master's degree holder, which is 8000-35000 SAR per month. Additionally, there is an hours gap of (3-3) = 0 hours between usual and actual weekly hours, but this might not be significant enough to classify the record as anomalous based on the rules provided.",True
+svm_anomaly,anomaly,"Master's, 33003 SAR, 3 hrs",False,0.0,True,0.8773,True,0.87,"The record is flagged due to an anomalous salary for the reported education level (Master's) as the monthly salary of 33,003 SAR falls outside the expected range of 8,000-35,000 SAR.",True
+ge_anomaly,anomaly,15yo with Diploma (min 19),True,0.0667,False,0.2841,True,0.347,"The record is flagged due to the individual being 15 years old and holding a diploma (q_301: 10500023) with a monthly salary of 16843 SAR (q_602_val), which is outside the plausible range for their age and education level. Additionally, there's a small discrepancy between usual (cut_5_total: 42 hours/week) and actual working hours (act_1_total: 45 hours/week). However, it is important to note that a slight disparity in hours does not necessarily indicate an anomaly.",True
+normal,normal,Normal record,False,0.0,False,0.0059,,,,False
+ge_anomaly,anomaly,"Intermediate, salary 5028 (barely over 5000 cap)",True,0.0333,False,0.0087,True,0.0333,"The record was flagged due to the salary value (5028 SAR) falling outside the expected range for intermediate education (1,500-5,000 SAR).",True
+normal,normal,Normal record,False,0.0,False,0.0069,,,,False
+svm_anomaly,anomaly,15yo working 79 hrs/wk,False,0.0,True,0.5825,True,0.99,"The individual is 15 years old and has no formal education (q_301=10500003), yet reports a monthly salary of 1843 SAR (q_602_val=1843). This salary falls outside the expected range for individuals with no formal education, which is 1500-5000 SAR. Furthermore, the reported usual and actual weekly hours (cut_5_total=act_1_total=79) are the same, which is unusual as they should be different.",True
+normal_unusual,normal,"61yo PhD, 18272 SAR",False,0.0,True,0.6625,True,0.66,"The record is flagged because the monthly salary (q_602_val: 18272 SAR) falls outside the expected range for a Bachelor's degree holder (5000-25000 SAR). Additionally, there is a discrepancy between usual weekly hours (cut_5_total: 42) and actual weekly hours (act_1_total: 47), with a gap of 5 hours which is greater than the allowed threshold of 30.",True
+normal,normal,Normal record,False,0.0,False,0.1542,,,,False
+normal,normal,Normal record,False,0.0,False,0.0394,,,,False
+svm_false_positive,normal,"PhD, 40191 SAR, 61 hrs (high-performing, valid)",False,0.0,False,0.3762,,,,False
+ge_anomaly,anomaly,"Primary, salary 22836 (way over 5000 cap)",True,0.0333,False,0.105,True,0.133,"The record is flagged due to the salary (22836 SAR) being slightly outside the expected range for secondary education (3000-12000 SAR), and also there is a slight discrepancy in weekly hours (usual: 40, actual: 39), although within acceptable limit.",True
+normal_edge,normal,"Intermediate, salary 4964 (just under 5000 cap)",False,0.0,False,0.0086,,,,False
+normal_edge,normal,"No formal edu, salary 4852 (just under 5000 cap)",False,0.0,False,0.1882,,,,False
+normal,normal,Normal record,False,0.0,False,0.0413,,,,False
+normal_edge,normal,"No formal edu, salary 4881 (just under 5000 cap)",False,0.0,False,0.0924,,,,False
+ge_anomaly,anomaly,"Bachelor's, salary 2051 (under 3000 floor)",True,0.0333,False,0.005,False,0.0333,"The salary of 2051 SAR for a Bachelor's degree is slightly above the expected range (5000-25000 SAR), but it's not clearly outside and the hours gap between usual (40 hrs/week) and actual (41 hrs/week) weekly hours is within the allowable 30-hour difference.",True
+normal,normal,Normal record,False,0.0,False,0.0026,,,,False
+normal,normal,Normal record,False,0.0,False,0.0021,,,,False
+normal_edge,normal,"Intermediate, salary 4933 (just under 5000 cap)",False,0.0,False,0.0101,,,,False
+normal,normal,Normal record,False,0.0,False,0.2005,,,,False
+svm_false_positive,normal,"No edu, 4030 SAR, 64 hrs (blue collar, valid)",False,0.0,False,0.0453,,,,False
+normal,normal,Normal record,False,0.0,False,0.0981,,,,False
+normal,normal,Normal record,False,0.0,False,0.0478,,,,False
+normal,normal,Normal record,False,0.0,False,0.1098,,,,False
+normal,normal,Normal record,False,0.0,False,0.0019,,,,False
+normal,normal,Normal record,False,0.0,False,0.0009,,,,False
+normal,normal,Normal record,False,0.0,False,0.0098,,,,False
+svm_anomaly,anomaly,16yo working 78 hrs/wk,False,0.0,False,0.4559,,,,False
+normal,normal,Normal record,False,0.0,True,0.7392,True,0.73,"The record is flagged because the individual's salary of 32379 SAR per month falls outside the expected range for Bachelor's degree education, which ranges from 5000 to 25000 SAR per month.",True
+normal,normal,Normal record,False,0.0,False,0.0638,,,,False
+normal,normal,Normal record,False,0.0,False,0.3171,,,,False
+normal,normal,Normal record,False,0.0,False,0.0575,,,,False
+normal,normal,Normal record,False,0.0,False,0.0575,,,,False
+normal,normal,Normal record,False,0.0,False,0.0109,,,,False
+normal_unusual,normal,"PhD, 38128 SAR, 53 hrs",False,0.0,True,0.5416,True,0.54,The salary of 38128 SAR for a Bachelor's degree holder is outside the expected range (5000-25000 SAR) according to the given rules.,True
+ge_anomaly,anomaly,"Primary, salary 5829 (barely over 5000 cap)",True,0.0333,False,0.0045,True,0.0333,"The record has an unusual salary (q_602_val) of 5829 SAR per month which is outside the expected range for a person with primary education (1,500-5,000). Additionally, there is a small discrepancy between usual weekly hours (cut_5_total: 47) and actual weekly hours (act_1_total: 46), but it's less than the threshold of 30 hours.",True
+normal,normal,Normal record,False,0.0,False,0.0119,,,,False
+normal,normal,Normal record,False,0.0,False,0.0011,,,,False
+normal_unusual,normal,"18yo no edu, 48 hrs",False,0.0,False,0.3398,,,,False
+normal_edge,normal,Hours gap 35 (just under 40 threshold),False,0.0,True,0.6427,True,0.64,The record is flagged due to the salary (q_602_val) of 1666 SAR per month falling outside the expected range for primary education (1500-5000 SAR).,True
+normal,normal,Normal record,False,0.0,False,0.0023,,,,False
+normal,normal,Normal record,False,0.0,False,0.012,,,,False
+normal,normal,Normal record,False,0.0,False,0.0104,,,,False
+normal_edge,normal,Hours gap 38 (just under 40 threshold),False,0.0,False,0.0348,,,,False
+normal,normal,Normal record,False,0.0,False,0.0059,,,,False
+normal_edge,normal,23yo with Master's (exactly min age),False,0.0,False,0.0936,,,,False
+normal_edge,normal,"PhD, salary 8332 (just above 8000 floor)",False,0.0,False,0.4272,,,,False
+normal,normal,Normal record,False,0.0,False,0.0325,,,,False
+normal,normal,Normal record,False,0.0,False,0.0063,,,,False
+normal_unusual,normal,"PhD, 43857 SAR, 54 hrs",False,0.0,False,0.2976,,,,False
+normal,normal,Normal record,False,0.0,False,0.0152,,,,False
+normal_edge,normal,"PhD, salary 8014 (just above 8000 floor)",False,0.0,False,0.0668,,,,False
+normal,normal,Normal record,False,0.0,False,0.0168,,,,False
+normal,normal,Normal record,False,0.0,False,0.0083,,,,False
+normal_unusual,normal,"17yo no edu, 45 hrs",False,0.0,False,0.3943,,,,False
+normal,normal,Normal record,False,0.0,False,0.0011,,,,False
+normal,normal,Normal record,False,0.0,False,0.0327,,,,False
+normal_edge,normal,25yo with PhD (exactly min age),False,0.0,False,0.296,,,,False
+normal,normal,Normal record,False,0.0,False,0.0021,,,,False
+normal,normal,Normal record,False,0.0,False,0.0884,,,,False
+svm_anomaly,anomaly,1 hrs/wk at 44144 SAR (PhD),False,0.0,True,0.9993,True,0.99,The record is anomalous as the salary (q_602_val=44144) falls outside the expected range for Bachelor's degree holders (5000-25000 SAR). The individual's age (52) and education level (Bachelor's) may be unusual but are not necessarily problematic.,True
+normal,normal,Normal record,False,0.0,False,0.0694,,,,False
+normal,normal,Normal record,False,0.0,False,0.1274,,,,False
+normal_unusual,normal,"63yo PhD, 23445 SAR",False,0.0,True,0.8367,True,0.83,"The record is flagged due to the salary value (q_602_val=23445) being outside the expected range for Bachelor's degree. For a bachelor's degree, the salary should be between 5000-25000 SAR per month, but in this case, it is much higher than the upper limit.",True
+normal_unusual,normal,"PhD, 41863 SAR, 53 hrs",False,0.0,False,0.147,,,,False
+normal,normal,Normal record,False,0.0,False,0.2346,,,,False
+normal,normal,Normal record,False,0.0,False,0.1989,,,,False
+svm_false_positive,normal,"No edu, 4499 SAR, 60 hrs (blue collar, valid)",False,0.0,False,0.0946,,,,False
+normal_unusual,normal,"Widowed head, 33yo, Intermediate",False,0.0,False,0.0041,,,,False
+normal,normal,Normal record,False,0.0,True,0.7464,True,0.74,"The record has a salary (21585 SAR) that is significantly higher than expected for a bachelor's degree holder, and the usual and actual weekly hours (34) are the same, which might indicate inconsistency.",True
+normal_edge,normal,"No formal edu, salary 4931 (just under 5000 cap)",False,0.0,False,0.0498,,,,False
+ge_anomaly,anomaly,Hours gap 41 (barely over 40 threshold),True,0.0333,True,0.6803,True,0.71,"The record is anomalous due to the salary (q_602_val) of 17091 SAR per month for a Master's degree holder (q_301), which falls outside the expected range of 8,000-35,000 SAR according to the provided rules.",True
+normal,normal,Normal record,False,0.0,False,0.2159,,,,False
+normal_edge,normal,"Primary, salary 4837 (just under 5000 cap)",False,0.0,False,0.0162,,,,False
+ge_anomaly,anomaly,17yo with Master's (min 23),True,0.1,True,0.5332,True,0.63,"The individual is a 17-year-old bachelor (Master's degree) earning a monthly salary of 11447 SAR, which falls outside the expected salary range for this education level (8000-35000 SAR). Additionally, there is a slight discrepancy between usual and actual weekly hours, with a gap of 3 hours (usual: 38 hours, actual: 41 hours).",True
+normal,normal,Normal record,False,0.0,True,0.9438,True,0.94,The salary of 37180 SAR for a Master's degree holder (q_301: 10500010) falls outside the expected range of 8000-35000 SAR.,True
+normal,normal,Normal record,False,0.0,False,0.0382,,,,False
+normal_edge,normal,"PhD, salary 8299 (just above 8000 floor)",False,0.0,False,0.415,,,,False
+ge_anomaly,anomaly,"PhD, salary 605 (way under 8000 floor)",True,0.1,False,0.1542,False,0.15,"The record was flagged due to a low statistical model confidence (15%), but upon review, the salary of 605 SAR per month for a Bachelor's degree holder is within the plausible range (5,000-25,000 SAR). Additionally, the usual and actual weekly hours difference of 1 hour (36 vs 35) is not considered significantly anomalous.",True
+normal,normal,Normal record,False,0.0,False,0.0016,,,,False
+normal_edge,normal,"PhD, salary 8425 (just above 8000 floor)",False,0.0,False,0.0314,,,,False
+normal_unusual,normal,"PhD, 42655 SAR, 49 hrs",False,0.0,False,0.1282,,,,False
+normal,normal,Normal record,False,0.0,False,0.0161,,,,False
+normal,normal,Normal record,False,0.0,False,0.005,,,,False
+normal,normal,Normal record,False,0.0,False,0.0246,,,,False
+normal,normal,Normal record,False,0.0,False,0.0323,,,,False
+normal,normal,Normal record,False,0.0,False,0.0033,,,,False
+normal_edge,normal,"Secondary, salary 14861 (just under 15000 cap)",False,0.0,False,0.0307,,,,False
+normal,normal,Normal record,False,0.0,False,0.0159,,,,False
+normal,normal,Normal record,False,0.0,False,0.0063,,,,False
+normal,normal,Normal record,False,0.0,False,0.0054,,,,False
+ge_anomaly,anomaly,15yo with Secondary (min 17),True,0.0333,False,0.1472,True,0.173,"The record shows a 15-year-old individual with secondary education (q_301: 10500019) earning 9446 SAR per month (q_602_val), which is outside the plausible range for secondary education (3,000-12,000). Additionally, the usual and actual weekly hours (cut_5_total and act_1_total) are both 36 hours, suggesting no discrepancy between the two, which contradicts the general rule that a gap of more than 30 hours is considered an anomaly.",True
+ge_anomaly,anomaly,10yo child earning 1723 SAR,True,0.0333,True,0.9698,True,0.96,"The salary of 1723 SAR per month is significantly lower than the expected range for no formal education (1500-5000 SAR), indicating a potential anomaly.",True
+normal_edge,normal,Hours gap 36 (just under 40 threshold),False,0.0,False,0.1062,,,,False
+normal_edge,normal,19yo with Diploma (exactly min age),False,0.0,False,0.0458,,,,False
+ge_anomaly,anomaly,Hours gap 69 (extreme),True,0.0333,True,0.9927,True,0.967,"The record is flagged due to an anomalous salary value (q_602_val=2321) which falls outside the expected range for intermediate education (1,500-5,000 SAR). Additionally, there's a significant gap between usual and actual weekly hours (cut_5_total: 70, act_1_total: 1), indicating an unusual hours difference.",True
+normal_unusual,normal,"62yo PhD, 27538 SAR",False,0.0,True,0.8764,True,0.87,"The salary (27538 SAR) falls outside the expected range for a Bachelor's degree holder (expected range: 5000-25000 SAR). Additionally, there is a slight discrepancy between usual weekly hours (cut_5_total=42) and actual weekly hours (act_1_total=45), although the gap is less than 30.",True
+normal,normal,Normal record,False,0.0,False,0.0395,,,,False
+normal,normal,Normal record,False,0.0,False,0.0813,,,,False
+normal,normal,Normal record,False,0.0,False,0.0152,,,,False
+svm_anomaly,anomaly,74yo working 79 hrs/wk,False,0.0,True,1.0,True,1.0,"[Salary] The salary of 33114 SAR is clearly outside the expected range for a Bachelor's degree (5000-25000 SAR), and [Hours] Both usual and actual weekly hours are 79, which is an implausible gap of 0 hours.",True
+normal,normal,Normal record,False,0.0,False,0.026,,,,False
+normal,normal,Normal record,False,0.0,False,0.01,,,,False
+svm_false_positive,normal,"Master's, 33351 SAR, 57 hrs (senior professional, valid)",False,0.0,False,0.0631,,,,False
+svm_anomaly,anomaly,74yo working 84 hrs/wk,False,0.0,True,0.9994,True,0.99,"The record has an age of 74 and a level of education of Intermediate (10500017). According to the provided salary ranges, an individual with this age and education level should not have a monthly salary above 5000 SAR. However, the recorded salary is 2283 SAR which exceeds the expected range, leading to the flagging.",True
+normal,normal,Normal record,False,0.0,False,0.2298,,,,False
+normal,normal,Normal record,False,0.0,False,0.0057,,,,False
+normal,normal,Normal record,False,0.0,False,0.0943,,,,False
+ge_anomaly,anomaly,"Bachelor's, salary 596 (under 3000 floor)",True,0.0333,False,0.0212,True,0.05,"The record is flagged due to a slight discrepancy between usual (35 hours) and actual (33 hours) weekly hours, with a gap of 2 hours exceeding the threshold of 30 hours. Additionally, the salary of 596 SAR for a Bachelor's degree falls outside the provided salary range for this education level (5,000-25,000 SAR).",True
+svm_false_positive,normal,"PhD, 40488 SAR, 62 hrs (high-performing, valid)",False,0.0,True,0.5755,False,0.34,The salary of 40488 SAR for a Bachelor's degree falls within the expected range (5000-25000 SAR) and there is only a small discrepancy between usual and actual weekly hours (62 vs 61 hours).,False
+normal,normal,Normal record,False,0.0,False,0.02,,,,False
+normal,normal,Normal record,False,0.0,False,0.0126,,,,False
+normal_edge,normal,21yo with Bachelor's (exactly min age),False,0.0,False,0.0352,,,,False
+normal,normal,Normal record,False,0.0,False,0.0203,,,,False
+normal,normal,Normal record,False,0.0,False,0.0882,,,,False
+normal,normal,Normal record,False,0.0,False,0.0019,,,,False
+normal_edge,normal,"Master's, salary 5250 (just above 5000 floor)",False,0.0,False,0.0205,,,,False
+svm_false_positive,normal,"PhD, 43434 SAR, 55 hrs (high-performing, valid)",False,0.0,True,0.9167,True,0.91,The record is anomalous due to the monthly salary (q_602_val) of 43434 SAR falling outside the expected range for a Bachelor's degree (8000-25000 SAR).,True
+normal,normal,Normal record,False,0.0,False,0.0095,,,,False
+normal_edge,normal,19yo with Diploma (exactly min age),False,0.0,False,0.0461,,,,False
+normal,normal,Normal record,False,0.0,False,0.065,,,,False
+normal_unusual,normal,"Widowed head, 30yo, PhD",False,0.0,False,0.1349,,,,False
+svm_anomaly,anomaly,"Master's, 31393 SAR, 1 hrs",False,0.0,True,0.9566,True,0.95,The record is flagged as the salary of 31393 SAR per month for a Bachelor's degree holder (q_301: 10500009) is significantly higher than the expected range (5000-25000 SAR).,True
+ge_anomaly,anomaly,Hours gap 78 (extreme),True,0.0333,True,0.9996,True,0.967,"The salary (23628 SAR) falls outside the expected range for a Bachelor's degree, which is 5000-25000 SAR. Additionally, there is an unusual discrepancy between usual weekly hours (not provided) and actual weekly hours (3 hours), with a gap greater than 30 hours.",True
+normal_unusual,normal,"18yo no edu, 50 hrs",False,0.0,False,0.3095,,,,False
+normal,normal,Normal record,False,0.0,False,0.1312,,,,False
+normal_edge,normal,Hours gap 39 (just under 40 threshold),False,0.0,False,0.0456,,,,False
+normal,normal,Normal record,False,0.0,False,0.1577,,,,False
+normal_edge,normal,21yo with Bachelor's (exactly min age),False,0.0,False,0.0408,,,,False
+normal,normal,Normal record,False,0.0,False,0.0033,,,,False
+svm_false_positive,normal,"No edu, 4394 SAR, 63 hrs (blue collar, valid)",False,0.0,False,0.1884,,,,False
+normal,normal,Normal record,False,0.0,False,0.1246,,,,False
+normal,normal,Normal record,False,0.0,False,0.1947,,,,False
+ge_anomaly,anomaly,"No formal edu, salary 5724 (barely over 5000 cap)",True,0.0333,False,0.0586,True,0.0833,The record was flagged due to the salary value (5724 SAR) being outside the expected range for the reported education level (No formal edu) which ranges from 1500 to 5000 SAR.,True
+normal_edge,normal,"Master's, salary 5407 (just above 5000 floor)",False,0.0,False,0.0776,,,,False
+normal,normal,Normal record,False,0.0,False,0.0174,,,,False
+normal,normal,Normal record,False,0.0,False,0.0016,,,,False
+normal,normal,Normal record,False,0.0,False,0.0737,,,,False
+normal,normal,Normal record,False,0.0,False,0.0083,,,,False
+normal,normal,Normal record,False,0.0,False,0.1481,,,,False
+normal,normal,Normal record,False,0.0,False,0.3742,,,,False
+normal,normal,Normal record,False,0.0,False,0.0568,,,,False
+normal_edge,normal,"Master's, salary 5175 (just above 5000 floor)",False,0.0,False,0.0524,,,,False
+ge_anomaly,anomaly,Hours gap 42 (barely over 40 threshold),True,0.0333,False,0.4091,True,0.433,"The record was flagged due to the salary value (17220 SAR) being outside the expected range for a Master's degree holder (8000-35000 SAR). Additionally, there is an hours gap between usual weekly hours (cut_5_total=63) and actual weekly hours (act_1_total=21), which exceeds the 30 hour limit.",True
+svm_false_positive,normal,"Diploma, 17033 SAR, 56 hrs (skilled tech, valid)",False,0.0,False,0.0011,,,,False
+normal,normal,Normal record,False,0.0,False,0.0495,,,,False
+svm_anomaly,anomaly,1 hrs/wk at 34292 SAR (PhD),False,0.0,True,0.9918,True,0.99,"The record has an extremely high salary (34292 SAR per month) for a Bachelor's degree holder, which is outside the provided salary range for Bachelor's degree holders (5000-25000 SAR). Additionally, the usual weekly hours (cut_5_total=1) are not within the typical work week and have a large gap from the actual weekly hours worked (act_1_total=1), with an unusual 67-hour difference.",True
+normal,normal,Normal record,False,0.0,False,0.0106,,,,False
+normal,normal,Normal record,False,0.0,False,0.0025,,,,False
+normal,normal,Normal record,False,0.0,False,0.0196,,,,False
+normal,normal,Normal record,False,0.0,False,0.0456,,,,False
+normal,normal,Normal record,False,0.0,False,0.0068,,,,False
+normal,normal,Normal record,False,0.0,False,0.0088,,,,False
+normal,normal,Normal record,False,0.0,False,0.043,,,,False
+normal,normal,Normal record,False,0.0,False,0.0121,,,,False
+normal,normal,Normal record,False,0.0,False,0.0029,,,,False
+normal,normal,Normal record,False,0.0,False,0.011,,,,False
+normal,normal,Normal record,False,0.0,False,0.0152,,,,False
+ge_anomaly,anomaly,"PhD, salary 1466 (way under 8000 floor)",True,0.1,False,0.1807,False,0.18,The salary of 1466 SAR falls within the expected range for Bachelor's degree (5000-25000 SAR) and the hourly gap between usual and actual hours is less than 30 hours.,True
+normal,normal,Normal record,False,0.0,False,0.0016,,,,False
+normal_unusual,normal,"19yo no edu, 48 hrs",False,0.0,False,0.2709,,,,False
+normal_edge,normal,"Secondary, salary 14507 (just under 15000 cap)",False,0.0,False,0.0021,,,,False
+normal,normal,Normal record,False,0.0,False,0.0028,,,,False
+normal,normal,Normal record,False,0.0,False,0.352,,,,False
+svm_anomaly,anomaly,79yo working 83 hrs/wk,False,0.0,True,0.9998,True,0.99,"The record is anomalous due to the salary (q_602_val) being outside the expected range for the education level (Secondary: 3000-12000 SAR), as the individual earns 4271 SAR per month which is significantly lower than the minimum expected for this education level.",True
+normal,normal,Normal record,False,0.0,False,0.014,,,,False
+normal_edge,normal,"Secondary, salary 14144 (just under 15000 cap)",False,0.0,False,0.0016,,,,False
+normal_edge,normal,"Secondary, salary 14551 (just under 15000 cap)",False,0.0,False,0.0038,,,,False
+svm_anomaly,anomaly,71yo working 76 hrs/wk,False,0.0,True,0.9859,True,0.98,"The individual's age (71) is significantly older than what would be expected for someone holding a Bachelor's degree (q_301: 10500025). Additionally, the reported usual weekly hours (cut_5_total: 76) are equal to the actual weekly hours (act_1_total: 76), which is unusual as there should typically be a difference between the two. The salary (q_602_val: 7160 SAR per month) also falls outside the expected range for a Bachelor's degree, which spans from 5000 to 25000 SAR per month.",True
+ge_anomaly,anomaly,Hours gap 43 (barely over 40 threshold),True,0.0333,True,0.8862,True,0.88,"The salary (q_602_val) of 43412 SAR falls outside the expected range for a Bachelor's degree (5000-25000 SAR), indicating a clear anomaly.",True
+normal,normal,Normal record,False,0.0,False,0.0359,,,,False
+normal,normal,Normal record,False,0.0,False,0.0096,,,,False
+svm_false_positive,normal,"PhD, 41251 SAR, 56 hrs (high-performing, valid)",False,0.0,False,0.4262,,,,False
+ge_anomaly,anomaly,"PhD, salary 7006 (barely under 8000 floor)",True,0.0333,False,0.1034,False,0.133,"The record does not show clear signs of being anomalous as per the given rules. The salary (7006 SAR) is within the range for Bachelor's degree (5,000-25,000 SAR), and the hours gap (usual: 44 hrs, actual: 46 hrs) is less than the specified threshold of 30 hours.",True
+normal,normal,Normal record,False,0.0,False,0.0093,,,,False
+ge_anomaly,anomaly,"PhD, salary 7222 (barely under 8000 floor)",True,0.0333,False,0.2766,False,0.0333,"The salary of 7222 SAR is within the range for Bachelor's degree (5000-25000 SAR), and there is a minimal hours gap (usual: 38 hrs/week, actual: 40 hrs/week) which is below the threshold of 30 hours.",True
+normal,normal,Normal record,False,0.0,False,0.3975,,,,False
+normal_unusual,normal,"Widowed head, 54yo, PhD",False,0.0,True,0.6084,True,0.6,"The record shows a salary (38308 SAR) that is outside the expected range for a bachelor's degree holder (5000-25000 SAR), and also has an unusual hours gap (act_1_total: 49 vs cut_5_total: 46) which exceeds the defined threshold of 30 hours.",True
+normal,normal,Normal record,False,0.0,False,0.0016,,,,False
+svm_anomaly,anomaly,1 hrs/wk at 32358 SAR (Master's),False,0.0,True,0.997,True,0.99,"The record is flagged because the salary (32358 SAR) falls outside the expected range for a Master's degree holder, which should be between 8000 and 35000 SAR according to the provided salary ranges by education.",True
+svm_anomaly,anomaly,2 hrs/wk at 32129 SAR (Master's),False,0.0,True,0.892,True,0.89,"The salary (q_602_val) of 32129 SAR is outside the expected range for Master's degree holders (8,000-35,000).",True
+normal,normal,Normal record,False,0.0,False,0.0026,,,,False
+normal_edge,normal,19yo with Diploma (exactly min age),False,0.0,False,0.0592,,,,False
+normal,normal,Normal record,False,0.0,False,0.0286,,,,False
+normal,normal,Normal record,False,0.0,False,0.0033,,,,False
+normal,normal,Normal record,False,0.0,False,0.0072,,,,False
+normal,normal,Normal record,False,0.0,False,0.0137,,,,False
+normal_edge,normal,"PhD, salary 8013 (just above 8000 floor)",False,0.0,True,0.6089,True,0.6,"The record is flagged due to the salary value (8013 SAR) being higher than the expected range for Bachelor's degree (5000-25000 SAR). Additionally, there is a slight discrepancy between usual weekly hours (cut_5_total=37) and actual weekly hours (act_1_total=39), which exceeds the 30 hours threshold specified in the rules.",True
+normal,normal,Normal record,False,0.0,False,0.0048,,,,False
+normal,normal,Normal record,False,0.0,False,0.0381,,,,False
+svm_anomaly,anomaly,1 hrs/wk at 33109 SAR (Master's),False,0.0,True,0.9708,True,0.97,"The record shows an anomaly as the individual's monthly salary of 33109 SAR falls outside the expected range for a Master's degree holder (8,000-35,000).",True
+normal,normal,Normal record,False,0.0,False,0.0018,,,,False
+normal,normal,Normal record,False,0.0,False,0.0082,,,,False
+normal,normal,Normal record,False,0.0,True,0.5542,True,0.55,The record is flagged due to the salary value being outside the expected range for the reported education level (No formal education). The salary of 2762 SAR per month falls below the minimum salary of 1500 SAR for this education level.,True
+normal,normal,Normal record,False,0.0,False,0.0027,,,,False
+normal_edge,normal,"PhD, salary 8177 (just above 8000 floor)",False,0.0,False,0.039,,,,False
+normal,normal,Normal record,False,0.0,False,0.0016,,,,False
+svm_anomaly,anomaly,2 hrs/wk at 44988 SAR (PhD),False,0.0,True,0.9996,True,0.99,"The record is flagged because the individual's salary (44988 SAR) falls outside the expected range for a PhD holder. The salary range for a PhD holder is 12,000-45,000 SAR per month.",True
+normal_edge,normal,"Secondary, salary 14358 (just under 15000 cap)",False,0.0,False,0.0037,,,,False
+normal_unusual,normal,"Widowed head, 46yo, Intermediate",False,0.0,False,0.008,,,,False
+ge_anomaly,anomaly,"Intermediate, salary 34261 (way over 5000 cap)",True,0.0333,True,0.7548,True,0.75,"The salary (q_602_val) of 34261 SAR is outside the expected range for intermediate education level (4,000-18,000 SAR).",True
+normal,normal,Normal record,False,0.0,False,0.0023,,,,False
+normal,normal,Normal record,False,0.0,False,0.0013,,,,False
+normal_edge,normal,"PhD, salary 8299 (just above 8000 floor)",False,0.0,False,0.0796,,,,False
+normal,normal,Normal record,False,0.0,False,0.0695,,,,False
+normal,normal,Normal record,False,0.0,False,0.0011,,,,False
+normal,normal,Normal record,False,0.0,False,0.027,,,,False
+ge_anomaly,anomaly,"PhD, salary 7520 (barely under 8000 floor)",True,0.0333,True,0.5794,True,0.6,"The record is flagged due to an anomalous salary value (7520 SAR) falling outside the expected range for Master's degree holders (8,000-35,000 SAR).",True
+svm_anomaly,anomaly,"PhD, 43534 SAR, 1 hrs",False,0.0,True,0.9921,True,0.99,"The record has an exact monthly salary (q_602_val) of 43534 SAR which falls outside the range for Bachelor's degree education (5000-25000 SAR). Additionally, there is a large gap between usual weekly hours (cut_5_total=1) and actual weekly hours (act_1_total=1), indicating an anomaly.",True
+normal,normal,Normal record,False,0.0,False,0.1092,,,,False
+normal_edge,normal,"Secondary, salary 14119 (just under 15000 cap)",False,0.0,False,0.0057,,,,False
+normal,normal,Normal record,False,0.0,False,0.0064,,,,False
+normal_edge,normal,"Secondary, salary 14203 (just under 15000 cap)",False,0.0,False,0.0015,,,,False
+normal_unusual,normal,"Widowed head, 43yo, No formal edu",False,0.0,False,0.0968,,,,False
+svm_anomaly,anomaly,"PhD, 40008 SAR, 2 hrs",False,0.0,True,0.9783,True,0.97,The record is flagged due to the salary value (40008 SAR) being outside the expected range for a bachelor's degree. The expected salary range for Bachelor's degree holders is 5000-25000 SAR per month.,True
+normal_unusual,normal,"PhD, 38995 SAR, 53 hrs",False,0.0,False,0.1911,,,,False
+normal,normal,Normal record,False,0.0,False,0.0562,,,,False
+svm_false_positive,normal,"PhD, 42214 SAR, 59 hrs (high-performing, valid)",False,0.0,False,0.4877,,,,False
+ge_anomaly,anomaly,"Bachelor's, salary 848 (under 3000 floor)",True,0.0333,False,0.0059,True,0.0333,"The record is flagged because the monthly salary (q_602_val: 848) falls outside the expected range for a Bachelor's degree holder (5,000-25,000 SAR).",True
+normal,normal,Normal record,False,0.0,False,0.0016,,,,False
+normal_edge,normal,"PhD, salary 8360 (just above 8000 floor)",False,0.0,False,0.0349,,,,False
+svm_anomaly,anomaly,75yo working 83 hrs/wk,False,0.0,True,0.9995,True,0.99,"The record is flagged because the individual's age (75) is significantly older than what would be expected for someone with a diploma (q_301=10500023), and their salary (q_602_val=16874) falls outside the salary range for a diploma holder.",True
+normal,normal,Normal record,False,0.0,False,0.0013,,,,False
+normal,normal,Normal record,False,0.0,False,0.0235,,,,False
+normal_edge,normal,"Master's, salary 5025 (just above 5000 floor)",False,0.0,False,0.1379,,,,False
+normal_unusual,normal,"Widowed head, 58yo, Master's",False,0.0,False,0.3895,,,,False
+normal,normal,Normal record,False,0.0,False,0.0296,,,,False
+ge_anomaly,anomaly,"No formal edu, salary 39236 (way over 5000 cap)",True,0.0333,True,0.9971,True,0.967,"The salary (q_602_val) of 39,236 SAR is outside the expected range for a person with no formal education.",True
+svm_anomaly,anomaly,15yo working 80 hrs/wk,False,0.0,True,0.8532,True,0.85,"The individual is 15 years old (impossible for a person to be this young given the education level of 'No formal edu') and earns a monthly salary of 2160 SAR, which falls outside the expected range for no formal education.",True
+normal_edge,normal,"Intermediate, salary 4957 (just under 5000 cap)",False,0.0,False,0.0094,,,,False
+normal,normal,Normal record,False,0.0,False,0.0104,,,,False
+normal_edge,normal,"No formal edu, salary 4864 (just under 5000 cap)",False,0.0,False,0.0521,,,,False
+svm_false_positive,normal,"Bachelor's, 22005 SAR, 64 hrs (ambitious, valid)",False,0.0,False,0.0065,,,,False
+normal,normal,Normal record,False,0.0,False,0.045,,,,False
+normal,normal,Normal record,False,0.0,False,0.0075,,,,False
+normal,normal,Normal record,False,0.0,False,0.0648,,,,False
+normal,normal,Normal record,False,0.0,False,0.063,,,,False
+normal,normal,Normal record,False,0.0,False,0.0017,,,,False
+normal,normal,Normal record,False,0.0,False,0.0026,,,,False
+normal,normal,Normal record,False,0.0,False,0.1105,,,,False
+normal,normal,Normal record,False,0.0,False,0.0007,,,,False
+normal,normal,Normal record,False,0.0,False,0.0041,,,,False
+normal,normal,Normal record,False,0.0,False,0.0021,,,,False
+svm_anomaly,anomaly,15yo working 82 hrs/wk,False,0.0,True,0.8964,True,0.89,The record is anomalous due to the individual's age (15) being significantly lower than expected for someone without formal education and earning a monthly salary of 1970 SAR.,True
+svm_anomaly,anomaly,"PhD, 39545 SAR, 1 hrs",False,0.0,True,0.9886,True,0.98,The salary of 39545 SAR per month for a woman with a PhD (q_301: 10500010) is significantly outside the expected range of 12000-45000 SAR.,True
+normal,normal,Normal record,False,0.0,False,0.2062,,,,False
+normal,normal,Normal record,False,0.0,False,0.0053,,,,False
+ge_anomaly,anomaly,Spouse but divorced,True,0.0333,False,0.0104,True,0.04,The record is anomalous as it violates the salary range rule for Bachelor's degree. The salary (8153 SAR) falls outside the given range of 5000-25000 SAR.,True
+normal,normal,Normal record,False,0.0,False,0.2834,,,,False
+normal,normal,Normal record,False,0.0,False,0.0061,,,,False
+normal_edge,normal,23yo with Master's (exactly min age),False,0.0,False,0.095,,,,False
+normal_edge,normal,"Master's, salary 5323 (just above 5000 floor)",False,0.0,False,0.0748,,,,False
+normal,normal,Normal record,False,0.0,False,0.0099,,,,False
+normal,normal,Normal record,False,0.0,False,0.0898,,,,False
+normal,normal,Normal record,False,0.0,False,0.0134,,,,False
+normal_edge,normal,"No formal edu, salary 4906 (just under 5000 cap)",False,0.0,False,0.0531,,,,False
+normal,normal,Normal record,False,0.0,False,0.1601,,,,False
+ge_anomaly,anomaly,"Master's, salary 2727 (under 5000 floor)",True,0.0667,False,0.1016,True,0.1667,"The record is flagged due to the salary (q_602_val) being outside the expected range for Master's degree holders (8,000-35,000 SAR), with a reported salary of 2727 SAR. Additionally, there is an unusual discrepancy between usual and actual weekly hours (cut_5_total: 39, act_1_total: 41).",True
+normal,normal,Normal record,False,0.0,False,0.001,,,,False
+normal,normal,Normal record,False,0.0,False,0.0013,,,,False
+normal,normal,Normal record,False,0.0,False,0.0273,,,,False
+normal,normal,Normal record,False,0.0,False,0.0015,,,,False
+normal,normal,Normal record,False,0.0,False,0.0015,,,,False
+normal,normal,Normal record,False,0.0,False,0.1723,,,,False
+ge_anomaly,anomaly,13yo child earning 2994 SAR,True,0.0333,True,0.8876,True,0.913,"The individual is a 13-year-old female (age: 13, gender: 1600002) who is reported to be unmarried (marriage_status: 10600001), and has no formal education (q_301: 10500031). These attributes are highly unlikely in the Saudi Labour Force Survey context, thus flagged as an anomaly.",True
+normal,normal,Normal record,False,0.0,False,0.1099,,,,False
+svm_anomaly,anomaly,1 hrs/wk at 32755 SAR (Master's),False,0.0,True,0.9237,True,0.92,The individual's salary (32755 SAR) is significantly higher than expected for a Master's degree holder according to the provided salary ranges.,True
+normal,normal,Normal record,False,0.0,False,0.173,,,,False
+ge_anomaly,anomaly,Hours gap 43 (barely over 40 threshold),True,0.0333,False,0.3211,True,0.353,"The record shows a monthly salary of 20,208 SAR for a bachelor's degree holder, which falls outside the expected range of 5,000-25,000 SAR according to the provided salary ranges by education.",True
+normal,normal,Normal record,False,0.0,False,0.0288,,,,False
+normal_edge,normal,"Master's, salary 5132 (just above 5000 floor)",False,0.0,False,0.1212,,,,False
+normal,normal,Normal record,False,0.0,False,0.1163,,,,False
+svm_anomaly,anomaly,74yo working 77 hrs/wk,False,0.0,True,0.9976,True,0.99,"The record shows a 74-year-old individual (age) with intermediate education (q_301), earning a monthly salary of 3272 SAR (q_602_val). This combination is outside the plausible range according to the provided rules. The salary falls below the minimum salary for an individual with intermediate education (3,000-12,000 SAR), and the age is significantly higher than the typical age for someone with this level of education.",True
+normal,normal,Normal record,False,0.0,False,0.0025,,,,False
+normal,normal,Normal record,False,0.0,False,0.003,,,,False
+normal,normal,Normal record,False,0.0,False,0.0025,,,,False
+normal,normal,Normal record,False,0.0,False,0.0375,,,,False
+normal_unusual,normal,"17yo no edu, 46 hrs",False,0.0,False,0.4082,,,,False
+normal_edge,normal,"PhD, salary 8313 (just above 8000 floor)",False,0.0,False,0.1956,,,,False
+normal_unusual,normal,"PhD, 40718 SAR, 52 hrs",False,0.0,True,0.9397,True,0.93,"The salary of 40718 SAR for a Bachelor's degree holder is outside the expected range (5000-25000 SAR), making it an anomalous record.",True
+normal,normal,Normal record,False,0.0,False,0.0013,,,,False
+normal_edge,normal,"Master's, salary 5100 (just above 5000 floor)",False,0.0,False,0.0231,,,,False
+normal_unusual,normal,"18yo no edu, 49 hrs",False,0.0,False,0.3164,,,,False
+svm_anomaly,anomaly,1 hrs/wk at 34938 SAR (PhD),False,0.0,True,0.9824,True,0.98,The salary (34938 SAR) for a Bachelor's degree holder is significantly higher than the expected range of 5000-25000 SAR.,True
+svm_anomaly,anomaly,15yo working 84 hrs/wk,False,0.0,True,0.788,True,0.78,"The age (15) is clearly outside plausible ranges for an individual with primary education, and the monthly salary (2579 SAR) is also outside the expected range for individuals with primary education (1500-5000 SAR)",True
+normal_unusual,normal,"PhD, 44965 SAR, 50 hrs",False,0.0,False,0.349,,,,False
+normal_edge,normal,"Master's, salary 5479 (just above 5000 floor)",False,0.0,False,0.1737,,,,False
+normal,normal,Normal record,False,0.0,False,0.0105,,,,False
+normal,normal,Normal record,False,0.0,False,0.4562,,,,False
+normal,normal,Normal record,False,0.0,False,0.0014,,,,False
+normal,normal,Normal record,False,0.0,False,0.06,,,,False
+normal,normal,Normal record,False,0.0,False,0.0154,,,,False
+normal,normal,Normal record,False,0.0,False,0.0218,,,,False
+normal,normal,Normal record,False,0.0,False,0.0292,,,,False
+ge_anomaly,anomaly,"PhD, salary 7044 (barely under 8000 floor)",True,0.0333,False,0.0627,False,0.033,"The salary (7044 SAR) falls within the expected range for Bachelor's degree (5000-25000 SAR). The usual weekly hours (45) and actual weekly hours (47) differ by only 2 hours, which is less than the specified threshold of 30 hours.",True
+normal,normal,Normal record,False,0.0,False,0.055,,,,False
+normal_unusual,normal,"59yo Master's, 33975 SAR",False,0.0,True,0.7016,True,0.7,"The record is flagged as anomalous due to a salary of 33975 SAR, which falls outside the expected range for Master's degree holders (8000-35000 SAR), and also due to a slight discrepancy in hours between usual (47) and actual (49) work hours.",True
+normal_edge,normal,Hours gap 37 (just under 40 threshold),False,0.0,False,0.0257,,,,False
+normal_unusual,normal,"PhD, 38730 SAR, 50 hrs",False,0.0,False,0.0665,,,,False
+normal,normal,Normal record,False,0.0,False,0.3608,,,,False
+normal,normal,Normal record,False,0.0,False,0.0626,,,,False
+normal,normal,Normal record,False,0.0,False,0.1649,,,,False
+normal_unusual,normal,"PhD, 43931 SAR, 51 hrs",False,0.0,False,0.2143,,,,False
+normal_unusual,normal,"58yo PhD, 43961 SAR",False,0.0,True,0.9089,True,0.9,"The record is flagged due to an anomalous salary. The individual with a Bachelor's degree (q_301: 10500025) has a monthly salary of 43,961 SAR (q_602_val), which falls outside the expected range of 5,000-25,000 SAR for this education level.",True
+normal,normal,Normal record,False,0.0,False,0.0661,,,,False
+normal,normal,Normal record,False,0.0,False,0.0038,,,,False
+normal,normal,Normal record,False,0.0,False,0.0706,,,,False
+normal,normal,Normal record,False,0.0,False,0.0344,,,,False
+normal,normal,Normal record,False,0.0,False,0.0044,,,,False
+normal_edge,normal,23yo with Master's (exactly min age),False,0.0,False,0.1401,,,,False
+normal_unusual,normal,"PhD, 38057 SAR, 54 hrs",False,0.0,False,0.2799,,,,False
+normal,normal,Normal record,False,0.0,False,0.0013,,,,False
+normal,normal,Normal record,False,0.0,False,0.0493,,,,False
+normal,normal,Normal record,False,0.0,False,0.0978,,,,False
+normal,normal,Normal record,False,0.0,False,0.0159,,,,False
+normal,normal,Normal record,False,0.0,False,0.0885,,,,False
+normal,normal,Normal record,False,0.0,False,0.0248,,,,False
+normal,normal,Normal record,False,0.0,False,0.0066,,,,False
+normal_edge,normal,Hours gap 38 (just under 40 threshold),False,0.0,True,0.5104,True,0.73,"The salary of 15709 SAR is outside the range for a Bachelor's degree (5000-25000 SAR). Additionally, there is a significant gap between usual (cut_5_total=70) and actual weekly hours (act_1_total=32), which exceeds the rule of having a gap greater than 30.",True
+svm_anomaly,anomaly,70yo working 81 hrs/wk,False,0.0,True,0.9997,True,0.99,"The record is anomalous as the individual's age (70) is significantly older than what would be expected for a Master's degree holder (typically younger population), and their salary (28588 SAR per month) falls outside the expected range for Master's degree holders (8,000-35,000 SAR). Additionally, there is no discrepancy between usual and actual weekly hours in this record.",True
+normal,normal,Normal record,False,0.0,False,0.0113,,,,False
+ge_anomaly,anomaly,"PhD, salary 902 (way under 8000 floor)",True,0.1,False,0.1391,False,0.13,"The record was flagged due to the statistical model confidence of 13%, but upon review, the salary of 902 SAR for a Bachelor's degree (q_301: 10500025) falls within the expected salary range of 5,000-25,000 SAR. The usual weekly hours (cut_5_total: 45) and actual weekly hours (act_1_total: 44) are also close enough to be considered normal.",True
+svm_anomaly,anomaly,1 hrs/wk at 30807 SAR (Master's),False,0.0,True,0.9253,True,0.92,"The record is flagged due to an extremely high salary (q_602_val: 30807 SAR) compared to the expected range for a Master's degree holder (8,000-35,000). This salary anomaly is the reason for the flag.",True
+ge_anomaly,anomaly,Hours gap 68 (extreme),True,0.0333,True,0.9933,True,0.99,The record was flagged due to the salary value (17114 SAR) falling outside the expected range for a Diploma holder (4000-18000 SAR).,True
+ge_anomaly,anomaly,Hours gap 74 (extreme),True,0.0333,True,0.9949,True,0.967,"The individual is a divorced female with a diploma (q_301=10500023) earning a salary of 11919 SAR per month (q_602_val), which is significantly lower than the expected salary range for this education level (4000-18000 SAR). Additionally, there's a large discrepancy between usual weekly hours (cut_5_total=77) and actual weekly hours (act_1_total=3), indicating an hours gap of 74 hours which is higher than the specified threshold for anomaly detection (>30 hours).",True
+ge_anomaly,anomaly,"Intermediate, salary 22274 (way over 5000 cap)",True,0.0333,False,0.1332,True,0.16,"The record is flagged because the salary (22274 SAR) falls outside the expected range for the indicated education level (Intermediate, 10500017), which ranges from 1500 to 5000 SAR. Additionally, there is a slight discrepancy between usual and actual weekly hours (usual: 46 hrs, actual: 48 hrs), although this discrepancy is within the acceptable range of 30 hours.",True
+normal,normal,Normal record,False,0.0,False,0.0087,,,,False
+normal,normal,Normal record,False,0.0,False,0.0091,,,,False
+normal,normal,Normal record,False,0.0,False,0.009,,,,False
+normal_edge,normal,Hours gap 35 (just under 40 threshold),False,0.0,False,0.3154,,,,False
+normal,normal,Normal record,False,0.0,False,0.014,,,,False
+normal,normal,Normal record,False,0.0,False,0.0114,,,,False
+svm_anomaly,anomaly,1 hrs/wk at 39915 SAR (PhD),False,0.0,True,0.9968,True,0.99,The record is flagged due to a clear salary outside the education range for a Bachelor's degree. The reported salary of 39915 SAR per month falls above the specified range of 5000-25000 SAR for this level of education.,True
+svm_anomaly,anomaly,72yo working 79 hrs/wk,False,0.0,True,0.9994,True,0.99,"The individual is 72 years old and has no formal education (q_301: 10500031), yet their monthly salary (q_602_val) of 3728 SAR falls within the ranges for individuals with higher levels of education, such as Secondary, Diploma, Bachelor's, Master's, or PhD.",True
+normal_unusual,normal,"56yo PhD, 14296 SAR",False,0.0,False,0.2848,,,,False
+ge_anomaly,anomaly,"Master's, salary 3185 (under 5000 floor)",True,0.0333,False,0.0201,True,0.05,"The record was flagged due to the salary (Q_602_val) being outside the expected range for Master's degree holders (8,000-35,000 SAR). The actual salary of 3185 SAR falls below the minimum salary for this education level.",True
+normal,normal,Normal record,False,0.0,False,0.0118,,,,False
+normal,normal,Normal record,False,0.0,False,0.0029,,,,False
+normal_unusual,normal,"Widowed head, 41yo, Bachelor's",False,0.0,False,0.0016,,,,False
+normal,normal,Normal record,False,0.0,False,0.0205,,,,False
+normal_edge,normal,"Secondary, salary 14603 (just under 15000 cap)",False,0.0,False,0.0021,,,,False
+normal,normal,Normal record,False,0.0,False,0.0013,,,,False
+normal,normal,Normal record,False,0.0,False,0.0018,,,,False
+svm_anomaly,anomaly,"PhD, 44816 SAR, 2 hrs",False,0.0,True,0.9992,True,0.99,"The salary (q_602_val) of 44816 SAR is significantly higher than the expected range for a Bachelor's degree (5000-25000 SAR). Additionally, there seems to be an inconsistency in hours worked (cut_5_total and act_1_total), as both are reported as 2, which might indicate a data entry error.",True
+normal,normal,Normal record,False,0.0,False,0.0123,,,,False
+normal_edge,normal,Hours gap 36 (just under 40 threshold),False,0.0,True,0.9506,True,0.95,The record is flagged due to the salary value (1647 SAR) being outside the expected range for no formal education (1500-5000 SAR).,True
+normal_edge,normal,17yo with Secondary (exactly min age),False,0.0,False,0.059,,,,False
+normal,normal,Normal record,False,0.0,False,0.0136,,,,False
+normal,normal,Normal record,False,0.0,False,0.0327,,,,False
+normal_unusual,normal,"17yo no edu, 49 hrs",False,0.0,False,0.395,,,,False
+normal_edge,normal,"Intermediate, salary 4967 (just under 5000 cap)",False,0.0,False,0.0088,,,,False
+normal,normal,Normal record,False,0.0,False,0.0105,,,,False
+normal_unusual,normal,"Widowed head, 36yo, Primary",False,0.0,False,0.0054,,,,False
+normal,normal,Normal record,False,0.0,False,0.0013,,,,False
+normal,normal,Normal record,False,0.0,False,0.0087,,,,False
+normal_unusual,normal,"PhD, 43661 SAR, 49 hrs",False,0.0,False,0.102,,,,False
+normal,normal,Normal record,False,0.0,False,0.0079,,,,False
+normal_unusual,normal,"57yo PhD, 38147 SAR",False,0.0,True,0.8111,True,0.81,The record is flagged because the monthly salary (38147 SAR) for a Bachelor's degree holder (10500025) is significantly higher than the expected range of 5000-25000 SAR.,True
+normal_edge,normal,"Secondary, salary 14692 (just under 15000 cap)",False,0.0,False,0.0073,,,,False
+normal,normal,Normal record,False,0.0,False,0.2295,,,,False
+normal_edge,normal,"PhD, salary 8033 (just above 8000 floor)",False,0.0,False,0.0574,,,,False
+normal,normal,Normal record,False,0.0,False,0.0755,,,,False
+svm_anomaly,anomaly,15yo working 81 hrs/wk,False,0.0,True,0.8788,True,0.93,"The record shows an individual aged 15 (impossible for the education level of No formal edu) earning a monthly salary of 1753 SAR, which falls outside the expected range for No formal edu/Primary: 1,500-5,000. Additionally, there is no difference between usual and actual weekly hours (cut_5_total=81, act_1_total=81), which might be a data entry error or rounding issue.",True
+svm_anomaly,anomaly,16yo working 80 hrs/wk,False,0.0,True,0.8044,True,0.8,"The individual is 16 years old and has no formal education (q_301: 10500031), earning a monthly salary of 2732 SAR (q_602_val). This combination significantly deviates from the provided salary ranges by education, as individuals at this age and educational level are not expected to earn such a high salary.",True
+normal,normal,Normal record,False,0.0,False,0.0043,,,,False
+normal,normal,Normal record,False,0.0,False,0.0017,,,,False
+normal_unusual,normal,"17yo no edu, 50 hrs",False,0.0,False,0.3542,,,,False
+ge_anomaly,anomaly,16yo with Bachelor's (min 21),True,0.1,False,0.2688,True,0.36,"The individual is a female (gender: 1600002) with Bachelor's education (q_301: 10500025), but has an unusual monthly salary of 18529 SAR, which falls outside the expected salary range for her educational level (5000-25000 SAR). Additionally, there is a slight discrepancy between usual weekly hours (cut_5_total: 44) and actual weekly hours (act_1_total: 42), but it does not exceed the threshold of 30 hours.",True
+normal_edge,normal,"Secondary, salary 14969 (just under 15000 cap)",False,0.0,False,0.0058,,,,False
+svm_anomaly,anomaly,16yo working 81 hrs/wk,False,0.0,True,0.5944,True,0.59,"The record is flagged due to the salary being outside the expected range for the education level (Primary) which is 1,500-5,000 SAR. The reported salary of 1823 SAR falls outside this range.",True
+svm_anomaly,anomaly,76yo working 80 hrs/wk,False,0.0,True,0.9992,True,0.99,"The salary (8993 SAR) falls outside the expected range for a bachelor's degree (5000-25000 SAR). Additionally, the usual and actual weekly hours (80 hours each) suggest an unusually high workload.",True
+svm_anomaly,anomaly,15yo working 81 hrs/wk,False,0.0,True,0.8792,True,0.87,"The individual is a 15-year-old (age) male (gender), unmarried (marriage_status), and has no formal education (q_301). The salary of 1707 SAR per month falls outside the expected ranges for individuals with no formal education.",True
+normal,normal,Normal record,False,0.0,False,0.0014,,,,False
+normal,normal,Normal record,False,0.0,False,0.0008,,,,False
+ge_anomaly,anomaly,"Intermediate, salary 5855 (barely over 5000 cap)",True,0.0333,False,0.0058,True,0.0333,The record is anomalous due to the salary (q_602_val) falling outside the expected range for the stated education level (Intermediate). The salary of 5855 SAR per month is significantly lower than the minimum expected range of 3000 SAR for individuals with Intermediate education.,True
+svm_anomaly,anomaly,69yo working 78 hrs/wk,False,0.0,True,0.9846,True,0.98,"The record is flagged due to the salary value (15993 SAR) falling below the expected range for Bachelor's degree (minimum 5000 SAR according to provided rules). Additionally, there is no discrepancy found in usual and actual weekly hours.",True
+normal,normal,Normal record,False,0.0,False,0.097,,,,False
+normal,normal,Normal record,False,0.0,False,0.0421,,,,False
+normal_unusual,normal,"18yo no edu, 46 hrs",False,0.0,False,0.3246,,,,False
+normal_edge,normal,"Secondary, salary 14504 (just under 15000 cap)",False,0.0,False,0.1101,,,,False
+normal_edge,normal,23yo with Master's (exactly min age),False,0.0,False,0.1016,,,,False
+ge_anomaly,anomaly,Hours gap 75 (extreme),True,0.0333,True,0.9978,True,0.967,"The record shows an unusual discrepancy between usual (75 hours) and actual weekly hours (0 hours), indicating a potential inconsistency in the reported work hours.",True
+normal_edge,normal,"Primary, salary 4911 (just under 5000 cap)",False,0.0,False,0.021,,,,False
+normal,normal,Normal record,False,0.0,False,0.0051,,,,False
+normal,normal,Normal record,False,0.0,False,0.0177,,,,False
+ge_anomaly,anomaly,14yo child earning 1913 SAR,True,0.0333,True,0.928,True,0.953,"The individual is a 14-year-old (age) with no formal education (q_301), earning 1913 SAR per month (q_602_val). This combination is highly unusual and outside the plausible ranges for this demographic.",True
+normal,normal,Normal record,False,0.0,False,0.0672,,,,False
+svm_false_positive,normal,"Diploma, 16324 SAR, 51 hrs (skilled tech, valid)",False,0.0,False,0.0014,,,,False
+ge_anomaly,anomaly,Hours gap 42 (barely over 40 threshold),True,0.0333,False,0.3094,True,0.333,The salary of 1934 SAR per month for an individual with primary education falls outside the expected range (1500-5000 SAR) according to the provided salary ranges by education.,True
+normal,normal,Normal record,False,0.0,False,0.1508,,,,False
+normal_edge,normal,25yo with PhD (exactly min age),False,0.0,False,0.3083,,,,False
+normal,normal,Normal record,False,0.0,False,0.0296,,,,False
+ge_anomaly,anomaly,"PhD, salary 1944 (way under 8000 floor)",True,0.1,False,0.1033,True,0.1,The record shows a salary of 1944 SAR which falls outside the expected range for Bachelor's degree (5000-25000 SAR).,True
+normal,normal,Normal record,False,0.0,False,0.0057,,,,False
+normal,normal,Normal record,False,0.0,False,0.0649,,,,False
+normal,normal,Normal record,False,0.0,False,0.0067,,,,False
+ge_anomaly,anomaly,Hours gap 41 (barely over 40 threshold),True,0.0333,False,0.2294,True,0.255,"The record was flagged due to the salary being outside the expected range for the education level (Primary: 1,500-5,000 SAR), with the reported monthly salary of 1662 SAR falling below the minimum specified range.",True
+normal_edge,normal,"PhD, salary 8228 (just above 8000 floor)",False,0.0,False,0.4933,,,,False
+normal,normal,Normal record,False,0.0,False,0.0085,,,,False
+normal,normal,Normal record,False,0.0,False,0.2119,,,,False
+svm_anomaly,anomaly,"PhD, 43434 SAR, 3 hrs",False,0.0,True,0.9895,True,0.98,"The record is flagged because the salary (q_602_val) of 43434 SAR per month falls outside the expected range for a Bachelor's degree (5,000-25,000 SAR). The usual weekly hours (cut_5_total) and actual weekly hours (act_1_total) are both 3 hours, which may seem unusual but do not necessarily indicate an anomaly since the statistical model is focused on larger discrepancies.",True
+svm_anomaly,anomaly,"PhD, 36596 SAR, 1 hrs",False,0.0,True,0.9748,True,0.97,The salary (36596 SAR) falls outside the expected range for a Bachelor's degree which is 5000-25000 SAR per month.,True
+normal,normal,Normal record,False,0.0,False,0.0019,,,,False
+ge_anomaly,anomaly,"PhD, salary 7809 (barely under 8000 floor)",True,0.0333,False,0.3265,True,0.353,"The record is anomalous because the reported salary (7809 SAR) falls outside the expected range for a Bachelor's degree (5000-25000 SAR). Additionally, there is a slight discrepancy in weekly hours (usual: 37 hrs, actual: 35 hrs), but this does not meet the threshold of >30 hours to be considered an anomaly.",True
+normal,normal,Normal record,False,0.0,False,0.175,,,,False
+normal,normal,Normal record,False,0.0,False,0.0078,,,,False
+normal,normal,Normal record,False,0.0,False,0.0127,,,,False
+normal_edge,normal,"Secondary, salary 14072 (just under 15000 cap)",False,0.0,False,0.0015,,,,False
+normal,normal,Normal record,False,0.0,False,0.0878,,,,False
+normal_edge,normal,21yo with Bachelor's (exactly min age),False,0.0,False,0.0383,,,,False
+ge_anomaly,anomaly,Spouse but divorced,True,0.0333,False,0.0183,True,0.04,The flagged record shows a discrepancy between the reported salary and the expected salary range for the given education level (Intermediate) according to the provided salary ranges by education: 3818 SAR is outside the range of 1500-12000 SAR.,True
+normal_unusual,normal,"Widowed head, 30yo, No formal edu",False,0.0,False,0.0863,,,,False
+normal_edge,normal,Hours gap 36 (just under 40 threshold),False,0.0,False,0.3929,,,,False
+normal,normal,Normal record,False,0.0,False,0.0714,,,,False
+normal,normal,Normal record,False,0.0,False,0.0032,,,,False
+normal,normal,Normal record,False,0.0,False,0.1101,,,,False
+svm_anomaly,anomaly,72yo working 80 hrs/wk,False,0.0,True,1.0,True,1.0,"The record is anomalous because the individual (age 72) with a PhD education level (q_301: 10500010) is earning a salary of 35433 SAR per month (q_602_val), which falls outside the expected range for this education level (12,000-45,000 SAR).",True
+normal,normal,Normal record,False,0.0,False,0.2551,,,,False
+normal_unusual,normal,"59yo PhD, 33636 SAR",False,0.0,True,0.8483,True,0.84,"The record is flagged due to the salary (q_602_val) being significantly higher than the expected range for a Bachelor's degree holder (5,000-25,000 SAR). In this case, the recorded salary of 33636 SAR is clearly outside the specified range.",True
+svm_anomaly,anomaly,15yo working 81 hrs/wk,False,0.0,True,0.6656,True,0.66,The record has an age of 15 which is outside plausible range for someone who has no formal education according to provided salary ranges.,True
+svm_anomaly,anomaly,"Master's, 32596 SAR, 3 hrs",False,0.0,True,0.9499,True,0.94,"The record was flagged due to the salary value (q_602_val=32596) being significantly higher than expected for a Bachelor's degree holder (education level: 10500025). The salary range for Bachelor's degree holders is 5,000-25,000 SAR, and the given salary of 32,596 SAR is outside this range.",True
+normal,normal,Normal record,False,0.0,False,0.0488,,,,False
+normal,normal,Normal record,False,0.0,False,0.0011,,,,False
+normal,normal,Normal record,False,0.0,False,0.0052,,,,False
+normal,normal,Normal record,False,0.0,False,0.2035,,,,False
+svm_anomaly,anomaly,15yo working 83 hrs/wk,False,0.0,True,0.7422,True,0.96,"The individual is a 15-year-old (age) who is stated to be unmarried (marriage_status), and holding a primary education level (q_301). However, the reported monthly salary of 2845 SAR (q_602_val) significantly exceeds the expected range for this demographic group. Additionally, the weekly hours are consistent between usual (cut_5_total) and actual (act_1_total), but both values are very low, which may also be questionable.",True
+svm_false_positive,normal,"Master's, 28759 SAR, 56 hrs (senior professional, valid)",False,0.0,False,0.0317,,,,False
+normal_edge,normal,"Secondary, salary 14774 (just under 15000 cap)",False,0.0,False,0.003,,,,False
+normal,normal,Normal record,False,0.0,True,0.8666,True,0.86,"The record is flagged because the salary (q_602_val) of 35816 SAR per month for a bachelor's degree holder (q_301=10500025) falls outside the expected range of 5,000-25,000 SAR for this education level.",True
+normal,normal,Normal record,False,0.0,False,0.091,,,,False
+normal,normal,Normal record,False,0.0,False,0.0082,,,,False
+ge_anomaly,anomaly,Hours gap 65 (extreme),True,0.0333,True,0.9715,True,0.967,"The record is flagged as anomalous due to a significant discrepancy between the reported monthly salary (q_602_val: 6066 SAR) and the expected range for secondary education level (3,000-12,000 SAR). Additionally, there is an unusual gap in weekly hours between usual (cut_5_total: 70 hrs) and actual (act_1_total: 5 hrs), which exceeds the established threshold of 30 hours.",True
+normal_edge,normal,"Master's, salary 5355 (just above 5000 floor)",False,0.0,False,0.0833,,,,False
+normal,normal,Normal record,False,0.0,False,0.0046,,,,False
+normal_unusual,normal,"56yo PhD, 20942 SAR",False,0.0,False,0.3493,,,,False
+normal_unusual,normal,"Widowed head, 57yo, Master's",False,0.0,False,0.2763,,,,False
+ge_anomaly,anomaly,"Master's, salary 4842 (under 5000 floor)",True,0.0333,False,0.0426,True,0.07,"The salary (q_602_val) of 4842 SAR falls outside the expected range for a Master's degree (8,000-35,000). Additionally, there is a significant hours gap (act_1_total = 36 vs cut_5_total = 38), which is greater than 30.",True
+normal_edge,normal,"Secondary, salary 14368 (just under 15000 cap)",False,0.0,False,0.0026,,,,False
+normal,normal,Normal record,False,0.0,False,0.0022,,,,False
+normal,normal,Normal record,False,0.0,False,0.1895,,,,False
+normal_unusual,normal,"PhD, 44344 SAR, 53 hrs",False,0.0,False,0.3679,,,,False
+normal_edge,normal,"Secondary, salary 14039 (just under 15000 cap)",False,0.0,False,0.0029,,,,False
+svm_anomaly,anomaly,2 hrs/wk at 36322 SAR (PhD),False,0.0,True,0.9992,True,0.99,"The salary of 36,322 SAR per month falls outside the range for a PhD (12,000-45,000 SAR). Additionally, there is a large discrepancy between the usual and actual weekly hours, with only 2 hours compared to the total cut_5_total of 40 hours.",True
+ge_anomaly,anomaly,"Primary, salary 37754 (way over 5000 cap)",True,0.0333,True,0.9068,True,0.933,"The record is anomalous due to the salary value being higher than the expected range for a secondary education level (3,000-12,000 SAR). Additionally, there is a slight discrepancy in weekly hours between usual (cut_5_total: 39) and actual (act_1_total: 36), although it's less than the specified threshold of 30.",True
+normal,normal,Normal record,False,0.0,False,0.0141,,,,False
+normal_edge,normal,"PhD, salary 8138 (just above 8000 floor)",False,0.0,False,0.0865,,,,False
+normal,normal,Normal record,False,0.0,False,0.0299,,,,False
+normal,normal,Normal record,False,0.0,False,0.0939,,,,False
+normal_unusual,normal,"61yo PhD, 44883 SAR",False,0.0,True,0.9758,True,0.97,"The record has a salary (q_602_val) of 44883 SAR which falls outside the specified range for Bachelor's degree (5000-25000 SAR). Also, there is a discrepancy in weekly hours between usual (cut_5_total: 38) and actual (act_1_total: 41), indicating a gap of more than 30 hours.",True
+normal,normal,Normal record,False,0.0,False,0.0668,,,,False
+normal_edge,normal,"PhD, salary 8116 (just above 8000 floor)",False,0.0,False,0.4046,,,,False
+ge_anomaly,anomaly,"Intermediate, salary 5702 (barely over 5000 cap)",True,0.0333,False,0.0292,True,0.05,The record has an unusual salary value (5702 SAR) that falls outside the expected range for secondary education (3000-12000 SAR).,True
+ge_anomaly,anomaly,Hours gap 42 (barely over 40 threshold),True,0.0333,False,0.1216,True,0.153,"The record is flagged because the salary (8232 SAR) falls outside the expected range for diploma holders (4000-18000 SAR). Additionally, there is a large difference between the usual weekly hours (60 hours) and actual weekly hours (18 hours), which exceeds the allowed gap of 30 hours.",True
+ge_anomaly,anomaly,"PhD, salary 7890 (barely under 8000 floor)",True,0.0333,False,0.0888,True,0.11,The salary (7890 SAR) falls outside the expected range for a Bachelor's degree holder. The expected range is between 5000 and 25000 SAR.,True
+normal,normal,Normal record,False,0.0,False,0.0381,,,,False
+normal,normal,Normal record,False,0.0,False,0.1034,,,,False
+normal,normal,Normal record,False,0.0,False,0.005,,,,False
+normal,normal,Normal record,False,0.0,False,0.0102,,,,False
+normal_edge,normal,"Secondary, salary 14056 (just under 15000 cap)",False,0.0,False,0.0042,,,,False
+ge_anomaly,anomaly,"Intermediate, salary 29452 (way over 5000 cap)",True,0.0333,False,0.3448,True,0.37,"The record is flagged due to the salary (29452 SAR) being slightly outside the expected range for Intermediate education (1,500-5,000 SAR). However, it's important to note that there can be exceptions in real-world data. This record might not necessarily be an anomaly, but it falls close to the boundary of the expected salary range.",True
+normal_edge,normal,Hours gap 37 (just under 40 threshold),False,0.0,False,0.0333,,,,False
+normal_edge,normal,Hours gap 36 (just under 40 threshold),False,0.0,False,0.096,,,,False
+normal_unusual,normal,"Widowed head, 30yo, Secondary",False,0.0,False,0.0021,,,,False
+normal,normal,Normal record,False,0.0,False,0.0041,,,,False
+normal,normal,Normal record,False,0.0,False,0.0837,,,,False
+svm_anomaly,anomaly,2 hrs/wk at 32185 SAR (Master's),False,0.0,True,0.9984,True,0.99,"The salary value of 32185 SAR is significantly higher than expected for a Master's degree holder and falls outside the provided education range (8000-35000 SAR). Additionally, there seems to be an issue with the weekly hours as both usual and actual hours are reported as 2, which appears implausible.",True
+normal_edge,normal,"Primary, salary 4843 (just under 5000 cap)",False,0.0,False,0.0148,,,,False
+svm_anomaly,anomaly,1 hrs/wk at 32362 SAR (Master's),False,0.0,True,0.9457,True,0.94,"The record is flagged because the monthly salary (32362 SAR) falls outside the expected range for a Master's degree holder. For Master's degree holders, the expected salary range is 8000-35000 SAR per month.",True
+svm_false_positive,normal,"Bachelor's, 22820 SAR, 56 hrs (ambitious, valid)",False,0.0,False,0.0063,,,,False
+normal,normal,Normal record,False,0.0,False,0.0092,,,,False
+normal,normal,Normal record,False,0.0,False,0.0656,,,,False
+ge_anomaly,anomaly,"Secondary, salary 32980 (over 15000 cap)",True,0.0333,False,0.1308,True,0.163,The record is anomalous due to a salary value (q_602_val=32980) that falls outside the expected range for secondary education (3000-12000 SAR).,True
+normal,normal,Normal record,False,0.0,False,0.0784,,,,False
+normal,normal,Normal record,False,0.0,False,0.0105,,,,False
+normal,normal,Normal record,False,0.0,False,0.1461,,,,False
+svm_anomaly,anomaly,69yo working 83 hrs/wk,False,0.0,True,0.9955,True,0.99,"The individual's monthly salary (q_602_val=2121) is outside the expected range for their education level (Intermediate). The expected salary range for individuals with an intermediate education is 3,000-18,000 SAR per month.",True
+svm_anomaly,anomaly,74yo working 84 hrs/wk,False,0.0,True,0.9998,True,0.99,"The record is flagged due to the salary value (24463 SAR) being significantly higher than the expected range for a Bachelor's degree (5000-25000 SAR). Additionally, the usual and actual weekly hours (84) are the same, which could potentially indicate inconsistency or error.",True
+normal,normal,Normal record,False,0.0,False,0.0615,,,,False
+normal,normal,Normal record,False,0.0,False,0.1558,,,,False
+normal_edge,normal,"PhD, salary 8103 (just above 8000 floor)",False,0.0,False,0.3827,,,,False
+normal_unusual,normal,"PhD, 43219 SAR, 54 hrs",False,0.0,True,0.9022,True,0.9,"The individual's salary (43219 SAR) falls outside the expected range for Bachelor's degree holders (5000-25000 SAR). Additionally, there is a discrepancy between usual and actual weekly hours (54 vs 56 hours), but since the gap is less than 30 hours, it might not be sufficient to classify this record as anomalous on its own.",True
+normal,normal,Normal record,False,0.0,False,0.0077,,,,False
+normal_unusual,normal,"Widowed head, 30yo, Primary",False,0.0,False,0.0064,,,,False
+normal_edge,normal,"Secondary, salary 14494 (just under 15000 cap)",False,0.0,False,0.0027,,,,False
+normal,normal,Normal record,False,0.0,False,0.1531,,,,False
+normal,normal,Normal record,False,0.0,False,0.0077,,,,False
+normal,normal,Normal record,False,0.0,False,0.019,,,,False
+normal,normal,Normal record,False,0.0,False,0.0028,,,,False
+svm_anomaly,anomaly,16yo working 78 hrs/wk,False,0.0,False,0.4319,,,,False
+svm_false_positive,normal,"Master's, 29356 SAR, 60 hrs (senior professional, valid)",False,0.0,False,0.2063,,,,False
+normal_unusual,normal,"18yo no edu, 45 hrs",False,0.0,False,0.3519,,,,False
+normal_edge,normal,17yo with Secondary (exactly min age),False,0.0,False,0.072,,,,False
+normal_edge,normal,"Secondary, salary 14402 (just under 15000 cap)",False,0.0,False,0.0038,,,,False
+normal,normal,Normal record,False,0.0,False,0.0024,,,,False
+normal,normal,Normal record,False,0.0,False,0.0359,,,,False
+normal,normal,Normal record,False,0.0,False,0.0636,,,,False
+svm_anomaly,anomaly,71yo working 82 hrs/wk,False,0.0,True,0.9998,True,0.99,"The salary (22587 SAR) is significantly higher than the expected range for a bachelor's degree (5000-25000 SAR), and the individual is also unmarried (10600001) which is unusual for a head of household (1700001).",True
+normal,normal,Normal record,False,0.0,False,0.0136,,,,False
+svm_false_positive,normal,"Bachelor's, 22189 SAR, 58 hrs (ambitious, valid)",False,0.0,False,0.0041,,,,False
+ge_anomaly,anomaly,"Master's, salary 3415 (under 5000 floor)",True,0.0333,False,0.0619,False,0.0333,"The salary of 3415 SAR falls within the expected range for Master's degree holders (8000-35000 SAR). The gender, age, marital status, family relation, nationality, education level, usual weekly hours (cut_5_total=42), and actual weekly hours (act_1_total=40) are all within plausible ranges. Therefore, the record is not considered an anomaly.",True
+normal,normal,Normal record,False,0.0,False,0.2879,,,,False
+normal,normal,Normal record,False,0.0,False,0.0122,,,,False
+svm_anomaly,anomaly,16yo working 83 hrs/wk,False,0.0,True,0.8808,True,0.88,"The record was flagged due to a combination of factors: the individual's age (16) is unusual for someone with no formal education, and their monthly salary (2968 SAR) falls outside the expected range for individuals with no formal education (1500-5000 SAR). Furthermore, there seems to be no gap between usual and actual weekly hours as both values are 83 hours.",True
+normal,normal,Normal record,False,0.0,False,0.0161,,,,False
+normal_edge,normal,"Secondary, salary 14168 (just under 15000 cap)",False,0.0,False,0.0017,,,,False
+normal,normal,Normal record,False,0.0,False,0.0146,,,,False
+normal_edge,normal,Hours gap 38 (just under 40 threshold),False,0.0,False,0.0566,,,,False
+svm_anomaly,anomaly,"PhD, 40490 SAR, 3 hrs",False,0.0,True,0.9997,True,0.99,"The salary (40490 SAR) falls outside the expected range for Bachelor's degree holders (5000-25000 SAR). Additionally, there is a discrepancy between usual and actual weekly hours (3 vs 3), but this alone would not normally trigger a flag.",True
+normal,normal,Normal record,False,0.0,False,0.0014,,,,False
+normal,normal,Normal record,False,0.0,False,0.0675,,,,False
+svm_anomaly,anomaly,1 hrs/wk at 34743 SAR (Master's),False,0.0,True,0.9961,True,0.99,"The salary (q_602_val) of 34743 SAR is outside the expected range for a Bachelor's degree (5000-25000 SAR). Additionally, there is an inconsistency between usual and actual weekly hours with cut_5_total=1 and act_1_total=1, indicating a possible data entry error.",True
+normal,normal,Normal record,False,0.0,False,0.2246,,,,False
+normal,normal,Normal record,False,0.0,False,0.0009,,,,False
+normal_edge,normal,19yo with Diploma (exactly min age),False,0.0,False,0.0492,,,,False
+normal,normal,Normal record,False,0.0,False,0.0071,,,,False
+normal,normal,Normal record,False,0.0,False,0.0137,,,,False
+normal,normal,Normal record,False,0.0,False,0.0029,,,,False
+normal,normal,Normal record,False,0.0,False,0.024,,,,False
+normal,normal,Normal record,False,0.0,False,0.0008,,,,False
+ge_anomaly,anomaly,"Bachelor's, salary 2077 (under 3000 floor)",True,0.0333,False,0.0393,False,0.033,"The record was flagged due to a low statistical model confidence (3%) and a business rules score (3.33%). However, the salary of 2077 SAR for a Bachelor's degree (10500025) is within the defined range of 5000-25000 SAR for this education level. The hours gap between usual and actual work hours (40 vs 38 hours) is less than the specified threshold of 30 hours, making it a normal record.",True
+normal_edge,normal,"No formal edu, salary 4893 (just under 5000 cap)",False,0.0,False,0.2041,,,,False
+normal,normal,Normal record,False,0.0,False,0.0036,,,,False
+normal,normal,Normal record,False,0.0,False,0.0345,,,,False
+normal,normal,Normal record,False,0.0,False,0.0671,,,,False
+normal,normal,Normal record,False,0.0,False,0.0037,,,,False
+normal,normal,Normal record,False,0.0,False,0.0082,,,,False
+normal_edge,normal,17yo with Secondary (exactly min age),False,0.0,False,0.0595,,,,False
+svm_anomaly,anomaly,79yo working 80 hrs/wk,False,0.0,True,0.9998,True,0.99,"The record is anomalous because the individual's age (79) is significantly older than the average for a Bachelor's degree holder, and their salary (9875 SAR) falls outside the expected range for that education level.",True
+normal,normal,Normal record,False,0.0,False,0.0051,,,,False
+normal_edge,normal,17yo with Secondary (exactly min age),False,0.0,False,0.0695,,,,False
+normal_unusual,normal,"Widowed head, 30yo, Intermediate",False,0.0,False,0.0037,,,,False
+svm_false_positive,normal,"No edu, 4320 SAR, 57 hrs (blue collar, valid)",False,0.0,False,0.0569,,,,False
+svm_false_positive,normal,"PhD, 43391 SAR, 57 hrs (high-performing, valid)",False,0.0,False,0.496,,,,False
+ge_anomaly,anomaly,Spouse but divorced,True,0.0333,False,0.0016,False,0.0333,"The salary (9965 SAR) falls within the expected range for secondary education (3000-12000 SAR), and there is a small difference between usual weekly hours (cut_5_total: 37) and actual weekly hours (act_1_total: 36). This record may not be anomalous.",True
+normal,normal,Normal record,False,0.0,True,0.5251,True,0.52,"The record is flagged due to the salary value (3382 SAR) being outside the expected range for no formal education which is 1,500-5,000 SAR according to the provided rules.",True
+normal,normal,Normal record,False,0.0,False,0.0056,,,,False
+svm_anomaly,anomaly,16yo working 81 hrs/wk,False,0.0,True,0.5871,True,0.58,"The record is flagged because the individual (age: 16) has primary education (q_301: 10500003), yet their monthly salary (q_602_val: 2089) falls outside the expected range for this education level (1,500-5,000 SAR). Furthermore, there is no usual hourly work (cut_5_total) recorded.",True
+ge_anomaly,anomaly,"Primary, salary 5897 (barely over 5000 cap)",True,0.0333,False,0.0093,True,0.0333,"The record was flagged because the salary (5897 SAR) is slightly outside the expected range for primary education (1500-5000 SAR), but within a business rules tolerance of 3.33%.",True
+normal_unusual,normal,"57yo Master's, 19108 SAR",False,0.0,False,0.1396,,,,False
+normal,normal,Normal record,False,0.0,False,0.08,,,,False
+normal_unusual,normal,"PhD, 42072 SAR, 52 hrs",False,0.0,True,0.7733,False,0.23,"The salary of 42072 SAR for a Bachelor's degree (q_301: 10500025) is higher than the expected range of 5000-25000 SAR, but the difference of 13728 SAR is less than the threshold of 14000 SAR that would typically be considered an anomaly. Additionally, there's a slight discrepancy between usual and actual weekly hours (cut_5_total: 52 vs act_1_total: 49), but the gap is only 3 hours which is less than the threshold of 30 hours that would typically be considered an anomaly.",False
+svm_anomaly,anomaly,15yo working 84 hrs/wk,False,0.0,True,0.9271,True,0.92,"The record is flagged due to the following issues: 1) The individual's age (15) is significantly lower than what would be expected for someone with no formal education, and 2) the salary (2478 SAR) falls outside the salary range for individuals with no formal education (1500-5000 SAR).",True
+ge_anomaly,anomaly,"Master's, salary 3336 (under 5000 floor)",True,0.0333,False,0.0242,True,0.05,"The record was flagged due to a salary value (q_602_val=3336) that is outside the expected range for Master's degree holders (8,000-35,000 SAR).",True
+normal_unusual,normal,"17yo no edu, 48 hrs",False,0.0,False,0.377,,,,False
+normal_unusual,normal,"18yo no edu, 49 hrs",False,0.0,False,0.3091,,,,False
+normal_edge,normal,"PhD, salary 8128 (just above 8000 floor)",False,0.0,False,0.0461,,,,False
+normal,normal,Normal record,False,0.0,False,0.0671,,,,False
+normal_edge,normal,"No formal edu, salary 4871 (just under 5000 cap)",False,0.0,False,0.2598,,,,False
+normal,normal,Normal record,False,0.0,False,0.1082,,,,False
+normal,normal,Normal record,False,0.0,False,0.0902,,,,False
+normal,normal,Normal record,False,0.0,False,0.0083,,,,False
+normal,normal,Normal record,False,0.0,False,0.0459,,,,False
+svm_anomaly,anomaly,1 hrs/wk at 32840 SAR (PhD),False,0.0,True,0.9728,True,0.97,"The salary (32840 SAR) is outside the expected range for Bachelor's degree holders (5000-25000 SAR). Additionally, there seems to be a discrepancy between usual and actual weekly hours, with both being 1 hour which may indicate errors or inconsistencies.",True
+svm_anomaly,anomaly,16yo working 81 hrs/wk,False,0.0,True,0.8403,True,0.84,"The individual is a male (1600001) who is 16 years old (age), unmarried (10600001), and has no formal education (10500031). However, the monthly salary (q_602_val) of 1973 SAR falls outside the expected range for individuals with no formal education (1500-5000 SAR). Additionally, there is a discrepancy between usual and actual weekly hours (cut_5_total and act_1_total) as they both have the same value of 81 hours.",True
+ge_anomaly,anomaly,"PhD, salary 7656 (barely under 8000 floor)",True,0.0333,False,0.0513,True,0.0833,"The flagged record shows an anomalous situation as the salary (7656 SAR) falls outside the expected range for Bachelor's degree holders (5000-25000 SAR). Additionally, there is a slight discrepancy in weekly hours between usual and actual work hours with a gap of 3 hours (47 hours usual vs. 44 hours actual).",True
+svm_anomaly,anomaly,"Master's, 34276 SAR, 3 hrs",False,0.0,True,0.9011,True,0.9,"The salary value of 34276 SAR per month falls outside the expected range for a Bachelor's degree which is 5000-25000 SAR per month. Therefore, this record is likely an anomaly.",True
+svm_false_positive,normal,"Diploma, 16234 SAR, 51 hrs (skilled tech, valid)",False,0.0,False,0.0008,,,,False
+normal_unusual,normal,"18yo no edu, 46 hrs",False,0.0,False,0.3479,,,,False
+ge_anomaly,anomaly,Spouse but divorced,True,0.0333,False,0.0015,True,0.0333,"The record was flagged because the salary (8405 SAR) falls outside the expected range for a diploma holder (4000-18000 SAR), and also because there is no gap in hours between usual (35 hrs/week) and actual (35 hrs/week) work.",True
+normal,normal,Normal record,False,0.0,False,0.0696,,,,False
+normal,normal,Normal record,False,0.0,False,0.0914,,,,False
+normal,normal,Normal record,False,0.0,False,0.0111,,,,False
+normal,normal,Normal record,False,0.0,False,0.0892,,,,False
+normal,normal,Normal record,False,0.0,False,0.0258,,,,False
+normal,normal,Normal record,False,0.0,False,0.0418,,,,False
+normal,normal,Normal record,False,0.0,False,0.0699,,,,False
+normal_unusual,normal,"Widowed head, 36yo, PhD",False,0.0,False,0.0301,,,,False
+normal,normal,Normal record,False,0.0,False,0.0012,,,,False
+ge_anomaly,anomaly,"PhD, salary 1742 (way under 8000 floor)",True,0.1,False,0.1068,True,0.1,The salary of 1742 SAR per month for a Bachelor's degree (q_301: 10500025) is outside the expected range of 5000-25000 SAR.,True
+normal_edge,normal,19yo with Diploma (exactly min age),False,0.0,False,0.0429,,,,False
+ge_anomaly,anomaly,"PhD, salary 1465 (way under 8000 floor)",True,0.1,False,0.1478,True,0.24,"The record was flagged due to the salary being outside the expected range for Bachelor's degree (5,000-25,000 SAR). The reported salary of 1465 SAR is below the lower limit of the given range.",True
+ge_anomaly,anomaly,Spouse but widowed,True,0.0333,False,0.0149,True,0.04,"The record has an exact monthly salary (q_602_val) of 9731 SAR which falls outside the expected range for a Master's degree (8,000-35,000 SAR). Furthermore, there is a slight difference in weekly hours between usual (cut_5_total: 35 hrs) and actual (act_1_total: 33 hrs), which exceeds the allowed gap of 30 hours.",True
+normal,normal,Normal record,False,0.0,False,0.0182,,,,False
+normal,normal,Normal record,False,0.0,False,0.1636,,,,False
+normal_unusual,normal,"PhD, 42925 SAR, 53 hrs",False,0.0,False,0.2453,,,,False
+normal,normal,Normal record,False,0.0,False,0.014,,,,False
+normal_edge,normal,"Primary, salary 4905 (just under 5000 cap)",False,0.0,False,0.0261,,,,False
+svm_false_positive,normal,"Master's, 32732 SAR, 60 hrs (senior professional, valid)",False,0.0,False,0.0715,,,,False
+normal,normal,Normal record,False,0.0,False,0.0039,,,,False
+ge_anomaly,anomaly,Spouse but widowed,True,0.0333,False,0.0497,True,0.07,"The record is flagged due to a salary outside the expected range for the indicated education level (Master's: 8,000-35,000 SAR) with a reported salary of 27,759 SAR.",True
+normal,normal,Normal record,False,0.0,False,0.0756,,,,False
+normal,normal,Normal record,False,0.0,False,0.0032,,,,False
+normal,normal,Normal record,False,0.0,False,0.0035,,,,False
+svm_false_positive,normal,"Bachelor's, 23021 SAR, 57 hrs (ambitious, valid)",False,0.0,False,0.006,,,,False
+normal,normal,Normal record,False,0.0,False,0.2042,,,,False
+normal_edge,normal,Hours gap 37 (just under 40 threshold),False,0.0,False,0.2092,,,,False
+normal,normal,Normal record,False,0.0,False,0.0131,,,,False
+normal,normal,Normal record,False,0.0,False,0.1663,,,,False
+normal,normal,Normal record,False,0.0,False,0.0182,,,,False
+normal,normal,Normal record,False,0.0,False,0.0688,,,,False
+normal,normal,Normal record,False,0.0,False,0.0203,,,,False
+normal,normal,Normal record,False,0.0,False,0.0052,,,,False
+normal,normal,Normal record,False,0.0,False,0.0136,,,,False
+normal,normal,Normal record,False,0.0,False,0.0074,,,,False
+normal,normal,Normal record,False,0.0,False,0.0039,,,,False
+normal,normal,Normal record,False,0.0,False,0.0717,,,,False
+normal_unusual,normal,"58yo PhD, 32288 SAR",False,0.0,True,0.7491,True,0.74,The record is flagged because the monthly salary (q_602_val) of 32288 SAR falls outside the expected range for Bachelor's degree holders (5000-25000 SAR).,True
+svm_anomaly,anomaly,"Master's, 28551 SAR, 3 hrs",False,0.0,True,0.8265,True,0.82,"The salary (q_602_val) of 28551 SAR falls outside the expected range for a Bachelor's degree (5000-25000 SAR), making it potentially anomalous.",True
+ge_anomaly,anomaly,"Secondary, salary 38768 (over 15000 cap)",True,0.0333,False,0.4329,True,0.46,The record is flagged because the salary of 38768 SAR falls outside the expected range for Secondary education (3000-12000 SAR).,True
+ge_anomaly,anomaly,"Secondary, salary 16598 (over 15000 cap)",True,0.0333,False,0.0104,True,0.04,The record is flagged because the salary (16598 SAR) falls outside the expected range for secondary education (3000-12000 SAR).,True
+svm_anomaly,anomaly,1 hrs/wk at 33681 SAR (Master's),False,0.0,True,0.9362,True,0.93,"The record is flagged due to an unusual salary value for a master's degree holder. The expected salary range for Master's degree holders is between 8,000-35,000 SAR per month, and the reported salary of 33,681 SAR falls outside this range.",True
+normal,normal,Normal record,False,0.0,False,0.096,,,,False
+normal,normal,Normal record,False,0.0,False,0.1959,,,,False
+normal_edge,normal,"Primary, salary 4877 (just under 5000 cap)",False,0.0,False,0.2778,,,,False
+normal,normal,Normal record,False,0.0,False,0.0018,,,,False
+normal,normal,Normal record,False,0.0,False,0.0869,,,,False
+svm_anomaly,anomaly,1 hrs/wk at 40524 SAR (PhD),False,0.0,True,0.9971,True,0.99,The salary (q_602_val) of 40524 SAR is significantly higher than the expected range for a Bachelor's degree.,True
+normal,normal,Normal record,False,0.0,False,0.0597,,,,False
+normal_edge,normal,"Master's, salary 5063 (just above 5000 floor)",False,0.0,False,0.0303,,,,False
+svm_false_positive,normal,"No edu, 3558 SAR, 57 hrs (blue collar, valid)",False,0.0,False,0.107,,,,False
+normal_edge,normal,"No formal edu, salary 4905 (just under 5000 cap)",False,0.0,False,0.1976,,,,False
+normal,normal,Normal record,False,0.0,False,0.0012,,,,False
+normal,normal,Normal record,False,0.0,False,0.0142,,,,False
+normal_unusual,normal,"58yo PhD, 38699 SAR",False,0.0,True,0.8815,True,0.88,"The salary (q_602_val) of 38699 SAR is outside the expected range for a Bachelor's degree holder, which ranges from 5000 to 25000 SAR per month.",True
+normal_unusual,normal,"PhD, 44554 SAR, 54 hrs",False,0.0,False,0.3521,,,,False
+svm_anomaly,anomaly,"Master's, 33234 SAR, 1 hrs",False,0.0,True,0.9595,True,0.95,The salary of 33234 SAR per month for a Master's degree holder is significantly outside the expected range (8000-35000 SAR).,True
+normal_edge,normal,"Master's, salary 5050 (just above 5000 floor)",False,0.0,False,0.1224,,,,False
+normal_unusual,normal,"PhD, 38473 SAR, 51 hrs",False,0.0,False,0.0924,,,,False
+ge_anomaly,anomaly,"Secondary, salary 35240 (over 15000 cap)",True,0.0333,False,0.2156,True,0.243,"The individual's salary of 35,240 SAR falls outside the expected range for Secondary education (3,000-12,000 SAR), and there is a small gap between usual weekly hours (cut_5_total: 38) and actual weekly hours (act_1_total: 40) that exceeds the allowed threshold of 30.",True
+ge_anomaly,anomaly,"Intermediate, salary 5595 (barely over 5000 cap)",True,0.0333,False,0.0024,False,0.033,"The record falls within plausible ranges as the individual is a married female (1700021) with secondary education (10500017), earning 5595 SAR per month (q_602_val) and working 48 hours per week (cut_5_total). Although there is a slight discrepancy between the actual weekly hours (act_1_total: 51) and usual weekly hours (cut_5_total), it is less than 30 hours, which falls within acceptable limits as per the rules provided.",True
+normal_edge,normal,"Master's, salary 5087 (just above 5000 floor)",False,0.0,False,0.0368,,,,False
+normal,normal,Normal record,False,0.0,False,0.0043,,,,False
+normal,normal,Normal record,False,0.0,False,0.0621,,,,False
+normal_unusual,normal,"PhD, 44625 SAR, 54 hrs",False,0.0,False,0.1924,,,,False
+normal_unusual,normal,"60yo PhD, 36234 SAR",False,0.0,True,0.9028,True,0.9,"The record is flagged because the monthly salary (q_602_val=36234) for a Bachelor's degree holder (q_301=10500025) is significantly outside the expected range of 5,000-25,000 SAR.",True
+svm_anomaly,anomaly,2 hrs/wk at 30664 SAR (Master's),False,0.0,True,0.9201,True,0.92,The record was flagged because the monthly salary (q_602_val: 30664) falls outside the expected range for Master's degree holders (8000-35000 SAR).,True
+normal_edge,normal,"Master's, salary 5111 (just above 5000 floor)",False,0.0,False,0.0175,,,,False
+svm_false_positive,normal,"Master's, 31199 SAR, 56 hrs (senior professional, valid)",False,0.0,False,0.0311,,,,False
+normal_edge,normal,"PhD, salary 8292 (just above 8000 floor)",False,0.0,False,0.048,,,,False
+normal_edge,normal,Hours gap 38 (just under 40 threshold),False,0.0,True,0.8125,True,0.81,"The record was flagged because the monthly salary (q_602_val) of 1594 SAR is outside the expected range for a bachelor's degree, which ranges from 5000 to 25000 SAR.",True
+normal,normal,Normal record,False,0.0,False,0.006,,,,False
+svm_anomaly,anomaly,15yo working 80 hrs/wk,False,0.0,True,0.6226,True,1.0,"[Salary, Age] The salary of 2036 SAR is significantly lower than the expected range for primary education (1500-5000 SAR). Additionally, the age of 15 is not plausible for someone with primary education.",True
+normal,normal,Normal record,False,0.0,False,0.0022,,,,False
+normal,normal,Normal record,False,0.0,False,0.0561,,,,False
+normal,normal,Normal record,False,0.0,False,0.0011,,,,False
+svm_false_positive,normal,"Diploma, 17235 SAR, 54 hrs (skilled tech, valid)",False,0.0,False,0.0021,,,,False
+normal_unusual,normal,"55yo Master's, 24963 SAR",False,0.0,False,0.1442,,,,False
+ge_anomaly,anomaly,Hours gap 66 (extreme),True,0.0333,True,0.9982,True,0.967,"The record is flagged due to the salary value (34634 SAR) being significantly higher than the expected range for a Master's degree holder (8,000-35,000 SAR), thus contributing to a high statistical model confidence score of 99%. Additionally, there is a large discrepancy between usual weekly hours (cut_5_total=70) and actual weekly hours (act_1_total=4), which exceeds the allowed gap of 30 hours.",True
+svm_false_positive,normal,"Bachelor's, 23037 SAR, 56 hrs (ambitious, valid)",False,0.0,False,0.0042,,,,False
+normal,normal,Normal record,False,0.0,False,0.0039,,,,False
+normal,normal,Normal record,False,0.0,False,0.011,,,,False
+normal,normal,Normal record,False,0.0,False,0.0633,,,,False
+normal_unusual,normal,"19yo no edu, 48 hrs",False,0.0,False,0.2831,,,,False
+normal,normal,Normal record,False,0.0,False,0.0012,,,,False
+normal,normal,Normal record,False,0.0,False,0.0699,,,,False
+ge_anomaly,anomaly,"Master's, salary 3531 (under 5000 floor)",True,0.0333,False,0.0702,True,0.0733,"The record is flagged due to a salary that is clearly outside the expected range for Master's degree holders. The recorded salary of 3531 SAR per month falls below the lower bound of the stated range (8,000-35,000 SAR).",True
+normal,normal,Normal record,False,0.0,False,0.0288,,,,False
+svm_anomaly,anomaly,78yo working 80 hrs/wk,False,0.0,True,0.9999,True,0.99,"The record is flagged due to the salary (14200 SAR) being outside the expected range for Bachelor's degree holders (5000-25000 SAR). Additionally, both usual and actual weekly hours (80) are identical, which is unusual as they should ideally differ.",True
+normal_unusual,normal,"PhD, 39398 SAR, 49 hrs",False,0.0,True,0.7835,True,0.78,The record is flagged due to an anomalous salary value (39398 SAR) which falls outside the expected range for a Bachelor's degree (5000-25000 SAR).,True
+normal_edge,normal,"PhD, salary 8485 (just above 8000 floor)",False,0.0,False,0.2203,,,,False
+normal,normal,Normal record,False,0.0,False,0.0782,,,,False
+normal,normal,Normal record,False,0.0,False,0.0649,,,,False
+normal_edge,normal,"Master's, salary 5201 (just above 5000 floor)",False,0.0,False,0.071,,,,False
+svm_false_positive,normal,"Bachelor's, 21759 SAR, 56 hrs (ambitious, valid)",False,0.0,False,0.0041,,,,False
+svm_anomaly,anomaly,15yo working 80 hrs/wk,False,0.0,True,0.8602,True,0.86,"The record is flagged due to the individual's age (15) being significantly younger than expected for someone with no formal education (minimum legal working age in Saudi Arabia is typically around 16-17 years old). In addition, the salary (1518 SAR per month) also falls outside the typical range for individuals with no formal education (1500-5000 SAR per month).",True
+svm_anomaly,anomaly,"PhD, 37567 SAR, 2 hrs",False,0.0,True,0.9984,True,0.99,"The individual's salary (37567 SAR) falls outside the expected range for a bachelor's degree (5000-25000 SAR), and there is also an inconsistency in reported weekly hours (usual: 2, actual: 2).",True
+normal,normal,Normal record,False,0.0,False,0.0077,,,,False
+normal_unusual,normal,"Widowed head, 36yo, PhD",False,0.0,False,0.024,,,,False
+normal,normal,Normal record,False,0.0,False,0.0197,,,,False
+normal_unusual,normal,"57yo Master's, 18387 SAR",False,0.0,False,0.1324,,,,False
+normal,normal,Normal record,False,0.0,False,0.0137,,,,False
+normal,normal,Normal record,False,0.0,False,0.0019,,,,False
+svm_anomaly,anomaly,"PhD, 42589 SAR, 3 hrs",False,0.0,True,0.994,True,0.99,"The salary value (q_602_val=42589) is significantly higher than the expected range for a bachelor's degree (5000-25000 SAR), making it a real problem.",True
+normal,normal,Normal record,False,0.0,False,0.0285,,,,False
+normal_edge,normal,"Intermediate, salary 4996 (just under 5000 cap)",False,0.0,False,0.0034,,,,False
+svm_anomaly,anomaly,"Master's, 29736 SAR, 3 hrs",False,0.0,True,0.9266,True,0.92,"The record is flagged because the monthly salary (q_602_val: 29736) falls outside the expected range for a Master's degree (8,000-35,000 SAR). Additionally, there seems to be a discrepancy in weekly hours (cut_5_total=3, act_1_total=3), suggesting an unusual gap between usual and actual weekly hours.",True
+normal,normal,Normal record,False,0.0,False,0.1574,,,,False
+normal_unusual,normal,"Widowed head, 52yo, PhD",False,0.0,False,0.2223,,,,False
+normal,normal,Normal record,False,0.0,False,0.0011,,,,False
+normal,normal,Normal record,False,0.0,False,0.0042,,,,False
+normal,normal,Normal record,False,0.0,False,0.052,,,,False
+ge_anomaly,anomaly,"PhD, salary 7712 (barely under 8000 floor)",True,0.0333,False,0.0936,True,0.09,"The record was flagged due to the salary (7712 SAR) being outside the expected range for a Bachelor's degree (5,000-25,000 SAR).",True
+normal_edge,normal,Hours gap 39 (just under 40 threshold),False,0.0,True,0.9178,True,0.91,"The salary (24949 SAR) is clearly outside the expected range for a Bachelor's degree (5000-25000 SAR), and the usual weekly hours (11) are significantly less than the actual weekly hours (50).",True
+normal_unusual,normal,"19yo no edu, 48 hrs",False,0.0,False,0.2898,,,,False
+normal,normal,Normal record,False,0.0,False,0.0014,,,,False
+svm_anomaly,anomaly,77yo working 79 hrs/wk,False,0.0,True,0.9999,True,0.99,The record is flagged due to the salary value (3363 SAR) being significantly lower than the expected range for no formal education according to the provided salary ranges by education.,True
+normal,normal,Normal record,False,0.0,False,0.1525,,,,False
+normal,normal,Normal record,False,0.0,False,0.0108,,,,False
+normal_unusual,normal,"Widowed head, 33yo, Intermediate",False,0.0,False,0.0032,,,,False
+normal,normal,Normal record,False,0.0,False,0.015,,,,False
+normal_edge,normal,"Master's, salary 5054 (just above 5000 floor)",False,0.0,False,0.014,,,,False
+normal,normal,Normal record,False,0.0,False,0.0013,,,,False
+normal,normal,Normal record,False,0.0,False,0.0136,,,,False
+normal,normal,Normal record,False,0.0,True,0.8754,True,0.87,"The record is flagged because the individual's salary (q_602_val: 35057 SAR) is significantly higher than the expected range for a PhD holder (12,000-45,000 SAR). Additionally, there is a minor discrepancy between usual weekly hours (cut_5_total: 37 hrs) and actual weekly hours (act_1_total: 36 hrs), but this is within the acceptable 30-hour gap.",True
+svm_anomaly,anomaly,"PhD, 38183 SAR, 3 hrs",False,0.0,True,0.9758,True,0.97,The record is flagged because the salary of 38183 SAR for a Bachelor's degree holder (q_301=10500025) falls outside the expected range of 5000-25000 SAR. This discrepancy contributes to the statistical model's high confidence that this record may be anomalous.,True
+normal,normal,Normal record,False,0.0,False,0.0122,,,,False
+normal,normal,Normal record,False,0.0,False,0.0759,,,,False
+normal,normal,Normal record,False,0.0,False,0.2054,,,,False
+normal,normal,Normal record,False,0.0,False,0.1337,,,,False
+normal,normal,Normal record,False,0.0,False,0.0076,,,,False
+svm_anomaly,anomaly,76yo working 76 hrs/wk,False,0.0,True,0.9998,True,0.99,The record is flagged due to the salary (2841 SAR) being significantly lower than the expected range for no formal education or primary level education according to the provided salary ranges.,True
+normal,normal,Normal record,False,0.0,False,0.0055,,,,False
+normal,normal,Normal record,False,0.0,False,0.0158,,,,False
+normal,normal,Normal record,False,0.0,False,0.0023,,,,False
+normal,normal,Normal record,False,0.0,False,0.0051,,,,False
+normal,normal,Normal record,False,0.0,False,0.0193,,,,False
+normal,normal,Normal record,False,0.0,False,0.0044,,,,False
+ge_anomaly,anomaly,"Secondary, salary 31306 (over 15000 cap)",True,0.0333,False,0.1219,True,0.153,"The record is flagged due to a salary value of 31306 SAR, which falls outside the expected range for secondary education (3000-12000 SAR).",True

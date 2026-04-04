@@ -1,0 +1,174 @@
+/* ------------------------------------------------------------------ */
+/* Sadeed — content script injected styles                            */
+/* ------------------------------------------------------------------ */
+
+/* Floating scan button */
+#sadeed-scan-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1a73e8, #0d47a1);
+  color: #fff;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  direction: ltr;
+}
+
+#sadeed-scan-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+#sadeed-scan-btn:active {
+  transform: translateY(0);
+}
+
+#sadeed-scan-btn .sadeed-icon {
+  font-size: 18px;
+}
+
+#sadeed-scan-btn.sadeed-loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Field highlight outlines */
+.sadeed-field-ok {
+  outline: 3px solid #34a853 !important;
+  outline-offset: 2px;
+}
+
+.sadeed-field-anomaly {
+  outline: 3px solid #ea4335 !important;
+  outline-offset: 2px;
+}
+
+/* Results overlay */
+#sadeed-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: ltr;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+#sadeed-overlay-panel {
+  background: #fff;
+  border-radius: 16px;
+  width: min(520px, 92vw);
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+  padding: 28px;
+  position: relative;
+}
+
+#sadeed-overlay-panel h2 {
+  margin: 0 0 18px;
+  font-size: 20px;
+  color: #1a1a1a;
+}
+
+#sadeed-overlay-close {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+#sadeed-overlay-close:hover {
+  background: #f0f0f0;
+}
+
+/* Verdict banner */
+.sadeed-verdict {
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sadeed-verdict.clean {
+  background: #e6f4ea;
+  color: #137333;
+  border: 1px solid #34a853;
+}
+
+.sadeed-verdict.anomaly {
+  background: #fce8e6;
+  color: #c5221f;
+  border: 1px solid #ea4335;
+}
+
+/* Strategy cards */
+.sadeed-strategy {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border-right: 4px solid #dadce0;
+}
+
+.sadeed-strategy.flagged {
+  border-right-color: #ea4335;
+}
+
+.sadeed-strategy.passed {
+  border-right-color: #34a853;
+}
+
+.sadeed-strategy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.sadeed-strategy-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+.sadeed-strategy-score {
+  font-size: 13px;
+  color: #666;
+  direction: ltr;
+}
+
+.sadeed-strategy-explanation {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* No-fields message */
+.sadeed-empty {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-size: 14px;
+}

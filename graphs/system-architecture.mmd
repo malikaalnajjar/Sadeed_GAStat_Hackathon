@@ -1,0 +1,40 @@
+%%{ init: { "theme": "base", "themeVariables": { "primaryColor": "#4a90d9", "edgeLabelBackground": "#ffffff" } } }%%
+graph TB
+    subgraph Client["Client Layer"]
+        EXT["Chrome Extension<br/>(Manifest V3)"]
+        DASH["Web Dashboard<br/>(Vanilla JS)"]
+    end
+
+    subgraph Backend["FastAPI Backend (:8000)"]
+        API["API Routes<br/>/anomalies/* &bull; /health/*"]
+        SVC["Detection Service<br/>(Cascade Pipeline)"]
+
+        subgraph Detectors["Detection Strategies"]
+            GE["Layer 1: Great Expectations<br/>21 Business Rules"]
+            SVM["Layer 2: One-Class SVM<br/>4 Features &bull; RBF Kernel"]
+            LLM["Layer 3: LLM Confirm + Explain<br/>Qwen 3.5 (9B) &bull; Few-Shot"]
+        end
+    end
+
+    subgraph Infrastructure["Infrastructure"]
+        REDIS[("Redis 7<br/>Result Cache")]
+        OLLAMA["Ollama (:11434)<br/>GPU Accelerated"]
+    end
+
+    subgraph Data["Data & Models"]
+        SUITE["expectations/suite.json<br/>21 GE Rules"]
+        NPY["data/normal_samples.npy<br/>67 Real + 2000 Simulated Samples"]
+        JOBLIB["models/svm.joblib<br/>Trained SVM Pipeline"]
+    end
+
+    EXT -->|"HTTP POST /anomalies/detect"| API
+    DASH -->|"REST API"| API
+    API --> SVC
+    SVC --> GE
+    SVC --> SVM
+    SVC -->|"Conditional"| LLM
+    SVC <-->|"Cache R/W"| REDIS
+    LLM -->|"POST /api/generate"| OLLAMA
+    GE -.->|"Loads"| SUITE
+    SVM -.->|"Trains from"| NPY
+    SVM -.->|"Loads/Saves"| JOBLIB

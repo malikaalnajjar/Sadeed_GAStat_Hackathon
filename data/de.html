@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نموذج تجريبي: مسح القوى العاملة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --blue-700: #0f3460; --blue-600: #1a4f8a; --blue-500: #2271c3;
+    --blue-400: #3b8fe0; --blue-300: #6db0f0; --blue-200: #b3d4f8;
+    --blue-100: #daeaf9; --blue-50: #eef6fd;
+    --white: #ffffff; --gray-50: #f7f9fc; --gray-100: #eef1f6;
+    --gray-200: #dde3ee; --gray-400: #9aa5bc; --gray-600: #5a6680; --gray-800: #2d3654;
+    --green-600: #276749; --green-400: #38a169; --green-100: #c6f6d5; --green-50: #f0fff4;
+    --red-600: #c53030; --red-400: #e53e3e; --red-100: #fed7d7; --red-50: #fff5f5;
+    --radius-sm: 8px; --radius-md: 12px; --radius-lg: 18px; --radius-xl: 24px;
+    --shadow-lg: 0 8px 40px rgba(30,60,120,0.15);
+    --tr: 0.2s cubic-bezier(0.4,0,0.2,1);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(145deg, #daeaf9 0%, #eef6fd 40%, #e8f0fb 100%);
+    min-height: 100vh; display: flex; align-items: flex-start;
+    justify-content: center; padding: 2.5rem 1rem 4rem; color: var(--gray-800);
+  }
+
+  /* Card */
+  .card { width: 100%; max-width: 720px; background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden; animation: slideUp 0.5s cubic-bezier(0.4,0,0.2,1) both; }
+  @keyframes slideUp { from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);} }
+
+  /* Header */
+  .card-header { background: linear-gradient(135deg, var(--blue-700) 0%, var(--blue-500) 100%); padding: 2.2rem 2.5rem 2rem; position: relative; overflow: hidden; }
+  .card-header::before { content:''; position:absolute; top:-60px; left:-60px; width:220px; height:220px; border-radius:50%; background:rgba(255,255,255,0.06); }
+  .card-header::after  { content:''; position:absolute; bottom:-50px; right:-30px; width:180px; height:180px; border-radius:50%; background:rgba(255,255,255,0.04); }
+  .header-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.25); border-radius:50px; padding:4px 14px; font-size:12px; color:rgba(255,255,255,0.9); margin-bottom:14px; position:relative; z-index:1; }
+  .header-badge .dot { width:7px; height:7px; background:#4df0a0; border-radius:50%; animation:pulse 1.8s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.3);} }
+  .card-header h1 { font-size:26px; font-weight:800; color:var(--white); position:relative; z-index:1; line-height:1.3; margin-bottom:6px; }
+  .card-header p  { font-size:13.5px; color:rgba(255,255,255,0.72); position:relative; z-index:1; }
+
+  /* Body */
+  .card-body { padding: 2rem 2.5rem 2.5rem; }
+
+  /* Quick fill */
+  .quick-fill { background:var(--blue-50); border:1px solid var(--blue-100); border-radius:var(--radius-lg); padding:1rem 1.4rem; margin-bottom:2rem; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .qf-label { font-size:12.5px; font-weight:700; color:var(--blue-600); flex-shrink:0; display:flex; align-items:center; gap:6px; }
+  .qf-label svg { width:15px; height:15px; fill:var(--blue-500); }
+  .qf-divider { width:1px; height:24px; background:var(--blue-200); flex-shrink:0; }
+  .qf-btn { font-family:'Cairo',sans-serif; font-size:12.5px; font-weight:600; padding:6px 16px; border-radius:50px; border:1.5px solid var(--blue-300); background:var(--white); color:var(--blue-600); cursor:pointer; transition:all var(--tr); white-space:nowrap; }
+  .qf-btn:hover  { background:var(--blue-500); color:var(--white); border-color:var(--blue-500); transform:translateY(-1px); box-shadow:0 3px 10px rgba(34,113,195,0.25); }
+  .qf-btn.danger { border-color:#feb2b2; color:var(--red-400); }
+  .qf-btn.danger:hover { background:var(--red-400); color:var(--white); border-color:var(--red-400); box-shadow:0 3px 10px rgba(229,62,62,0.2); }
+  .qf-btn.clear  { border-color:var(--gray-200); color:var(--gray-600); }
+  .qf-btn.clear:hover { background:var(--gray-100); color:var(--gray-800); border-color:var(--gray-400); box-shadow:none; }
+
+  /* Section */
+  .section { margin-bottom:2rem; }
+  .section-head { display:flex; align-items:center; gap:10px; margin-bottom:1.2rem; }
+  .section-icon { width:34px; height:34px; border-radius:var(--radius-sm); background:var(--blue-50); border:1px solid var(--blue-100); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .section-icon svg { width:16px; height:16px; fill:var(--blue-500); }
+  .section-title { font-size:15px; font-weight:700; color:var(--blue-700); }
+  .section-line  { flex:1; height:1px; background:linear-gradient(to left,transparent,var(--blue-200)); }
+
+  /* Grid */
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .col-span-2 { grid-column:1/-1; }
+
+  /* Field */
+  .field { display:flex; flex-direction:column; gap:7px; }
+  .field label { font-size:13px; font-weight:600; color:var(--gray-600); display:flex; align-items:center; gap:5px; }
+  .field label .code { font-size:10.5px; font-weight:500; font-family:'Courier New',monospace; color:var(--gray-400); background:var(--gray-100); padding:1px 6px; border-radius:4px; }
+  .field input, .field select { width:100%; height:44px; padding:0 14px; border-radius:var(--radius-md); border:1.5px solid var(--gray-200); background:var(--gray-50); font-family:'Cairo',sans-serif; font-size:14px; color:var(--gray-800); direction:rtl; text-align:right; outline:none; transition:all var(--tr); appearance:none; -webkit-appearance:none; }
+  .field input::placeholder { color:var(--gray-400); font-size:13px; }
+  .field input:hover, .field select:hover { border-color:var(--blue-300); background:var(--white); }
+  .field input:focus, .field select:focus { border-color:var(--blue-400); background:var(--white); box-shadow:0 0 0 4px rgba(59,143,224,0.12); }
+  .field input.invalid, .field select.invalid { border-color:var(--red-400); box-shadow:0 0 0 4px rgba(229,62,62,0.10); }
+  .select-wrap { position:relative; }
+  .select-wrap::after { content:''; position:absolute; left:14px; top:50%; transform:translateY(-50%); width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:6px solid var(--gray-400); pointer-events:none; transition:border-color var(--tr); }
+  .select-wrap:focus-within::after { border-top-color:var(--blue-500); }
+  .select-wrap select { padding-left:36px; cursor:pointer; }
+
+  /* Submit */
+  .btn-check { width:100%; margin-top:0.5rem; padding:15px 24px; background:linear-gradient(135deg,var(--blue-600) 0%,var(--blue-400) 100%); color:var(--white); font-family:'Cairo',sans-serif; font-size:16px; font-weight:700; border:none; border-radius:var(--radius-md); cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px; transition:all var(--tr); box-shadow:0 4px 20px rgba(34,113,195,0.35); }
+  .btn-check svg { width:20px; height:20px; fill:var(--white); flex-shrink:0; }
+  .btn-check:hover  { transform:translateY(-2px); box-shadow:0 8px 28px rgba(34,113,195,0.45); }
+  .btn-check:active { transform:translateY(0); }
+
+  .divider { border:none; border-top:1px solid var(--gray-100); margin:1.8rem 0; }
+  .footer-note { text-align:center; font-size:12px; color:var(--gray-400); margin-top:1.5rem; }
+
+  /* ══ MODAL ══ */
+  .modal-overlay { display:none; position:fixed; inset:0; z-index:1000; background:rgba(15,30,60,0.50); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:1rem; }
+  .modal-overlay.open { display:flex; animation:fadeOv 0.25s ease both; }
+  @keyframes fadeOv { from{opacity:0;}to{opacity:1;} }
+  .modal { width:100%; max-width:480px; background:var(--white); border-radius:var(--radius-xl); box-shadow:0 24px 64px rgba(15,30,80,0.25); overflow:hidden; animation:modalUp 0.3s cubic-bezier(0.34,1.4,0.64,1) both; direction:rtl; }
+  @keyframes modalUp { from{opacity:0;transform:translateY(32px) scale(0.95);}to{opacity:1;transform:translateY(0) scale(1);} }
+
+  .modal-header { display:flex; align-items:center; justify-content:space-between; padding:1.3rem 1.5rem 1rem; border-bottom:1px solid var(--gray-100); }
+  .modal-title  { font-size:17px; font-weight:800; color:var(--gray-800); display:flex; align-items:center; gap:8px; }
+  .modal-title svg { width:18px; height:18px; fill:var(--blue-500); }
+  .modal-close  { width:32px; height:32px; border-radius:50%; border:1.5px solid var(--gray-200); background:var(--white); display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all var(--tr); font-size:15px; color:var(--gray-600); font-family:'Cairo',sans-serif; }
+  .modal-close:hover { background:var(--gray-100); border-color:var(--gray-400); color:var(--gray-800); }
+
+  .modal-body { padding:1.25rem 1.5rem 1.5rem; display:flex; flex-direction:column; gap:0.9rem; }
+
+  /* Status banner */
+  .status-banner { border-radius:var(--radius-md); padding:1rem 1.25rem; display:flex; align-items:center; justify-content:flex-end; gap:10px; font-size:16px; font-weight:700; }
+  .status-banner.clean   { background:var(--green-50); border:1.5px solid var(--green-100); color:var(--green-600); }
+  .status-banner.anomaly { background:var(--red-50);   border:1.5px solid var(--red-100);   color:var(--red-600); }
+
+  /* AI box */
+  .ai-box { background:var(--gray-50); border-radius:var(--radius-md); border:1px solid var(--gray-200); padding:1rem 1.1rem; display:none; }
+  .ai-box.visible { display:block; }
+  .ai-box-header { display:flex; align-items:center; gap:7px; font-size:13px; font-weight:700; color:var(--blue-600); margin-bottom:8px; }
+  .ai-box-header svg { width:15px; height:15px; fill:var(--blue-400); }
+  .ai-box p { font-size:13px; color:var(--gray-600); line-height:1.85; text-align:right; }
+
+  /* Score rows */
+  .score-row { display:flex; align-items:center; justify-content:space-between; padding:0.85rem 1rem; border-radius:var(--radius-md); border:1px solid var(--gray-200); background:var(--white); border-right:4px solid var(--gray-200); }
+  .score-row.ok-row  { border-right-color:var(--green-400); }
+  .score-row.bad-row { border-right-color:var(--red-400); }
+  .score-name { font-size:14px; font-weight:700; color:var(--gray-800); }
+  .score-val  { font-size:13.5px; font-weight:700; }
+  .score-val.ok  { color:var(--green-600); }
+  .score-val.bad { color:var(--red-600); }
+
+  @media(max-width:560px){
+    body{padding:1rem 0.75rem 3rem;}
+    .card-header,.card-body{padding:1.5rem;}
+    .card-header h1{font-size:21px;}
+    .grid-2{grid-template-columns:1fr;}
+    .col-span-2{grid-column:auto;}
+  }
+</style>
+</head>
+<body>
+
+<!-- FORM CARD -->
+<div class="card">
+  <div class="card-header">
+    <div class="header-badge"><span class="dot"></span>نموذج تجريبي · مسح ميداني</div>
+    <h1>مسح القوى العاملة</h1>
+    <p>أدخل بيانات السجل ثم اضغط «فحص النموذج» للتحقق من الشذوذات</p>
+  </div>
+
+  <div class="card-body">
+
+    <div class="quick-fill">
+      <span class="qf-label">
+        <svg viewBox="0 0 24 24"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6.01-4.5 7.5L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95zM11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5V2.05z"/></svg>
+        تعبئة سريعة
+      </span>
+      <div class="qf-divider"></div>
+      <button class="qf-btn"        onclick="fillNormal()">✓ سجل طبيعي</button>
+      <button class="qf-btn danger" onclick="fillAnomaly1()">⚠ شاذ (عمر 12)</button>
+      <button class="qf-btn danger" onclick="fillAnomaly2()">⚠ شاذ (راتب مرتفع)</button>
+      <button class="qf-btn clear"  onclick="clearAll()">✕ مسح الكل</button>
+    </div>
+
+    <!-- Section 1: Demographics -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg></div>
+        <span class="section-title">البيانات الديموغرافية</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <label>العمر <span class="code">age</span></label>
+          <input type="number" id="age" min="1" max="120" placeholder="مثال: 35">
+        </div>
+        <div class="field">
+          <label>الجنس <span class="code">gender</span></label>
+          <div class="select-wrap"><select id="gender"><option value="">— اختر —</option><option value="male">ذكر</option><option value="female">أنثى</option></select></div>
+        </div>
+        <div class="field">
+          <label>صلة القرابة <span class="code">family_relation</span></label>
+          <div class="select-wrap"><select id="family_relation"><option value="">— اختر —</option><option value="head">رئيس الأسرة</option><option value="spouse">زوج / زوجة</option><option value="son">ابن</option><option value="daughter">ابنة</option><option value="sibling">أخ</option><option value="relative">أقارب آخرون</option><option value="domestic">عمالة منزلية</option><option value="none">لا توجد صلة قرابة</option></select></div>
+        </div>
+        <div class="field">
+          <label>الحالة الاجتماعية <span class="code">marage_status</span></label>
+          <div class="select-wrap"><select id="marage_status"><option value="">— اختر —</option><option value="single">لم يسبق الزواج</option><option value="married">متزوج / متزوجة</option><option value="divorced">مطلق / مطلقة</option><option value="widowed">أرمل / أرملة</option></select></div>
+        </div>
+        <div class="field col-span-2">
+          <label>الجنسية <span class="code">nationality</span></label>
+          <div class="select-wrap"><select id="nationality"><option value="">— اختر —</option><option value="sa">سعودي</option><option value="eg">مصري</option><option value="ye">يمني</option><option value="pk">باكستاني</option><option value="et">إثيوبي</option><option value="ph">فلبيني</option><option value="sd">سوداني</option><option value="jo">أردني</option><option value="lb">لبناني</option></select></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Section 2: Education -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-icon"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18V15s0 3 7 3 7-3 7-3v-3.82L23 9 12 3zm6 8.99l-6 3.01-6-3.01V13l6 3 6-3v-.01z"/></svg></div>
+        <span class="section-title">التعليم</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="field">
+        <label>أعلى مؤهل تعليمي <span class="code">q_301</span></label>
+        <div class="select-wrap"><select id="q_301"><option value="">— اختر —</option><option value="0">بدون تعليم رسمي</option><option value="1">ابتدائي (دون إكمال)</option><option value="2">التعليم الابتدائي</option><option value="3">التعليم المتوسط</option><option value="4">الثانوي (عام)</option><option value="5">الثانوي (مهني)</option><option value="6">دبلوم مشارك</option><option value="7">دبلوم متوسط</option><option value="8">بكالوريوس</option><option value="9">بكالوريوس (5 سنوات)</option><option value="10">ماجستير</option><option value="11">دكتوراه</option></select></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Section 3: Work -->
+    <div class="section">
+      <div class="section-head">
+        <div class="section-icon"><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.35C18 2.53 16.5 1 14.65 1c-1.2 0-2.16.55-2.77 1.39L12 3.25l-.88-1.86C10.51 1.55 9.55 1 8.35 1 6.5 1 5 2.53 5 4.65c0 .47.11.9.18 1.35H3c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h17c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM20 19H4V8h16v11z"/></svg></div>
+        <span class="section-title">بيانات العمل</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="grid-2">
+        <div class="field col-span-2">
+          <label>الراتب الشهري بالريال <span class="code">q_602_val</span></label>
+          <input type="number" id="q_602_val" min="0" placeholder="مثال: 15000">
+        </div>
+        <div class="field">
+          <label>ساعات العمل المعتادة <span class="code">cut_5_total</span></label>
+          <input type="number" id="cut_5_total" min="0" max="168" placeholder="أسبوعياً">
+        </div>
+        <div class="field">
+          <label>ساعات العمل الفعلية <span class="code">act_1_total</span></label>
+          <input type="number" id="act_1_total" min="0" max="168" placeholder="أسبوعياً">
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-check" onclick="checkForm()">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      فحص النموذج
+    </button>
+
+    <p class="footer-note">النموذج تجريبي · جميع البيانات للاختبار فقط</p>
+  </div>
+</div>
+
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="outsideClose(event)">
+  <div class="modal">
+
+    <div class="modal-header">
+      <div class="modal-title">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        نتائج فحص سديد
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="status-banner" id="statusBanner">
+        <span id="statusText"></span>
+      </div>
+
+      <div class="ai-box" id="aiBox">
+        <div class="ai-box-header">
+          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+          تفسير الذكاء الاصطناعي
+        </div>
+        <p id="aiText"></p>
+      </div>
+
+      <div class="score-row" id="geRow">
+        <div class="score-name">قواعد الأعمال (GE)</div>
+        <div class="score-val" id="geVal"></div>
+      </div>
+
+      <div class="score-row" id="svmRow">
+        <div class="score-name">النموذج الإحصائي (SVM)</div>
+        <div class="score-val" id="svmVal"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+  const IDS = ['age','gender','family_relation','marage_status','nationality','q_301','q_602_val','cut_5_total','act_1_total'];
+  const g = id => document.getElementById(id);
+  const v = id => g(id).value;
+  const s = (id,val) => { g(id).value = val; };
+
+  function clearInvalid(){ IDS.forEach(id => g(id).classList.remove('invalid')); }
+
+  function fillNormal(){
+    clearInvalid();
+    s('age',35); s('gender','male'); s('family_relation','head');
+    s('marage_status','married'); s('nationality','sa'); s('q_301','8');
+    s('q_602_val',8000); s('cut_5_total',40); s('act_1_total',42);
+  }
+  function fillAnomaly1(){
+    clearInvalid();
+    s('age',12); s('gender','male'); s('family_relation','son');
+    s('marage_status','married'); s('nationality','eg'); s('q_301','2');
+    s('q_602_val',60000); s('cut_5_total',40); s('act_1_total',40);
+  }
+  function fillAnomaly2(){
+    clearInvalid();
+    s('age',28); s('gender','female'); s('family_relation','spouse');
+    s('marage_status','married'); s('nationality','lb'); s('q_301','8');
+    s('q_602_val',999999); s('cut_5_total',40); s('act_1_total',40);
+  }
+  function clearAll(){
+    IDS.forEach(id => { g(id).value = ''; });
+    clearInvalid();
+  }
+
+  function checkForm(){
+    clearInvalid();
+    const age    = parseInt(v('age'));
+    const salary = parseInt(v('q_602_val'));
+    const mar    = v('marage_status');
+    const edu    = parseInt(v('q_301'));
+    const cutHrs = parseInt(v('cut_5_total'));
+    const actHrs = parseInt(v('act_1_total'));
+
+    const issues = [];
+    const reasons = [];
+
+    if(!isNaN(age) && age < 15){
+      issues.push('age'); g('age').classList.add('invalid');
+      reasons.push('العمر (' + age + ' سنة) أقل من الحد القانوني للعمل');
+    }
+    if(!isNaN(salary) && salary > 100000){
+      issues.push('salary'); g('q_602_val').classList.add('invalid');
+      reasons.push('الراتب (' + salary.toLocaleString('ar-SA') + ' ريال) مرتفع بشكل غير معتاد');
+    }
+    if(!isNaN(age) && age < 18 && mar === 'married'){
+      issues.push('mar'); g('marage_status').classList.add('invalid');
+      reasons.push('الحالة الاجتماعية متزوج مع عمر ' + age + ' سنة أمر مستحيل قانونياً');
+    }
+    if(!isNaN(age) && age < 20 && edu >= 8){
+      issues.push('edu'); g('q_301').classList.add('invalid');
+      reasons.push('الحصول على بكالوريوس بعمر ' + age + ' سنة لا يتوافق مع السن المتوقع للتخرج');
+    }
+    if(!isNaN(actHrs) && !isNaN(cutHrs) && actHrs > cutHrs * 1.5){
+      issues.push('hrs'); g('act_1_total').classList.add('invalid');
+      reasons.push('ساعات العمل الفعلية (' + actHrs + ') أعلى بكثير من المعتادة (' + cutHrs + ')');
+    }
+
+    const isClean = issues.length === 0;
+    const gePct   = isClean ? '0.0' : (Math.min(issues.length * 11 + Math.random()*6, 97)).toFixed(1);
+    const svmPct  = isClean ? '1.2' : (Math.min(parseFloat(gePct) + 18 + Math.random()*22, 99.7)).toFixed(1);
+
+    showModal(isClean, reasons, gePct, svmPct);
+  }
+
+  function showModal(isClean, reasons, gePct, svmPct){
+    const banner = g('statusBanner');
+    const aiBox  = g('aiBox');
+
+    if(isClean){
+      banner.className = 'status-banner clean';
+      g('statusText').textContent = '✓ البيانات طبيعية';
+      aiBox.classList.remove('visible');
+
+      g('geRow').className  = 'score-row ok-row';
+      g('geVal').className  = 'score-val ok';
+      g('geVal').textContent = '✓ ' + gePct + '%';
+
+      g('svmRow').className  = 'score-row ok-row';
+      g('svmVal').className  = 'score-val ok';
+      g('svmVal').textContent = '✓ ' + svmPct + '%';
+    } else {
+      banner.className = 'status-banner anomaly';
+      g('statusText').textContent = '⚠ تم اكتشاف شذوذ في البيانات';
+      aiBox.classList.add('visible');
+      g('aiText').textContent = 'هذا السجل متناقض بشكل حسيم لأن ' + reasons.join('، وأيضاً ') + '. مما يشير إلى خطأ محتمل في إدخال البيانات.';
+
+      g('geRow').className  = 'score-row bad-row';
+      g('geVal').className  = 'score-val bad';
+      g('geVal').textContent = '⚠ ' + gePct + '%';
+
+      g('svmRow').className  = 'score-row bad-row';
+      g('svmVal').className  = 'score-val bad';
+      g('svmVal').textContent = '⚠ ' + svmPct + '%';
+    }
+
+    g('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(){
+    g('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function outsideClose(e){
+    if(e.target === g('modalOverlay')) closeModal();
+  }
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>

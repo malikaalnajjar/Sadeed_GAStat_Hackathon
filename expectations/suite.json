@@ -1,0 +1,352 @@
+{
+  "expectation_suite_name": "lfs_business_rules",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "age"
+      },
+      "meta": {
+        "rule": "required_field",
+        "notes": "age must always be present"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "gender"
+      },
+      "meta": {
+        "rule": "required_field",
+        "notes": "gender must always be present"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "family_relation"
+      },
+      "meta": {
+        "rule": "required_field",
+        "notes": "family_relation must always be present"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "age",
+        "min_value": 0,
+        "max_value": 120
+      },
+      "meta": {
+        "rule": "range_check",
+        "notes": "Age must be in a valid range"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "gender",
+        "value_set": [
+          1600001,
+          1600002
+        ]
+      },
+      "meta": {
+        "rule": "valid_values",
+        "notes": "1600001=Male, 1600002=Female"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "family_relation",
+        "value_set": [
+          1700001,
+          1700002,
+          1700003,
+          1700004,
+          1700005,
+          1700006,
+          1700007,
+          1700008,
+          1700009,
+          1700010,
+          1700011,
+          1700021,
+          1700022,
+          1700023,
+          1700030
+        ]
+      },
+      "meta": {
+        "rule": "valid_values",
+        "notes": "Valid family relation codes"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_in_set",
+      "kwargs": {
+        "column": "marage_status",
+        "value_set": [
+          10600001,
+          10600002,
+          10600003,
+          10600004,
+          10600012
+        ]
+      },
+      "meta": {
+        "rule": "valid_values",
+        "notes": "1=Never married, 2=Married, 3=Divorced, 4=Widowed, 98=Unknown"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "age",
+        "column_B": "_rule_2011_min_secondary_age",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "2011",
+        "notes": "Secondary education and above requires age >= 17"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "age",
+        "column_B": "_rule_2012_min_diploma_age",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "2012",
+        "notes": "Diploma and above requires age >= 19"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "age",
+        "column_B": "_rule_2013_min_bachelor_age",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "2013",
+        "notes": "Bachelor's degree and above requires age >= 21"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "age",
+        "column_B": "_rule_2015_min_masters_age",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "2015",
+        "notes": "Master's degree and above requires age >= 23"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "age",
+        "column_B": "_rule_2016_min_phd_age",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "2016",
+        "notes": "PhD requires age >= 25"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "age",
+        "column_B": "_rule_2001_min_head_age",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "2001",
+        "notes": "Head of household must be >= 15 years old"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "_rule_2031_spouse_married",
+        "column_B": "_rule_zero",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "2031",
+        "notes": "Spouse must have married status"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "_rule_2075_grandparent_age",
+        "column_B": "_rule_zero",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "2075",
+        "notes": "Grandparent must be >= 30 years old"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "q_602_val",
+        "min_value": 500,
+        "max_value": 50000,
+        "mostly": 0.85
+      },
+      "meta": {
+        "rule": "3039+3068",
+        "notes": "Monthly salary typically between 500-50000 SAR"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "cut_5_total",
+        "min_value": 1,
+        "max_value": 84,
+        "mostly": 0.85
+      },
+      "meta": {
+        "rule": "3027+3028",
+        "notes": "Usual weekly hours should be 1-84"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_be_between",
+      "kwargs": {
+        "column": "act_1_total",
+        "min_value": 0,
+        "max_value": 84,
+        "mostly": 0.85
+      },
+      "meta": {
+        "rule": "2088+3030",
+        "notes": "Actual weekly hours should not exceed 84"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "_rule_2078_public_sector_age",
+        "column_B": "_rule_zero",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "2078",
+        "notes": "Public sector workers must be >= 17"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "_rule_2141_domestic_worker_age",
+        "column_B": "_rule_zero",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "2141",
+        "notes": "Domestic worker must be >= 15"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "_rule_4030_spouse_age",
+        "column_B": "_rule_zero",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "4030",
+        "notes": "Spouse should be >= 18"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "_rule_4069_child_not_married",
+        "column_B": "_rule_zero",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "4069",
+        "notes": "Under 15 cannot have any marital status except never married"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "_rule_3047_uni_salary",
+        "column_B": "_rule_zero",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "3047",
+        "notes": "University degree or higher: salary should be at least 3000 SAR"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "_rule_3031_public_usual_hours",
+        "column_B": "_rule_zero",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "3031",
+        "notes": "Public sector: usual working hours should be at least 35"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "_rule_3032_public_actual_hours",
+        "column_B": "_rule_zero",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "3032",
+        "notes": "Public sector: actual working hours should be at least 35"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "_rule_3035_private_usual_hours",
+        "column_B": "_rule_zero",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "3035",
+        "notes": "Private sector: usual working hours should be at least 40"
+      }
+    },
+    {
+      "expectation_type": "expect_column_pair_values_A_to_be_greater_than_B",
+      "kwargs": {
+        "column_A": "_rule_3036_private_actual_hours",
+        "column_B": "_rule_zero",
+        "or_equal": true
+      },
+      "meta": {
+        "rule": "3036",
+        "notes": "Private sector: actual working hours should be at least 40"
+      }
+    }
+  ],
+  "meta": {
+    "great_expectations_version": "0.18.0",
+    "description": "LFS survey validation rules derived from LFS_Business_Rules.xlsx. Covers age-education consistency, age-family relation constraints, salary bounds, work hours limits, and marital status logic. Some rules require derived columns computed during pre-processing (prefixed with _rule_)."
+  }
+}

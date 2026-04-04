@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sadeed — LFS Demo Form</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Segoe UI", Tahoma, Arial, sans-serif; background: #f5f7fa; color: #1a1a1a; padding: 40px 20px; }
+    .container { max-width: 640px; margin: 0 auto; background: #fff; border-radius: 14px; box-shadow: 0 2px 16px rgba(0,0,0,0.08); padding: 32px; }
+    h1 { font-size: 22px; margin-bottom: 6px; color: #0d47a1; }
+    .subtitle { font-size: 13px; color: #666; margin-bottom: 28px; }
+    .field { margin-bottom: 18px; }
+    label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; color: #333; }
+    label .code { font-weight: 400; color: #999; font-size: 11px; }
+    input, select { width: 100%; padding: 10px 12px; border: 1px solid #d0d5dd; border-radius: 8px; font-size: 14px; font-family: inherit; }
+    input:focus, select:focus { outline: none; border-color: #1a73e8; box-shadow: 0 0 0 3px rgba(26,115,232,0.12); }
+    .row { display: flex; gap: 14px; }
+    .row .field { flex: 1; }
+    .section { font-size: 14px; font-weight: 700; color: #0d47a1; margin: 24px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #e8f0fe; }
+    .presets { margin-bottom: 24px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .preset-btn { padding: 8px 16px; border: 1px solid #d0d5dd; border-radius: 8px; background: #fff; cursor: pointer; font-size: 12px; font-family: inherit; transition: all 0.15s; }
+    .preset-btn:hover { border-color: #1a73e8; background: #e8f0fe; }
+    .preset-btn.anomaly { border-color: #ea4335; color: #c5221f; }
+    .preset-btn.anomaly:hover { background: #fce8e6; }
+    .detect-btn { display: block; width: 100%; padding: 14px; margin-top: 24px; border: none; border-radius: 10px; background: linear-gradient(135deg, #1a73e8, #0d47a1); color: #fff; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; transition: opacity 0.2s; }
+    .detect-btn:hover { opacity: 0.9; }
+    .detect-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .result-box { margin-top: 20px; padding: 16px; border-radius: 10px; display: none; }
+    .result-box.clean { background: #e6f4ea; border: 1px solid #34a853; color: #137333; }
+    .result-box.warning { background: #fef7e0; border: 1px solid #f9ab00; color: #e37400; }
+    .result-box.hard-error { background: #fce8e6; border: 2px solid #c5221f; color: #a50e0e; }
+    .result-box .severity { font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+    .result-box .explanation { font-size: 13px; line-height: 1.6; }
+    .result-box .strategies { margin-top: 12px; font-size: 12px; color: #555; }
+    .result-box .strategies div { padding: 4px 0; border-top: 1px solid rgba(0,0,0,0.08); }
+    .hint { font-size: 11px; color: #888; margin-top: 20px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sadeed — LFS Demo Form</h1>
+    <p class="subtitle">Fill in the fields and click "Detect Anomalies" to run all three detection layers. Or use the blue Sadeed extension button (bottom-right) if installed.</p>
+
+    <div class="section">Quick Fill</div>
+    <div class="presets">
+      <button class="preset-btn" onclick="fillNormal()">Normal Record</button>
+      <button class="preset-btn anomaly" onclick="fillAnomalous()">Hard Error (age 12)</button>
+      <button class="preset-btn anomaly" onclick="fillHighSalary()">Warning (high salary)</button>
+      <button class="preset-btn" onclick="clearAll()">Clear All</button>
+    </div>
+
+    <form id="lfs-form" autocomplete="off">
+      <div class="section">Demographics</div>
+
+      <div class="row">
+        <div class="field">
+          <label>Age <span class="code">(age)</span></label>
+          <input type="number" name="age" min="0" max="120" placeholder="e.g. 35">
+        </div>
+        <div class="field">
+          <label>Gender <span class="code">(gender)</span></label>
+          <select name="gender">
+            <option value="">— Select —</option>
+            <option value="1600001">Male</option>
+            <option value="1600002">Female</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>Family Relation <span class="code">(family_relation)</span></label>
+          <select name="family_relation">
+            <option value="">— Select —</option>
+            <option value="1700001">Head of household</option>
+            <option value="1700021">Spouse</option>
+            <option value="1700022">Son</option>
+            <option value="1700023">Daughter</option>
+            <option value="1700030">Brother</option>
+            <option value="1700009">Other relative</option>
+            <option value="1700010">Domestic worker</option>
+            <option value="1700011">Non-relative</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Marital Status <span class="code">(marage_status)</span></label>
+          <select name="marage_status">
+            <option value="">— Select —</option>
+            <option value="10600001">Never married</option>
+            <option value="10600002">Married</option>
+            <option value="10600003">Divorced</option>
+            <option value="10600004">Widowed</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Nationality <span class="code">(nationality)</span></label>
+        <select name="nationality">
+          <option value="">— Select —</option>
+          <option value="1800001">Saudi</option>
+          <option value="1800233">Egyptian</option>
+          <option value="1800247">Yemeni</option>
+          <option value="1800170">Pakistani</option>
+          <option value="1800067">Ethiopian</option>
+          <option value="1800175">Filipino</option>
+          <option value="1800210">Sudanese</option>
+          <option value="1800114">Jordanian</option>
+          <option value="1800121">Lebanese</option>
+        </select>
+      </div>
+
+      <div class="section">Education</div>
+
+      <div class="field">
+        <label>Highest Qualification <span class="code">(q_301)</span></label>
+        <select name="q_301">
+          <option value="">— Select —</option>
+          <option value="10500031">No formal education</option>
+          <option value="10500011">Primary (incomplete)</option>
+          <option value="10500003">Primary education</option>
+          <option value="10500017">Intermediate</option>
+          <option value="10500019">Secondary (general)</option>
+          <option value="10500020">Secondary (vocational)</option>
+          <option value="10500021">Associate diploma</option>
+          <option value="10500023">Diploma</option>
+          <option value="10500025">Bachelor's</option>
+          <option value="10500026">Bachelor's (5 year)</option>
+          <option value="10500009">Master's</option>
+          <option value="10500010">PhD</option>
+        </select>
+      </div>
+
+      <div class="section">Employment</div>
+
+      <div class="field">
+        <label>Monthly Salary (SAR) <span class="code">(q_602_val)</span></label>
+        <input type="number" name="q_602_val" min="0" placeholder="e.g. 15000">
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label>Usual Weekly Hours <span class="code">(cut_5_total)</span></label>
+          <input type="number" name="cut_5_total" min="0" max="168" placeholder="e.g. 40">
+        </div>
+        <div class="field">
+          <label>Actual Weekly Hours <span class="code">(act_1_total)</span></label>
+          <input type="number" name="act_1_total" min="0" max="168" placeholder="e.g. 40">
+        </div>
+      </div>
+
+      <button type="button" class="detect-btn" id="detectBtn" onclick="detectAnomalies()">Detect Anomalies</button>
+    </form>
+
+    <div class="result-box" id="resultBox">
+      <div class="severity" id="resultSeverity"></div>
+      <div class="explanation" id="resultExplanation"></div>
+      <div class="strategies" id="resultStrategies"></div>
+    </div>
+
+    <p class="hint">You can also use the Sadeed Chrome extension button (bottom-right of page) if installed.</p>
+  </div>
+
+  <script>
+    const API_BASE = "http://localhost:8000";
+
+    function setVal(name, value) {
+      const el = document.querySelector(`[name="${name}"]`);
+      if (el) { el.value = String(value); el.dispatchEvent(new Event('change', {bubbles: true})); }
+    }
+
+    function fillNormal() {
+      setVal('age', 35); setVal('gender', '1600001'); setVal('family_relation', '1700001');
+      setVal('marage_status', '10600002'); setVal('nationality', '1800001');
+      setVal('q_301', '10500025'); setVal('q_602_val', 15000);
+      setVal('cut_5_total', 40); setVal('act_1_total', 40);
+    }
+
+    function fillAnomalous() {
+      setVal('age', 12); setVal('gender', '1600001'); setVal('family_relation', '1700001');
+      setVal('marage_status', '10600002'); setVal('nationality', '1800001');
+      setVal('q_301', '10500025'); setVal('q_602_val', 650000);
+      setVal('cut_5_total', 120); setVal('act_1_total', 120);
+    }
+
+    function fillHighSalary() {
+      setVal('age', 40); setVal('gender', '1600001'); setVal('family_relation', '1700001');
+      setVal('marage_status', '10600002'); setVal('nationality', '1800001');
+      setVal('q_301', '10500009'); setVal('q_602_val', 78000);
+      setVal('cut_5_total', 40); setVal('act_1_total', 40);
+    }
+
+    function clearAll() {
+      document.getElementById('lfs-form').reset();
+      document.getElementById('resultBox').style.display = 'none';
+    }
+
+    async function detectAnomalies() {
+      const btn = document.getElementById('detectBtn');
+      const form = document.getElementById('lfs-form');
+      const box = document.getElementById('resultBox');
+
+      // Collect form data
+      const data = {};
+      const formData = new FormData(form);
+      for (const [key, val] of formData.entries()) {
+        if (val !== '' && val !== null) {
+          const num = Number(val);
+          data[key] = isNaN(num) ? val : num;
+        }
+      }
+
+      if (Object.keys(data).length === 0) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Detecting...';
+      box.style.display = 'none';
+
+      try {
+        const resp = await fetch(`${API_BASE}/anomalies/detect`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ record_id: crypto.randomUUID(), data }),
+        });
+
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const result = await resp.json();
+
+        // Determine display class
+        let cls, label;
+        if (!result.is_anomaly) {
+          cls = 'clean';
+          label = 'Clean — No anomalies detected';
+        } else if (result.severity === 'hard_error') {
+          cls = 'hard-error';
+          label = 'Hard Error — Data entry error detected';
+        } else {
+          cls = 'warning';
+          label = 'Warning — Suspicious data, needs review';
+        }
+
+        box.className = 'result-box ' + cls;
+        document.getElementById('resultSeverity').textContent = label;
+        document.getElementById('resultExplanation').textContent = result.explanation || 'All checks passed.';
+
+        // Strategy breakdown
+        const strats = document.getElementById('resultStrategies');
+        strats.innerHTML = '';
+        if (result.results) {
+          for (const r of result.results) {
+            const names = { great_expectations: 'Business Rules (GE)', svm: 'Statistical Model (SVM)', llm: 'LLM Review' };
+            const icon = r.is_anomaly ? '\u26A0' : '\u2714';
+            const pct = r.score != null ? (r.score * 100).toFixed(1) + '%' : '—';
+            const div = document.createElement('div');
+            div.textContent = `${icon} ${names[r.strategy] || r.strategy}: ${pct}`;
+            strats.appendChild(div);
+          }
+        }
+
+        box.style.display = 'block';
+      } catch (err) {
+        box.className = 'result-box hard-error';
+        box.style.display = 'block';
+        document.getElementById('resultSeverity').textContent = 'Connection Error';
+        document.getElementById('resultExplanation').textContent = err.message + ' — Is the backend running on localhost:8000?';
+        document.getElementById('resultStrategies').innerHTML = '';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Detect Anomalies';
+      }
+    }
+  </script>
+</body>
+</html>

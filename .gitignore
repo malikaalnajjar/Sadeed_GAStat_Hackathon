@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+CLAUDE.md
+data/_*.pdf
+.claude/
+data/.~lock.*

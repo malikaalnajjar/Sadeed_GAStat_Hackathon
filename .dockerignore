@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+*.whl
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Extension (not needed in backend image)
+extension/
+
+# Frontend (not needed in backend image)
+frontend/
+
+# Tests (not needed in production image)
+tests/
+
+# Env files (injected at runtime)
+.env
+.env.*
+
+# Models cache (rebuilt at runtime)
+models/*.joblib
+
+# Misc
+README.md
+CLAUDE.md
+*.md

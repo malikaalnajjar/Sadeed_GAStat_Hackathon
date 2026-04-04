@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sadeed — Anomaly Detection Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Sadeed Anomaly Detection</h1>
+    <!-- Navigation / strategy selector will be injected by dashboard.js -->
+  </header>
+
+  <main id="app">
+    <!-- Strategy summary cards injected by dashboard.js -->
+    <section id="summary-cards"></section>
+
+    <!-- Recent anomalies table injected by dashboard.js -->
+    <section id="recent-anomalies"></section>
+
+    <!-- Chart canvas for anomaly score timeline -->
+    <section id="chart-container">
+      <canvas id="anomaly-chart"></canvas>
+    </section>
+  </main>
+
+  <footer>
+    <!-- Status bar: Redis / Ollama connectivity indicators -->
+    <div id="status-bar"></div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

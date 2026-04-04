@@ -1,0 +1,46 @@
+%%{ init: { "theme": "base" } }%%
+flowchart TD
+    START(["POST /anomalies/detect<br/>{record_id, data}"])
+
+    CACHE_CHECK{"Redis cache hit<br/>for record_id?"}
+    CACHE_HIT(["Return cached<br/>DetectionResponse"])
+
+    subgraph Stage1["Stage 1 &mdash; Parallel (asyncio.gather)"]
+        GE["Great Expectations<br/>21 Business Rules"]
+        SVM_DET["One-Class SVM<br/>StandardScaler + RBF<br/>nu=0.05 gamma=0.1"]
+    end
+
+    GE_RESULT["GE Result<br/>is_anomaly &bull; score &bull; failed rules"]
+    SVM_RESULT["SVM Result<br/>is_anomaly &bull; score &bull; decision_function"]
+
+    PRELIM{"Preliminary verdict:<br/>GE.is_anomaly<br/>OR SVM.is_anomaly?"}
+
+    subgraph Stage2["Stage 2 &mdash; Parallel (asyncio.gather)"]
+        LLM_DETECT["LLM Detect<br/>Few-shot classification"]
+        LLM_EXPLAIN["LLM Explain<br/>Arabic explanation"]
+    end
+
+    SKIP_LLM["Skip LLM<br/>No anomaly detected"]
+
+    FINAL{"Final verdict:<br/>(GE OR SVM)<br/>AND LLM.is_anomaly"}
+
+    ASSEMBLE["Assemble DetectionResponse<br/>record_id &bull; results[] &bull; is_anomaly<br/>explanation &bull; llm_triggered"]
+
+    CACHE_STORE[("Store in Redis<br/>TTL: 300s")]
+    RESPOND(["Return JSON Response"])
+
+    START --> CACHE_CHECK
+    CACHE_CHECK -->|"Yes"| CACHE_HIT
+    CACHE_CHECK -->|"No"| Stage1
+    GE --> GE_RESULT
+    SVM_DET --> SVM_RESULT
+    GE_RESULT --> PRELIM
+    SVM_RESULT --> PRELIM
+    PRELIM -->|"True"| Stage2
+    PRELIM -->|"False"| SKIP_LLM
+    LLM_DETECT --> FINAL
+    LLM_EXPLAIN --> FINAL
+    FINAL --> ASSEMBLE
+    SKIP_LLM --> ASSEMBLE
+    ASSEMBLE --> CACHE_STORE
+    CACHE_STORE --> RESPOND

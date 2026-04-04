@@ -1,0 +1,29 @@
+%%{ init: { "theme": "base" } }%%
+flowchart LR
+    CLIENT["Client"]
+
+    subgraph Detection["/anomalies"]
+        POST_DETECT["POST /detect<br/>Submit record for<br/>anomaly detection"]
+        GET_RECENT["GET /detect/recent<br/>List last N results<br/>(default 20)"]
+        GET_BY_ID["GET /detect/{record_id}<br/>Fetch cached result"]
+        GET_AHEALTH["GET /health<br/>Detector + Redis status"]
+    end
+
+    subgraph Health["/health"]
+        LIVENESS["GET /<br/>Liveness probe"]
+        READINESS["GET /ready<br/>Readiness probe"]
+    end
+
+    CLIENT --> POST_DETECT
+    CLIENT --> GET_RECENT
+    CLIENT --> GET_BY_ID
+    CLIENT --> GET_AHEALTH
+    CLIENT --> LIVENESS
+    CLIENT --> READINESS
+
+    POST_DETECT -->|"DetectionResponse"| CLIENT
+    GET_RECENT -->|"List[DetectionResponse]"| CLIENT
+    GET_BY_ID -->|"DetectionResponse"| CLIENT
+    GET_AHEALTH -->|"Service health map"| CLIENT
+    LIVENESS -->|'{"status": "ok"}'| CLIENT
+    READINESS -->|'{"status": "ready"}'| CLIENT

@@ -1,0 +1,30 @@
+%%{ init: { "theme": "base" } }%%
+graph TB
+    subgraph DockerCompose["Docker Compose"]
+        subgraph redis_svc["redis (redis:7-alpine)"]
+            REDIS[("Redis Server<br/>Port 6379<br/>Volume: redis-data")]
+        end
+
+        subgraph ollama_svc["ollama (ollama/ollama)"]
+            OLLAMA["Ollama Server<br/>Port 11434<br/>Volume: ollama-data"]
+            GPU["NVIDIA GPU<br/>(if available)"]
+            MODEL["qwen3.5:9b<br/>Auto-pulled on start"]
+        end
+
+        subgraph backend_svc["backend (Dockerfile)"]
+            PY["Python 3.11-slim"]
+            DEPS["requirements.txt"]
+            PREP["prepare_data.py<br/>(build step)"]
+            UVICORN["Uvicorn<br/>Port 8000"]
+        end
+    end
+
+    backend_svc -->|"depends_on: healthy"| redis_svc
+    backend_svc -->|"depends_on: healthy"| ollama_svc
+    OLLAMA --> GPU
+    OLLAMA --> MODEL
+    PY --> DEPS --> PREP --> UVICORN
+
+    BROWSER["Browser / Extension"] -->|":8000"| UVICORN
+    UVICORN -->|":6379"| REDIS
+    UVICORN -->|":11434"| OLLAMA

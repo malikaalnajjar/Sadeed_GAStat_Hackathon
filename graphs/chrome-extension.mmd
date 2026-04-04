@@ -1,0 +1,36 @@
+%%{ init: { "theme": "base" } }%%
+flowchart LR
+    subgraph WebPage["Web Page"]
+        FORM["HTML Form /<br/>Google Form"]
+        BTN["Injected Button<br/>Scan Form"]
+        OVERLAY["Results Overlay<br/>Green/Red Highlights"]
+    end
+
+    subgraph Extension["Chrome Extension (Manifest V3)"]
+        CS["content.js<br/>Form Scanner"]
+        BG["background.js<br/>Service Worker"]
+        POPUP["popup.html + popup.js"]
+        TAB_SCAN["Tab: Scan Results<br/>Per-Strategy Breakdown"]
+        TAB_UPLOAD["Tab: Upload Excel<br/>Batch Processing"]
+    end
+
+    subgraph Backend["FastAPI Backend"]
+        DETECT["/anomalies/detect"]
+        HEALTH["/anomalies/health"]
+    end
+
+    FORM -->|"Scans fields"| CS
+    BTN -->|"Click"| CS
+    CS -->|"DETECT message"| BG
+    BG -->|"HTTP POST"| DETECT
+    DETECT -->|"DetectionResponse"| BG
+    BG -->|"Result"| CS
+    CS --> OVERLAY
+    BG -->|"Badge update<br/>green/red/yellow"| BG
+
+    POPUP --> TAB_SCAN
+    POPUP --> TAB_UPLOAD
+    TAB_SCAN -->|"GET_LAST_RESULT"| BG
+    TAB_UPLOAD -->|"DETECT_ROW (per row)"| BG
+    POPUP -->|"HEALTH_CHECK"| BG
+    BG -->|"HTTP GET"| HEALTH

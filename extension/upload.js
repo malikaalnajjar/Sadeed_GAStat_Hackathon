@@ -1,5 +1,18 @@
-const API_BASE = "http://localhost:8000/anomalies";
+const API_URLS = [
+  "http://localhost:8000/anomalies",
+  "https://sadeed.aldharrab.co.uk/anomalies",
+];
+let API_BASE = API_URLS[0];
 const g = id => document.getElementById(id);
+
+async function resolveApiBase() {
+  for (const url of API_URLS) {
+    try {
+      const r = await fetch(`${url}/health`, { method: "GET", signal: AbortSignal.timeout(3000) });
+      if (r.ok) { API_BASE = url; return; }
+    } catch { /* try next */ }
+  }
+}
 
 // Health check
 async function checkHealth() {
@@ -14,7 +27,7 @@ async function checkHealth() {
     g("healthDot").title = "Server offline";
   }
 }
-checkHealth();
+resolveApiBase().then(() => checkHealth());
 setInterval(checkHealth, 10000);
 
 // Upload zone — click to select only

@@ -33,10 +33,10 @@ Two deployment profiles - pick the one that fits your GPU:
 | **Performance** | `docker compose -f docker-compose.performance.yml up --build` | Qwen 2.5 14B | ~9 GB | 0.927 | ~1.5s/record |
 
 ```bash
-# Power-saving — works on most GPUs (4+ GB VRAM)
+# Power-saving | works on most GPUs (4+ GB VRAM)
 docker compose up --build
 
-# Performance — requires 9+ GB VRAM
+# Performance | requires 9+ GB VRAM
 docker compose -f docker-compose.performance.yml up --build
 ```
 
@@ -48,14 +48,14 @@ Both start everything (Redis, Ollama + GPU, FastAPI backend). Wait for the `Appl
 2. Click the Sadeed extension icon in the toolbar
 3. Switch to the **"Upload Excel"** tab
 4. Click to select an `.xlsx` file (same format as the training dataset)
-5. Each row is evaluated with a progress bar — results table shows verdict, confidence scores, and explanation
+5. Each row is evaluated with a progress bar, results table shows verdict, confidence scores, and explanation
 
 ### Test 2: Live Form Detection
 
 1. Open any page with a form (or the survey platform)
 2. Fill in some fields
 3. Click the blue **"Scan Form"** button (bottom-right corner of the page)
-4. Results overlay appears instantly — fields highlighted green (clean) or red (anomalous)
+4. Results overlay appears instantly, fields highlighted green (clean) or red (anomalous)
 5. Click the extension icon for a per-strategy breakdown (GE, SVM, LLM)
 
 ### API Health Check
@@ -102,7 +102,7 @@ graph TB
     LLM --> OLLAMA
 ```
 
-**Cascading pipeline**: GE and SVM run concurrently as Stage 1 via `asyncio.gather`. If **either** flags an anomaly, the LLM is invoked as Stage 2 to **confirm and explain** in a single call. The LLM operates in **confirmation mode** — it receives the SVM score as context and validates the flag rather than classifying from scratch. GE flags are treated as **ground truth** (deterministic business rules) and cannot be overridden by the LLM. SVM-only flags can be overridden, making the LLM a false-positive filter for statistical detections. Final verdict: `(GE OR SVM) AND LLM`. This avoids expensive LLM calls for clearly normal records while reducing false positives.
+**Cascading pipeline**: GE and SVM run concurrently as Stage 1 via `asyncio.gather`. If **either** flags an anomaly, the LLM is invoked as Stage 2 to **confirm and explain** in a single call. The LLM operates in **confirmation mode**. it receives the SVM score as context and validates the flag rather than classifying from scratch. GE flags are treated as **ground truth** (deterministic business rules) and cannot be overridden by the LLM. SVM-only flags can be overridden, making the LLM a false-positive filter for statistical detections. Final verdict: `(GE OR SVM) AND LLM`. This avoids expensive LLM calls for clearly normal records while reducing false positives.
 
 > Detailed flow: [`graphs/detection-pipeline.mmd`](graphs/detection-pipeline.mmd)
 

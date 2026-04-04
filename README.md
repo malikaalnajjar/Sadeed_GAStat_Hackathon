@@ -1,4 +1,4 @@
-# Sadeed — Anomaly Detection System
+# Sadeed: an Anomaly Detection System
 
 > Multi-layer anomaly detection for Labour Force Survey data — rule engine, statistical model, and LLM working together.
 
@@ -10,21 +10,22 @@
 
 | Resource | Link |
 |----------|------|
-| Live URL | *(deploy with `docker compose up`)* |
+| Live URL | *([https://sadeed.aldharrab.co.uk/survey-form.html](https://sadeed.aldharrab.co.uk/survey-form.html))* |
 | Demo Video | [youtube.com/watch?v=l7OGKc13Byc](https://youtu.be/l7OGKc13Byc) |
+| Promotional Video | [https://youtu.be/A5Dubjkcd4Y](https://youtu.be/A5Dubjkcd4Y) |
 
 ### No API Keys Required
 
-Sadeed runs entirely locally — no external API calls, no cloud dependencies, no keys to configure. The LLM runs on-device via Ollama. This means:
+Sadeed runs entirely locally, no external API calls, no cloud dependencies, no keys to configure. The LLM runs on-device via Ollama. This means:
 
-- **Data never leaves your network** — critical for sensitive labour force survey records
-- **No rate limits or expiring tokens** — judges can test as many records as needed
-- **Fully offline capable** — once Docker images are pulled and the model is downloaded, no internet connection is required
-- **Reproducible results** — same model weights, same behaviour every time
+- **Data never leaves your network** - critical for sensitive labour force survey records
+- **No rate limits or expiring tokens** - judges can test as many records as needed
+- **Fully offline capable** - once Docker images are pulled and the model is downloaded, no internet connection is required
+- **Reproducible results** - same model weights, same behaviour every time
 
 ### Quick Start (Docker)
 
-Two deployment profiles — pick the one that fits your GPU:
+Two deployment profiles - pick the one that fits your GPU:
 
 | Profile | Command | Model | VRAM | F1 | Speed |
 |---------|---------|-------|------|-----|-------|
@@ -35,13 +36,13 @@ Two deployment profiles — pick the one that fits your GPU:
 # Power-saving — works on most GPUs (4+ GB VRAM)
 docker compose up --build
 
-# Performance — requires 10+ GB VRAM
+# Performance — requires 9+ GB VRAM
 docker compose -f docker-compose.performance.yml up --build
 ```
 
 Both start everything (Redis, Ollama + GPU, FastAPI backend). Wait for the `Application startup complete` log, then the system is ready on `http://localhost:8000`.
 
-### Test 1 — Upload Excel File
+### Test 1: Upload Excel File
 
 1. Install the Chrome extension: `chrome://extensions/` → Developer mode → Load unpacked → select the `extension/` folder
 2. Click the Sadeed extension icon in the toolbar
@@ -49,7 +50,7 @@ Both start everything (Redis, Ollama + GPU, FastAPI backend). Wait for the `Appl
 4. Click to select an `.xlsx` file (same format as the training dataset)
 5. Each row is evaluated with a progress bar — results table shows verdict, confidence scores, and explanation
 
-### Test 2 — Live Form Detection
+### Test 2: Live Form Detection
 
 1. Open any page with a form (or the survey platform)
 2. Fill in some fields
@@ -290,7 +291,7 @@ This command will:
 - Start FastAPI on port 8000
 - Warm up the LLM (pre-load model into GPU memory)
 
-**Without GPU** — If no NVIDIA GPU is available, remove the `deploy.resources` section from `docker-compose.yml`. Ollama will run on CPU (slower).
+**Without GPU**: If no NVIDIA GPU is available, remove the `deploy.resources` section from `docker-compose.yml`. Ollama will run on CPU (slower).
 
 ---
 
@@ -380,7 +381,7 @@ Expected response:
 }
 ```
 
-### Manual Test — Normal Record
+### Manual Test: Normal Record
 
 ```bash
 curl -s -X POST http://localhost:8000/anomalies/detect \
@@ -401,7 +402,7 @@ curl -s -X POST http://localhost:8000/anomalies/detect \
   }' | python3 -m json.tool
 ```
 
-### Manual Test — Anomalous Record
+### Manual Test: Anomalous Record
 
 ```bash
 curl -s -X POST http://localhost:8000/anomalies/detect \
@@ -659,20 +660,3 @@ If `GE_EXPECTATION_SUITE_PATH` or `OC_SVM_TRAINING_DATA_PATH` do not exist at st
 | `q_534` (sector) | `99400001` | Public sector |
 | `q_534` (sector) | `99400003` | Private sector |
 | `q_534` (sector) | `99400004` | Domestic worker |
-
----
-
-## Diagrams
-
-All architecture diagrams are maintained as Mermaid `.mmd` files in the [`graphs/`](graphs/) directory:
-
-| File | Description |
-|------|-------------|
-| [`system-architecture.mmd`](graphs/system-architecture.mmd) | Full system overview — clients, backend, infrastructure |
-| [`detection-pipeline.mmd`](graphs/detection-pipeline.mmd) | Detection cascade flow — cache, Stage 1, Stage 2, response |
-| [`chrome-extension.mmd`](graphs/chrome-extension.mmd) | Extension data flow — content script, service worker, popup |
-| [`data-models.mmd`](graphs/data-models.mmd) | Class diagram — Pydantic schemas and detector hierarchy |
-| [`deployment.mmd`](graphs/deployment.mmd) | Docker Compose service topology and dependencies |
-| [`api-routes.mmd`](graphs/api-routes.mmd) | API endpoint map with request/response types |
-
-Render with any Mermaid-compatible tool (GitHub, VS Code Mermaid extension, [mermaid.live](https://mermaid.live), etc.).

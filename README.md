@@ -4,14 +4,6 @@ A Multi-layer anomaly detection for Labour Force Survey data - rule engine, stat
 
 ---
 
-## For Judges
-
-### Live Deployment
-
-| Resource | Link |
-|----------|------|
-| Promotional Video | [https://youtu.be/A5Dubjkcd4Y](https://youtu.be/A5Dubjkcd4Y) |
-
 ### No API Keys Required
 
 Sadeed runs entirely locally, no external API calls, no cloud dependencies, no keys to configure. The LLM runs on-device via Ollama. This means:

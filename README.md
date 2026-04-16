@@ -10,8 +10,6 @@ A Multi-layer anomaly detection for Labour Force Survey data - rule engine, stat
 
 | Resource | Link |
 |----------|------|
-| Live URL | *([https://sadeed.aldharrab.co.uk/survey-form.html](https://sadeed.aldharrab.co.uk/survey-form.html))* |
-| Demo Video | [youtube.com/watch?v=l7OGKc13Byc](https://youtu.be/l7OGKc13Byc) |
 | Promotional Video | [https://youtu.be/A5Dubjkcd4Y](https://youtu.be/A5Dubjkcd4Y) |
 
 ### No API Keys Required
